@@ -193,6 +193,45 @@ export function getPrincess(slug: string): Princess | undefined {
   return princessBySlug.get(slug)
 }
 
+// The princesses who scored NEXT-highest in a god's column — the plausible
+// near-misses that make the landing guess a real challenge, rather than three
+// random names you can dismiss on sight.
+export function getNearMissPrincesses(
+  godSlug: string,
+  exceptPrincessSlug: string,
+  n = 3,
+): string[] {
+  return cells
+    .filter((c) => c.godSlug === godSlug && c.princessSlug !== exceptPrincessSlug)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, n)
+    .map((c) => princessBySlug.get(c.princessSlug)?.name ?? c.princessSlug)
+}
+
+// A whisper-quiet accent hue per god, grouped by domain (sovereignty, hearth/
+// craft, earth/sea/wild, war, arts/love, liminal). Deliberately muted mid-tones
+// so they only tint a background wash and the god's own mark — never compete
+// with the one-gold palette. Hades (bonus) gets an underworld violet.
+const GOD_ACCENTS: Record<string, string> = {
+  zeus: '#c9a24a', // sky-gold
+  hera: '#4f8a86', // peacock teal
+  hestia: '#c07b43', // hearth amber
+  hephaestus: '#b3702f', // forge ember
+  demeter: '#8a9150', // grain olive
+  poseidon: '#3f7d94', // sea
+  artemis: '#6f8f7d', // moonlit sage
+  ares: '#9a4b4b', // blood wine
+  athena: '#7f8659', // owl / bronze-olive
+  apollo: '#c9993c', // sun
+  aphrodite: '#b06a78', // rose
+  hermes: '#7f8a9a', // quicksilver
+  dionysus: '#7a5a9a', // vine violet
+  hades: '#6f5f95', // underworld
+}
+export function godAccent(slug: string): string {
+  return GOD_ACCENTS[slug] ?? '#c8a25a'
+}
+
 // Reveal order — the sequence the source uses for its per-god reveal, and the
 // order the site now presents everywhere. Ordered by god, not by score, because
 // it reads best as a sequential unmasking.

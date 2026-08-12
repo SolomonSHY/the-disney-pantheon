@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 
 // Stylized line-art attributes of each god, on a 24×24 grid. Deliberately
 // minimal — they read as identifying marks beside the god's name, not as
@@ -115,10 +115,14 @@ export default function GodIcon({
   slug,
   className = '',
   size = 24,
+  strokeWidth = 1.4,
+  style,
 }: {
   slug: string
   className?: string
   size?: number
+  strokeWidth?: number
+  style?: CSSProperties
 }) {
   const glyph = ICONS[slug]
   if (!glyph) return null
@@ -129,10 +133,11 @@ export default function GodIcon({
       height={size}
       fill="none"
       stroke="currentColor"
-      strokeWidth={1.4}
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}
+      style={style}
       aria-hidden
     >
       {glyph}

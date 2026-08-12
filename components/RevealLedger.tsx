@@ -31,6 +31,8 @@ export type RevealItem = {
   score: number
   facets: FacetScores
   hints: string[]
+  /** Plausible wrong answers for the guess — the god's next-best princesses. */
+  distractors: string[]
   isFirstChoice: boolean
   isOverride: boolean
 }
@@ -101,7 +103,11 @@ export default function RevealLedger({
   }
 
   const startGuess = (it: RevealItem) => {
-    const distractors = shuffle(princesses.map((p) => p.name).filter((n) => n !== it.princess)).slice(0, 3)
+    // The god's next-best princesses make the tempting wrong answers. Fall back
+    // to random names only if (somehow) too few near-misses were supplied.
+    const pool = it.distractors.filter((n) => n !== it.princess)
+    const filler = shuffle(princesses.map((p) => p.name).filter((n) => n !== it.princess && !pool.includes(n)))
+    const distractors = [...pool, ...filler].slice(0, 3)
     setOptions((o) => ({ ...o, [it.godSlug]: shuffle([it.princess, ...distractors]) }))
   }
 

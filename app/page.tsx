@@ -1,7 +1,14 @@
 import Link from 'next/link'
 import GodNav from '@/components/GodNav'
 import RevealLedger, { type BonusItem, type RevealItem } from '@/components/RevealLedger'
-import { DISPLAY_CAP, appendix, godDomainHints, isOverride, orderedPairings } from '@/lib/data'
+import {
+  DISPLAY_CAP,
+  appendix,
+  getNearMissPrincesses,
+  godDomainHints,
+  isOverride,
+  orderedPairings,
+} from '@/lib/data'
 
 export default function LandingPage() {
   const items: RevealItem[] = orderedPairings.map((p, i) => ({
@@ -13,6 +20,7 @@ export default function LandingPage() {
     score: p.score,
     facets: p.facets,
     hints: godDomainHints(p.god),
+    distractors: getNearMissPrincesses(p.godSlug, p.princessSlug, 3),
     isFirstChoice: p.isFirstChoice,
     isOverride: isOverride(p.princessSlug),
   }))

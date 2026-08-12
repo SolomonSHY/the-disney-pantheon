@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import ChapterView from '@/components/ChapterView'
 import ExactTags from '@/components/ExactTags'
+import GodIcon from '@/components/GodIcon'
 import GodNav from '@/components/GodNav'
 import {
   chapterNeighbors,
@@ -11,6 +12,7 @@ import {
   getExactMatches,
   getPairingByGod,
   getPrincess,
+  godAccent,
   isOverrideGod,
 } from '@/lib/data'
 
@@ -45,14 +47,31 @@ export default async function ChapterPage({ params }: Params) {
   // princess the algorithm had originally paired it with.
   const alg = isOverrideGod(slug) ? getAlgorithmicPairingByGod(slug) : undefined
   const { index, prev, next } = chapterNeighbors(slug)
+  const accent = godAccent(slug)
 
   // Essays are keyed by princess slug; the route is keyed by god slug.
   const { default: HumanEssay } = await import(`@/content/human/${pairing.princessSlug}.mdx`)
   const { default: AiEssay } = await import(`@/content/ai/${pairing.princessSlug}.mdx`)
 
   return (
-    <div className="mx-auto max-w-[72rem] px-6 py-16">
-      <div className="lg:grid lg:grid-cols-[12rem_1fr] lg:gap-14">
+    <>
+      {/* Per-god atmosphere: a faint domain-tinted wash and a giant ghosted
+          engraving of the god's own mark, bleeding off the top-right. */}
+      <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{ background: `radial-gradient(55% 45% at 82% 6%, ${accent}22, transparent 62%)` }}
+        />
+        <div
+          className="absolute -right-20 top-24 sm:-right-10"
+          style={{ color: accent, opacity: 0.09 }}
+        >
+          <GodIcon slug={slug} size={520} strokeWidth={0.6} />
+        </div>
+      </div>
+
+      <div className="mx-auto max-w-[72rem] px-6 py-16">
+        <div className="lg:grid lg:grid-cols-[12rem_1fr] lg:gap-14">
         {/* Left rail — jump to any god */}
         <aside className="hidden lg:block">
           <div className="sticky top-10">
@@ -71,6 +90,7 @@ export default async function ChapterPage({ params }: Params) {
           <div className="mt-8">
             <ChapterView
               godSlug={slug}
+              accent={accent}
               princessSlug={pairing.princessSlug}
               label={`Chapter ${String(index + 1).padStart(2, '0')}`}
               god={pairing.god}
@@ -125,7 +145,8 @@ export default async function ChapterPage({ params }: Params) {
             </div>
           </nav>
         </article>
+        </div>
       </div>
-    </div>
+    </>
   )
 }

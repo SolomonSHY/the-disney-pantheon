@@ -13,6 +13,8 @@ import type { FacetScores } from '@/lib/types'
 type ChapterViewProps = {
   /** Store key + icon key for this god ('hades' on the bonus). */
   godSlug: string
+  /** The god's domain accent colour, for the mark and header rule. */
+  accent?: string
   /** Princess slug — for her emblem in the title once revealed. */
   princessSlug: string
   /** Eyebrow prefix, e.g. "Chapter 08" or "Bonus · off the matrix". */
@@ -38,6 +40,7 @@ type ChapterViewProps = {
 
 export default function ChapterView({
   godSlug,
+  accent = '#c8a25a',
   princessSlug,
   label,
   god,
@@ -59,7 +62,7 @@ export default function ChapterView({
 
   return (
     <>
-      <header className="border-b border-white/8 pb-8">
+      <header className="border-b pb-8" style={{ borderColor: `${accent}40` }}>
         <div className="flex flex-wrap items-baseline gap-x-3 font-mono text-xs uppercase tracking-[0.3em] text-faint">
           <span>{label}</span>
           {revealed && (
@@ -74,7 +77,11 @@ export default function ChapterView({
 
         {/* God is Princess — one line, icon aligned with each name */}
         <h1 className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-balance text-4xl leading-[1.12] tracking-title sm:text-5xl">
-          <GodIcon slug={godSlug} className="h-[0.85em] w-[0.85em] shrink-0 text-gold" />
+          <GodIcon
+            slug={godSlug}
+            className="h-[0.85em] w-[0.85em] shrink-0"
+            style={{ color: accent }}
+          />
           <span>{god}</span>
           <span className="font-serif text-2xl text-faint sm:text-3xl">is</span>
           {revealed ? (
@@ -151,7 +158,9 @@ export default function ChapterView({
       </div>
 
       {/* Essay body */}
-      <div className="prose-editorial mt-8">{analysis === 'human' ? humanEssay : aiEssay}</div>
+      <div className="prose-editorial essay-body mt-8">
+        {analysis === 'human' ? humanEssay : aiEssay}
+      </div>
 
       <Facets bare facets={facets} />
 
