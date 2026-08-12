@@ -96,6 +96,16 @@ export default function BonusPage() {
               </span>
             </Link>
           </nav>
+
+          {/* Return to the ledger from the foot of the analysis. */}
+          <div className="mt-10 flex justify-center">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-white/12 px-5 py-2 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted transition-colors hover:border-gold/50 hover:text-goldsoft"
+            >
+              ← Back to the pantheon
+            </Link>
+          </div>
         </article>
         </div>
       </div>
