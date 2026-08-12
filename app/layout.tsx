@@ -22,6 +22,21 @@ export const metadata: Metadata = {
   },
   description:
     'Thirteen Olympian gods, each disguised as a Disney princess — a scored, adversarially-reviewed mapping across five facets of character.',
+  openGraph: {
+    title: 'The Disney Pantheon',
+    description:
+      'The Olympian gods, starved of worship, have each disguised themselves as a Disney princess.',
+    url: '/',
+    siteName: 'The Disney Pantheon',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Disney Pantheon',
+    description:
+      'The Olympian gods, starved of worship, have each disguised themselves as a Disney princess.',
+  },
 }
 
 function SiteHeader() {
