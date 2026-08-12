@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { Analytics } from '@vercel/analytics/next'
 import { Newsreader } from 'next/font/google'
 import GodIcon from '@/components/GodIcon'
 import { orderedPairings } from '@/lib/data'
@@ -106,6 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen">
         <SiteHeader />
         <main className="relative z-10 pb-24">{children}</main>
+        <Analytics />
       </body>
     </html>
   )

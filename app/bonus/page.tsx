@@ -74,7 +74,7 @@ export default function BonusPage() {
               hideable
               humanEssay={<HumanEssay />}
               aiEssay={<AiAnalysis />}
-              aiExtra={<ExactTags matches={appendix.exactMatches} />}
+              exactTags={<ExactTags matches={appendix.exactMatches} />}
             />
           </div>
 

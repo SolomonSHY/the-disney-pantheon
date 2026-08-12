@@ -103,7 +103,7 @@ export default async function ChapterPage({ params }: Params) {
               override={alg ? { algPrincess: alg.princess, algScore: alg.score } : null}
               humanEssay={<HumanEssay />}
               aiEssay={<AiEssay />}
-              aiExtra={<ExactTags matches={getExactMatches(pairing.princess, pairing.god)} />}
+              exactTags={<ExactTags matches={getExactMatches(pairing.princess, pairing.god)} />}
             />
           </div>
 

@@ -3,7 +3,7 @@ import type { FacetCode } from '@/lib/types'
 
 /**
  * The exact tag overlaps that drove a cell, grouped by facet — the tags present
- * in both the god's and the princess's profile. Shown under the AI reading.
+ * in both the god's and the princess's profile. Shown under both readings.
  */
 export default function ExactTags({ matches }: { matches: Record<FacetCode, string[]> }) {
   const any = FACET_ORDER.some((code) => (matches[code]?.length ?? 0) > 0)

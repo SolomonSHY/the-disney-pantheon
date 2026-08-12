@@ -59,6 +59,7 @@ export function revealMany(slugs: string[]) {
 export function resetReveals() {
   save([])
   gsave({})
+  psave({})
 }
 
 // ── Guess outcomes ─────────────────────────────────────────────────────────
@@ -115,6 +116,66 @@ function ggetServerSnapshot(): string {
 export function useGuesses(): Record<string, Outcome> {
   const snap = useSyncExternalStore(gsubscribe, ggetSnapshot, ggetServerSnapshot)
   return JSON.parse(snap) as Record<string, Outcome>
+}
+
+// ── Pending guesses ────────────────────────────────────────────────────────
+// The player's picks BEFORE the batch reveal, so earlier correct answers don't
+// leak hints for later rows. Keyed by god slug → princess NAME. Cleared on
+// reset and as each pick is committed to a scored outcome.
+const PKEY = 'pantheon:pending'
+let pcache: Record<string, string> | null = null
+const plisteners = new Set<Listener>()
+
+function pload(): Record<string, string> {
+  if (pcache) return pcache
+  if (typeof window === 'undefined') return (pcache = {})
+  try {
+    pcache = JSON.parse(sessionStorage.getItem(PKEY) || '{}')
+  } catch {
+    pcache = {}
+  }
+  return pcache as Record<string, string>
+}
+
+function psave(next: Record<string, string>) {
+  pcache = next
+  if (typeof window !== 'undefined') {
+    try {
+      sessionStorage.setItem(PKEY, JSON.stringify(next))
+    } catch {
+      /* ignore */
+    }
+  }
+  plisteners.forEach((l) => l())
+}
+
+export function setPending(slug: string, princessName: string) {
+  psave({ ...pload(), [slug]: princessName })
+}
+export function clearPending(slug: string) {
+  const cur = pload()
+  if (!cur[slug]) return
+  const { [slug]: _drop, ...rest } = cur
+  psave(rest)
+}
+
+function psubscribe(l: Listener) {
+  plisteners.add(l)
+  return () => {
+    plisteners.delete(l)
+  }
+}
+function pgetSnapshot(): string {
+  return JSON.stringify(pload())
+}
+function pgetServerSnapshot(): string {
+  return '{}'
+}
+
+/** Reactive map of god slug → the player's pending (uncommitted) princess pick. */
+export function usePending(): Record<string, string> {
+  const snap = useSyncExternalStore(psubscribe, pgetSnapshot, pgetServerSnapshot)
+  return JSON.parse(snap) as Record<string, string>
 }
 
 function subscribe(l: Listener) {

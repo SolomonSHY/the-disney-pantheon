@@ -30,8 +30,8 @@ type ChapterViewProps = {
   override: { algPrincess: string; algScore: number } | null
   humanEssay: ReactNode
   aiEssay: ReactNode
-  /** Extra content shown under the AI essay only (e.g. the bonus exact-tag block). */
-  aiExtra?: ReactNode
+  /** The exact-tag-matches block — shown under either essay, below the facets. */
+  exactTags?: ReactNode
   /** Optional lead paragraph under the header (used by the bonus). */
   intro?: ReactNode
   /** Allow re-hiding after reveal (the bonus is toggleable; the 13 are one-way). */
@@ -53,7 +53,7 @@ export default function ChapterView({
   override,
   humanEssay,
   aiEssay,
-  aiExtra,
+  exactTags,
   intro,
   hideable = false,
 }: ChapterViewProps) {
@@ -164,7 +164,7 @@ export default function ChapterView({
 
       <Facets bare facets={facets} />
 
-      {analysis === 'ai' && aiExtra}
+      {exactTags}
 
       {/* Override footnote — kept out of the commentary, noted at the end */}
       {override && (
