@@ -1,0 +1,437 @@
+{
+ "algorithmic": {
+  "total": 428.9,
+  "floor": 14.6,
+  "firstChoices": 7,
+  "pairs": [
+   {
+    "princess": "Tiana",
+    "princessSlug": "tiana",
+    "god": "Hephaestus",
+    "godSlug": "hephaestus",
+    "score": 47.5,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 10.0,
+     "ROL": 8.4,
+     "ARC": 10.0,
+     "ICO": 2.8,
+     "TMP": 9.1
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Cinderella",
+    "princessSlug": "cinderella",
+    "god": "Hestia",
+    "godSlug": "hestia",
+    "score": 45.1,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 10.0,
+     "ROL": 8.5,
+     "ARC": 3.4,
+     "ICO": 10.0,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Mulan",
+    "princessSlug": "mulan",
+    "god": "Athena",
+    "godSlug": "athena",
+    "score": 44.4,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 7.8,
+     "ROL": 9.4,
+     "ARC": 0.0,
+     "ICO": 10.0,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Merida",
+    "princessSlug": "merida",
+    "god": "Artemis",
+    "godSlug": "artemis",
+    "score": 42.5,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 10.0,
+     "ROL": 5.7,
+     "ARC": 0.0,
+     "ICO": 9.7,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Moana",
+    "princessSlug": "moana",
+    "god": "Demeter",
+    "godSlug": "demeter",
+    "score": 37.1,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 5.7,
+     "ROL": 7.2,
+     "ARC": 10.0,
+     "ICO": 0.0,
+     "TMP": 7.2
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Pocahontas",
+    "princessSlug": "pocahontas",
+    "god": "Hermes",
+    "godSlug": "hermes",
+    "score": 34.3,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 6.5,
+     "ROL": 10.0,
+     "ARC": 0.0,
+     "ICO": 1.0,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Raya",
+    "princessSlug": "raya",
+    "god": "Ares",
+    "godSlug": "ares",
+    "score": 33.5,
+    "rankInRow": 2,
+    "facets": {
+     "DOM": 6.2,
+     "ROL": 10.0,
+     "ARC": 0.0,
+     "ICO": 9.1,
+     "TMP": 1.5
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Rapunzel",
+    "princessSlug": "rapunzel",
+    "god": "Apollo",
+    "godSlug": "apollo",
+    "score": 32.8,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 9.7,
+     "ROL": 1.2,
+     "ARC": 0.0,
+     "ICO": 5.2,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Jasmine",
+    "princessSlug": "jasmine",
+    "god": "Zeus",
+    "godSlug": "zeus",
+    "score": 28.2,
+    "rankInRow": 2,
+    "facets": {
+     "DOM": 3.8,
+     "ROL": 4.5,
+     "ARC": 2.3,
+     "ICO": 4.6,
+     "TMP": 6.7
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Ariel",
+    "princessSlug": "ariel",
+    "god": "Dionysus",
+    "godSlug": "dionysus",
+    "score": 26.7,
+    "rankInRow": 2,
+    "facets": {
+     "DOM": 7.5,
+     "ROL": 6.5,
+     "ARC": 0.0,
+     "ICO": 1.8,
+     "TMP": 4.8
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Belle",
+    "princessSlug": "belle",
+    "god": "Aphrodite",
+    "godSlug": "aphrodite",
+    "score": 26.2,
+    "rankInRow": 2,
+    "facets": {
+     "DOM": 4.0,
+     "ROL": 7.7,
+     "ARC": 0.0,
+     "ICO": 5.9,
+     "TMP": 2.4
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Aurora",
+    "princessSlug": "aurora",
+    "god": "Hera",
+    "godSlug": "hera",
+    "score": 16.0,
+    "rankInRow": 5,
+    "facets": {
+     "DOM": 0.9,
+     "ROL": 3.2,
+     "ARC": 0.0,
+     "ICO": 4.7,
+     "TMP": 2.4
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Snow White",
+    "princessSlug": "snow-white",
+    "god": "Poseidon",
+    "godSlug": "poseidon",
+    "score": 14.6,
+    "rankInRow": 6,
+    "facets": {
+     "DOM": 0.7,
+     "ROL": 5.7,
+     "ARC": 0.8,
+     "ICO": 1.2,
+     "TMP": 1.6
+    },
+    "isFirstChoice": false
+   }
+  ]
+ },
+ "authorial": {
+  "total": 417.3,
+  "floor": 11.0,
+  "firstChoices": 7,
+  "overrides": [
+   "Snow White",
+   "Aurora"
+  ],
+  "note": "Snow White->Zeus and Aurora->Demeter are authorial overrides. No weighting of this rubric produces Snow White x Zeus.",
+  "pairs": [
+   {
+    "princess": "Tiana",
+    "princessSlug": "tiana",
+    "god": "Hephaestus",
+    "godSlug": "hephaestus",
+    "score": 47.5,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 10.0,
+     "ROL": 8.4,
+     "ARC": 10.0,
+     "ICO": 2.8,
+     "TMP": 9.1
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Cinderella",
+    "princessSlug": "cinderella",
+    "god": "Hestia",
+    "godSlug": "hestia",
+    "score": 45.1,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 10.0,
+     "ROL": 8.5,
+     "ARC": 3.4,
+     "ICO": 10.0,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Mulan",
+    "princessSlug": "mulan",
+    "god": "Athena",
+    "godSlug": "athena",
+    "score": 44.4,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 7.8,
+     "ROL": 9.4,
+     "ARC": 0.0,
+     "ICO": 10.0,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Merida",
+    "princessSlug": "merida",
+    "god": "Artemis",
+    "godSlug": "artemis",
+    "score": 42.5,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 10.0,
+     "ROL": 5.7,
+     "ARC": 0.0,
+     "ICO": 9.7,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Pocahontas",
+    "princessSlug": "pocahontas",
+    "god": "Hermes",
+    "godSlug": "hermes",
+    "score": 34.3,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 6.5,
+     "ROL": 10.0,
+     "ARC": 0.0,
+     "ICO": 1.0,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Raya",
+    "princessSlug": "raya",
+    "god": "Ares",
+    "godSlug": "ares",
+    "score": 33.5,
+    "rankInRow": 2,
+    "facets": {
+     "DOM": 6.2,
+     "ROL": 10.0,
+     "ARC": 0.0,
+     "ICO": 9.1,
+     "TMP": 1.5
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Rapunzel",
+    "princessSlug": "rapunzel",
+    "god": "Apollo",
+    "godSlug": "apollo",
+    "score": 32.8,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 9.7,
+     "ROL": 1.2,
+     "ARC": 0.0,
+     "ICO": 5.2,
+     "TMP": 10.0
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Jasmine",
+    "princessSlug": "jasmine",
+    "god": "Hera",
+    "godSlug": "hera",
+    "score": 29.5,
+    "rankInRow": 1,
+    "facets": {
+     "DOM": 5.2,
+     "ROL": 4.4,
+     "ARC": 0.0,
+     "ICO": 9.3,
+     "TMP": 8.3
+    },
+    "isFirstChoice": true
+   },
+   {
+    "princess": "Moana",
+    "princessSlug": "moana",
+    "god": "Poseidon",
+    "godSlug": "poseidon",
+    "score": 27.3,
+    "rankInRow": 2,
+    "facets": {
+     "DOM": 8.4,
+     "ROL": 4.1,
+     "ARC": 0.0,
+     "ICO": 10.0,
+     "TMP": 2.4
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Ariel",
+    "princessSlug": "ariel",
+    "god": "Dionysus",
+    "godSlug": "dionysus",
+    "score": 26.7,
+    "rankInRow": 2,
+    "facets": {
+     "DOM": 7.5,
+     "ROL": 6.5,
+     "ARC": 0.0,
+     "ICO": 1.8,
+     "TMP": 4.8
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Belle",
+    "princessSlug": "belle",
+    "god": "Aphrodite",
+    "godSlug": "aphrodite",
+    "score": 26.2,
+    "rankInRow": 2,
+    "facets": {
+     "DOM": 4.0,
+     "ROL": 7.7,
+     "ARC": 0.0,
+     "ICO": 5.9,
+     "TMP": 2.4
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Aurora",
+    "princessSlug": "aurora",
+    "god": "Demeter",
+    "godSlug": "demeter",
+    "score": 16.5,
+    "rankInRow": 4,
+    "facets": {
+     "DOM": 5.3,
+     "ROL": 1.6,
+     "ARC": 0.0,
+     "ICO": 3.0,
+     "TMP": 6.3
+    },
+    "isFirstChoice": false
+   },
+   {
+    "princess": "Snow White",
+    "princessSlug": "snow-white",
+    "god": "Zeus",
+    "godSlug": "zeus",
+    "score": 11.0,
+    "rankInRow": 9,
+    "facets": {
+     "DOM": 1.0,
+     "ROL": 2.2,
+     "ARC": 2.3,
+     "ICO": 1.6,
+     "TMP": 0.0
+    },
+    "isFirstChoice": false
+   }
+  ]
+ }
+}

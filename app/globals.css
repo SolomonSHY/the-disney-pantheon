@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ground text-ink font-serif antialiased;
+    font-feature-settings: 'kern', 'liga', 'onum', 'pnum';
+  }
+
+  ::selection {
+    background: rgba(200, 162, 90, 0.28);
+    color: #fff;
+  }
+
+  /* Faint film-grain / paper wash so the black never reads as a dashboard. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(200, 162, 90, 0.06), transparent 60%),
+      radial-gradient(90% 60% at 100% 100%, rgba(143, 75, 82, 0.05), transparent 55%);
+  }
+
+  h1, h2, h3 {
+    @apply font-serif tracking-title text-ink;
+    font-feature-settings: 'kern', 'liga', 'dlig';
+  }
+}
+
+@layer components {
+  /* The reading column: generous measure, roomy leading, old-style figures. */
+  .prose-editorial {
+    @apply text-ink/90 text-[1.18rem] leading-[1.75];
+  }
+  .prose-editorial p {
+    @apply my-6 max-w-measure;
+  }
+  .prose-editorial p:first-of-type {
+    @apply mt-0;
+  }
+  /* Drop-cap on the opening paragraph of a chapter. */
+  .prose-editorial > p:first-of-type::first-letter {
+    @apply font-serif text-gold;
+    float: left;
+    font-size: 3.6rem;
+    line-height: 0.72;
+    padding: 0.34rem 0.6rem 0 0;
+  }
+  .prose-editorial h2 {
+    @apply mt-14 mb-4 text-2xl text-goldsoft;
+  }
+  .prose-editorial h3 {
+    @apply mt-10 mb-3 text-xl text-ink;
+  }
+  .prose-editorial blockquote {
+    @apply my-8 border-l border-gold/40 pl-5 italic text-muted max-w-measure;
+  }
+  .prose-editorial a {
+    @apply text-goldsoft underline decoration-gold/30 underline-offset-4 hover:decoration-gold;
+  }
+  .prose-editorial strong {
+    @apply text-ink font-semibold;
+  }
+  .prose-editorial em {
+    @apply italic;
+  }
+  /* Section break: a faint gold rule flanking a centred fleuron. */
+  .prose-editorial hr {
+    @apply my-10 max-w-measure border-0 text-center;
+    height: 1px;
+    overflow: visible;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(200, 162, 90, 0.28) 15%,
+      rgba(200, 162, 90, 0.28) 85%,
+      transparent
+    );
+  }
+  .prose-editorial hr::before {
+    content: '❦';
+    @apply text-gold/70;
+    position: relative;
+    top: -0.72em;
+    display: inline-block;
+    padding: 0 0.9rem;
+    background: theme('colors.ground');
+    font-size: 1.05rem;
+  }
+  .prose-editorial ul {
+    @apply my-6 max-w-measure list-none space-y-2 pl-0;
+  }
+  .prose-editorial li {
+    @apply relative pl-6;
+  }
+  .prose-editorial li::before {
+    content: '—';
+    @apply absolute left-0 text-gold/60;
+  }
+}
+
+/* The small-caps facet code label used across facet UI. */
+.facet-code {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}

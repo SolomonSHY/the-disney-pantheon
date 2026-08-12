@@ -1,0 +1,3380 @@
+{
+ "facets": [
+  "DOM",
+  "ROL",
+  "ARC",
+  "ICO",
+  "TMP"
+ ],
+ "weights": {
+  "DOM": 0.2,
+  "ROL": 0.2,
+  "ARC": 0.2,
+  "ICO": 0.2,
+  "TMP": 0.2
+ },
+ "lambdaContra": 0.62,
+ "displayCap": 47.5,
+ "compressionExponent": 0.85,
+ "scaleNote": "Scores are normalised against the strongest cell in the matrix, which is fixed at the 47.5 cap. The score is a weighted MEAN of the five facets, not a sum.",
+ "princesses": [
+  {
+   "name": "Snow White",
+   "slug": "snow-white",
+   "film": "Snow White and the Seven Dwarfs",
+   "year": 1937,
+   "info": 0.55
+  },
+  {
+   "name": "Cinderella",
+   "slug": "cinderella",
+   "film": "Cinderella",
+   "year": 1950,
+   "info": 0.7
+  },
+  {
+   "name": "Aurora",
+   "slug": "aurora",
+   "film": "Sleeping Beauty",
+   "year": 1959,
+   "info": 0.25
+  },
+  {
+   "name": "Ariel",
+   "slug": "ariel",
+   "film": "The Little Mermaid",
+   "year": 1989,
+   "info": 0.75
+  },
+  {
+   "name": "Belle",
+   "slug": "belle",
+   "film": "Beauty and the Beast",
+   "year": 1991,
+   "info": 0.85
+  },
+  {
+   "name": "Jasmine",
+   "slug": "jasmine",
+   "film": "Aladdin",
+   "year": 1992,
+   "info": 0.7
+  },
+  {
+   "name": "Pocahontas",
+   "slug": "pocahontas",
+   "film": "Pocahontas",
+   "year": 1995,
+   "info": 0.7
+  },
+  {
+   "name": "Mulan",
+   "slug": "mulan",
+   "film": "Mulan",
+   "year": 1998,
+   "info": 0.85
+  },
+  {
+   "name": "Tiana",
+   "slug": "tiana",
+   "film": "The Princess and the Frog",
+   "year": 2009,
+   "info": 0.85
+  },
+  {
+   "name": "Rapunzel",
+   "slug": "rapunzel",
+   "film": "Tangled",
+   "year": 2010,
+   "info": 0.85
+  },
+  {
+   "name": "Merida",
+   "slug": "merida",
+   "film": "Brave",
+   "year": 2012,
+   "info": 0.8
+  },
+  {
+   "name": "Moana",
+   "slug": "moana",
+   "film": "Moana",
+   "year": 2016,
+   "info": 0.85
+  },
+  {
+   "name": "Raya",
+   "slug": "raya",
+   "film": "Raya and the Last Dragon",
+   "year": 2021,
+   "info": 0.8
+  }
+ ],
+ "gods": [
+  {
+   "name": "Zeus",
+   "slug": "zeus"
+  },
+  {
+   "name": "Hera",
+   "slug": "hera"
+  },
+  {
+   "name": "Poseidon",
+   "slug": "poseidon"
+  },
+  {
+   "name": "Demeter",
+   "slug": "demeter"
+  },
+  {
+   "name": "Athena",
+   "slug": "athena"
+  },
+  {
+   "name": "Apollo",
+   "slug": "apollo"
+  },
+  {
+   "name": "Artemis",
+   "slug": "artemis"
+  },
+  {
+   "name": "Ares",
+   "slug": "ares"
+  },
+  {
+   "name": "Aphrodite",
+   "slug": "aphrodite"
+  },
+  {
+   "name": "Hephaestus",
+   "slug": "hephaestus"
+  },
+  {
+   "name": "Hermes",
+   "slug": "hermes"
+  },
+  {
+   "name": "Hestia",
+   "slug": "hestia"
+  },
+  {
+   "name": "Dionysus",
+   "slug": "dionysus"
+  }
+ ],
+ "cells": [
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 11.0,
+   "rankInRow": 9,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 1.0,
+    "ROL": 2.2,
+    "ARC": 2.3,
+    "ICO": 1.6,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.443
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 15.1,
+   "rankInRow": 5,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 2.2,
+    "ROL": 2.4,
+    "ARC": 0.0,
+    "ICO": 4.1,
+    "TMP": 1.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.101
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 14.6,
+   "rankInRow": 6,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 0.7,
+    "ROL": 5.7,
+    "ARC": 0.8,
+    "ICO": 1.2,
+    "TMP": 1.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.01
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 21.0,
+   "rankInRow": 2,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 4.0,
+    "ROL": 4.5,
+    "ARC": 0.0,
+    "ICO": 4.3,
+    "TMP": 8.7
+   },
+   "contra": 4.5,
+   "contraNote": "Generational inversion: Snow White is the abducted daughter (Kore), not the searching mother.",
+   "base": 4.294
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 10.7,
+   "rankInRow": 10,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 1.2,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 1.1,
+    "TMP": 4.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.39
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 11.1,
+   "rankInRow": 8,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 3.3,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 1.4,
+    "TMP": 2.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.461
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 16.7,
+   "rankInRow": 4,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 6.7,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.2,
+    "TMP": 2.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.354
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 5.2,
+   "rankInRow": 12,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 2.1,
+    "ARC": 0.0,
+    "ICO": 0.9,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.602
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 9.6,
+   "rankInRow": 11,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 0.4,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 3.8,
+    "TMP": 1.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.222
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 18.8,
+   "rankInRow": 3,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 1.5,
+    "ROL": 2.6,
+    "ARC": 3.4,
+    "ICO": 1.1,
+    "TMP": 5.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.713
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 2.1,
+   "rankInRow": 13,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.4,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.6,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.204
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 38.0,
+   "rankInRow": 1,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 9.9,
+    "ROL": 4.4,
+    "ARC": 0.0,
+    "ICO": 6.7,
+    "TMP": 9.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 6.196
+  },
+  {
+   "princess": "Snow White",
+   "princessSlug": "snow-white",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 12.3,
+   "rankInRow": 7,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 0.4,
+    "ROL": 1.6,
+    "ARC": 0.0,
+    "ICO": 1.7,
+    "TMP": 4.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.642
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 12.9,
+   "rankInRow": 8,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 1.8,
+    "ROL": 1.9,
+    "ARC": 5.0,
+    "ICO": 0.0,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.743
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 16.1,
+   "rankInRow": 5,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 3.2,
+    "ROL": 1.4,
+    "ARC": 2.3,
+    "ICO": 2.3,
+    "TMP": 2.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.267
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 15.3,
+   "rankInRow": 6,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 0.7,
+    "ROL": 3.7,
+    "ARC": 4.2,
+    "ICO": 0.0,
+    "TMP": 2.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.133
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 19.3,
+   "rankInRow": 3,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 3.8,
+    "ARC": 0.0,
+    "ICO": 3.0,
+    "TMP": 7.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.793
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 18.0,
+   "rankInRow": 4,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 0.6,
+    "ROL": 0.7,
+    "ARC": 1.6,
+    "ICO": 0.0,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.576
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 8.9,
+   "rankInRow": 11,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 0.6,
+    "ROL": 0.7,
+    "ARC": 1.4,
+    "ICO": 1.0,
+    "TMP": 1.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.13
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 13.2,
+   "rankInRow": 7,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 2.3,
+    "ROL": 0.9,
+    "ARC": 1.6,
+    "ICO": 0.0,
+    "TMP": 4.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.786
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 6.4,
+   "rankInRow": 13,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 1.5,
+    "ARC": 1.7,
+    "ICO": 0.0,
+    "TMP": 0.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.759
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 11.9,
+   "rankInRow": 9,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 4.1,
+    "ARC": 1.8,
+    "ICO": 1.1,
+    "TMP": 1.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.588
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 38.9,
+   "rankInRow": 2,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 7.6,
+    "ROL": 3.7,
+    "ARC": 7.5,
+    "ICO": 3.8,
+    "TMP": 9.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 6.378
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 7.8,
+   "rankInRow": 12,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 2.8,
+    "ROL": 0.0,
+    "ARC": 1.1,
+    "ICO": 0.9,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.962
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 45.1,
+   "rankInRow": 1,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 10.0,
+    "ROL": 8.5,
+    "ARC": 3.4,
+    "ICO": 10.0,
+    "TMP": 10.0
+   },
+   "contra": 1.5,
+   "contraNote": "Mild: Hestia permanently refuses marriage; Cinderella's arc resolves in one.",
+   "base": 8.373
+  },
+  {
+   "princess": "Cinderella",
+   "princessSlug": "cinderella",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 11.6,
+   "rankInRow": 10,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 2.6,
+    "ROL": 1.2,
+    "ARC": 0.0,
+    "ICO": 2.7,
+    "TMP": 1.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.541
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 8.9,
+   "rankInRow": 11,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 1.8,
+    "ROL": 2.2,
+    "ARC": 0.0,
+    "ICO": 0.8,
+    "TMP": 0.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.127
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 16.0,
+   "rankInRow": 5,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 0.9,
+    "ROL": 3.2,
+    "ARC": 0.0,
+    "ICO": 4.7,
+    "TMP": 2.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.236
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 9.6,
+   "rankInRow": 10,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 0.6,
+    "ROL": 3.3,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.235
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 16.5,
+   "rankInRow": 4,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 5.3,
+    "ROL": 1.6,
+    "ARC": 0.0,
+    "ICO": 3.0,
+    "TMP": 6.3
+   },
+   "contra": 4.5,
+   "contraNote": "Generational inversion: Aurora is the dormant one whose absence sleeps the world \u2014 that is Kore's seat. The Demeter function (plants, animals, weather) sits with the three fairies.",
+   "base": 3.236
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 11.8,
+   "rankInRow": 7,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 1.1,
+    "ROL": 0.8,
+    "ARC": 0.0,
+    "ICO": 1.3,
+    "TMP": 5.8
+   },
+   "contra": 2.0,
+   "contraNote": "Near-total absence of agency; Athena is agency.",
+   "base": 1.789
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 14.0,
+   "rankInRow": 6,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 5.6,
+    "ROL": 0.8,
+    "ARC": 0.0,
+    "ICO": 3.2,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.917
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 11.5,
+   "rankInRow": 8,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 5.6,
+    "ROL": 1.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.1
+   },
+   "contra": 2.0,
+   "contraNote": "Passive and betrothed from infancy; Artemis is autonomous and unbetrothed.",
+   "base": 1.741
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 5.4,
+   "rankInRow": 13,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 3.1,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.629
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 16.9,
+   "rankInRow": 2,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 1.0,
+    "ROL": 4.6,
+    "ARC": 0.0,
+    "ICO": 5.0,
+    "TMP": 1.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.388
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 11.2,
+   "rankInRow": 9,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 1.8,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 5.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.481
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 8.2,
+   "rankInRow": 12,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 3.9,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 1.3,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.022
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 17.8,
+   "rankInRow": 1,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 0.7,
+    "ROL": 1.3,
+    "ARC": 0.0,
+    "ICO": 0.7,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.537
+  },
+  {
+   "princess": "Aurora",
+   "princessSlug": "aurora",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 16.6,
+   "rankInRow": 3,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 5.3,
+    "ROL": 0.7,
+    "ARC": 0.0,
+    "ICO": 2.9,
+    "TMP": 2.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.341
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 10.1,
+   "rankInRow": 8,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 1.3,
+    "ROL": 1.8,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.304
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 8.1,
+   "rankInRow": 9,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 1.7,
+    "ARC": 0.0,
+    "ICO": 1.2,
+    "TMP": 2.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.007
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 20.2,
+   "rankInRow": 4,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 5.1,
+    "ROL": 1.6,
+    "ARC": 2.0,
+    "ICO": 9.3,
+    "TMP": 6.8
+   },
+   "contra": 6.5,
+   "contraNote": "Poseidon occupies Triton's role, not Ariel's. Her arc is defined by wanting OUT of the sea; scoring the setting scores her father.",
+   "base": 4.955
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 6.8,
+   "rankInRow": 11,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 1.3,
+    "ROL": 1.5,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 1.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.819
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 8.1,
+   "rankInRow": 9,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 1.5,
+    "ROL": 2.8,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.009
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 20.4,
+   "rankInRow": 3,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 5.2,
+    "ROL": 1.9,
+    "ARC": 2.6,
+    "ICO": 1.5,
+    "TMP": 3.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.986
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 14.6,
+   "rankInRow": 5,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 2.3,
+    "ROL": 1.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 6.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.007
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 14.5,
+   "rankInRow": 6,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.0
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 12.1,
+   "rankInRow": 7,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 1.5,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 3.7,
+    "TMP": 2.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.619
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 1.4,
+   "rankInRow": 13,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.7,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.131
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 27.3,
+   "rankInRow": 1,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 7.7,
+    "ROL": 6.2,
+    "ARC": 1.9,
+    "ICO": 0.6,
+    "TMP": 4.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 4.209
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 2.1,
+   "rankInRow": 12,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.7,
+    "ROL": 0.6,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.0
+   },
+   "contra": 3.5,
+   "contraNote": "Abandons home and father; the inverse of the hearth-keeper.",
+   "base": 0.266
+  },
+  {
+   "princess": "Ariel",
+   "princessSlug": "ariel",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 26.7,
+   "rankInRow": 2,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 7.5,
+    "ROL": 6.5,
+    "ARC": 0.0,
+    "ICO": 1.8,
+    "TMP": 4.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 4.102
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 5.0,
+   "rankInRow": 12,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.4,
+    "ROL": 1.8,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.574
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 8.7,
+   "rankInRow": 10,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 1.9,
+    "ROL": 1.8,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 1.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.097
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 4.5,
+   "rankInRow": 13,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 1.9,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.499
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 16.0,
+   "rankInRow": 5,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 0.6,
+    "ROL": 1.5,
+    "ARC": 0.0,
+    "ICO": 3.9,
+    "TMP": 5.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.235
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 15.7,
+   "rankInRow": 6,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 3.3,
+    "ROL": 2.3,
+    "ARC": 0.0,
+    "ICO": 1.9,
+    "TMP": 4.6
+   },
+   "contra": 1.5,
+   "contraNote": "Belle's books signal interiority and escape, not Athena's strategic/civic wisdom.",
+   "base": 2.423
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 11.1,
+   "rankInRow": 8,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 2.9,
+    "ROL": 1.3,
+    "ARC": 0.0,
+    "ICO": 3.1,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.456
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 10.2,
+   "rankInRow": 9,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 0.5,
+    "ROL": 1.7,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 4.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.327
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 5.8,
+   "rankInRow": 11,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 2.1,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 1.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.679
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 26.2,
+   "rankInRow": 2,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 4.0,
+    "ROL": 7.7,
+    "ARC": 0.0,
+    "ICO": 5.9,
+    "TMP": 2.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 4.0
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 16.4,
+   "rankInRow": 4,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 2.3,
+    "ROL": 2.2,
+    "ARC": 0.0,
+    "ICO": 0.7,
+    "TMP": 6.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.312
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 17.8,
+   "rankInRow": 3,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 7.0,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 1.2,
+    "TMP": 4.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.545
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 15.4,
+   "rankInRow": 7,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 1.7,
+    "ARC": 0.0,
+    "ICO": 3.3,
+    "TMP": 5.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.147
+  },
+  {
+   "princess": "Belle",
+   "princessSlug": "belle",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 27.8,
+   "rankInRow": 1,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 7.7,
+    "ROL": 9.0,
+    "ARC": 0.0,
+    "ICO": 3.0,
+    "TMP": 1.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 4.29
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 28.2,
+   "rankInRow": 2,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 3.8,
+    "ROL": 4.5,
+    "ARC": 2.3,
+    "ICO": 4.6,
+    "TMP": 6.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 4.372
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 29.5,
+   "rankInRow": 1,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 5.2,
+    "ROL": 4.4,
+    "ARC": 0.0,
+    "ICO": 9.3,
+    "TMP": 8.3
+   },
+   "contra": 2.5,
+   "contraNote": "Partial inversion, not a full one. Jasmine refuses to be DISPOSED OF, not to marry: she has the law changed and then marries by choice, ending as a royal consort who selected her own. That endpoint is Hera's position, reached by Hera's opposite route. Penalty registers the arc running against the institution; it no longer buries a cell whose iconography and temperament are the strongest in her row.",
+   "base": 5.441
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 17.1,
+   "rankInRow": 7,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 0.7,
+    "ROL": 2.9,
+    "ARC": 0.8,
+    "ICO": 1.7,
+    "TMP": 6.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.421
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 7.1,
+   "rankInRow": 13,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 0.4,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.863
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 19.3,
+   "rankInRow": 5,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 2.3,
+    "ROL": 5.0,
+    "ARC": 0.0,
+    "ICO": 1.0,
+    "TMP": 5.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.798
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 12.1,
+   "rankInRow": 10,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 1.3,
+    "ROL": 2.4,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 3.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.614
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 19.2,
+   "rankInRow": 6,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 4.0,
+    "ROL": 3.7,
+    "ARC": 0.0,
+    "ICO": 2.6,
+    "TMP": 3.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.775
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 10.0,
+   "rankInRow": 12,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 1.6,
+    "ARC": 0.0,
+    "ICO": 1.0,
+    "TMP": 3.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.294
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 21.6,
+   "rankInRow": 3,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 2.2,
+    "ROL": 7.9,
+    "ARC": 0.0,
+    "ICO": 2.5,
+    "TMP": 3.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 3.197
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 10.9,
+   "rankInRow": 11,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 1.7,
+    "ARC": 3.5,
+    "ICO": 0.0,
+    "TMP": 1.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.425
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 13.6,
+   "rankInRow": 9,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 5.2,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 4.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.849
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 16.7,
+   "rankInRow": 8,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 0.8,
+    "ROL": 3.8,
+    "ARC": 0.0,
+    "ICO": 3.0,
+    "TMP": 4.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.355
+  },
+  {
+   "princess": "Jasmine",
+   "princessSlug": "jasmine",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 20.9,
+   "rankInRow": 4,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 5.6,
+    "ROL": 5.7,
+    "ARC": 0.0,
+    "ICO": 2.1,
+    "TMP": 2.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 3.076
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 9.9,
+   "rankInRow": 12,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 1.8,
+    "ROL": 1.9,
+    "ARC": 0.0,
+    "ICO": 0.6,
+    "TMP": 2.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.282
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 14.0,
+   "rankInRow": 8,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 2.0,
+    "ARC": 0.0,
+    "ICO": 5.1,
+    "TMP": 2.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.911
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 15.8,
+   "rankInRow": 7,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 4.6,
+    "ROL": 1.2,
+    "ARC": 0.0,
+    "ICO": 2.3,
+    "TMP": 2.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.214
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 18.6,
+   "rankInRow": 5,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 5.1,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 4.6,
+    "TMP": 3.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.683
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 21.3,
+   "rankInRow": 3,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 1.8,
+    "ROL": 5.7,
+    "ARC": 0.0,
+    "ICO": 1.0,
+    "TMP": 7.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 3.146
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 22.7,
+   "rankInRow": 2,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 6.5,
+    "ROL": 8.3,
+    "ARC": 0.0,
+    "ICO": 1.7,
+    "TMP": 0.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 3.385
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 18.9,
+   "rankInRow": 4,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 5.6,
+    "ROL": 2.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 6.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.733
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 6.9,
+   "rankInRow": 13,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 0.8,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 4.4
+   },
+   "contra": 3.0,
+   "contraNote": "A peacemaker inside a war plot; she exists to prevent the battle Ares embodies.",
+   "base": 1.028
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 17.0,
+   "rankInRow": 6,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 1.1,
+    "ROL": 3.3,
+    "ARC": 0.0,
+    "ICO": 4.6,
+    "TMP": 3.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.406
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 10.5,
+   "rankInRow": 11,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 0.7,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 5.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.368
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 34.3,
+   "rankInRow": 1,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 6.5,
+    "ROL": 10.0,
+    "ARC": 0.0,
+    "ICO": 1.0,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 5.492
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 13.9,
+   "rankInRow": 10,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 0.4,
+    "ROL": 2.2,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 6.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.902
+  },
+  {
+   "princess": "Pocahontas",
+   "princessSlug": "pocahontas",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 14.0,
+   "rankInRow": 8,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 4.0,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.9,
+    "TMP": 2.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.918
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 14.3,
+   "rankInRow": 8,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 2.4,
+    "ROL": 4.2,
+    "ARC": 0.0,
+    "ICO": 2.5,
+    "TMP": 0.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.959
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 12.3,
+   "rankInRow": 10,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 1.5,
+    "ROL": 3.6,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.653
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 11.1,
+   "rankInRow": 12,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 2.8,
+    "ARC": 0.0,
+    "ICO": 2.2,
+    "TMP": 2.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.459
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 16.7,
+   "rankInRow": 6,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 1.0,
+    "ROL": 5.3,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 5.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.36
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 44.4,
+   "rankInRow": 1,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 7.8,
+    "ROL": 9.4,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 7.452
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 14.0,
+   "rankInRow": 9,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 2.5,
+    "ROL": 5.0,
+    "ARC": 0.0,
+    "ICO": 2.2,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.924
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 18.1,
+   "rankInRow": 5,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 1.2,
+    "ROL": 6.7,
+    "ARC": 0.0,
+    "ICO": 1.9,
+    "TMP": 3.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.589
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 26.5,
+   "rankInRow": 2,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 3.6,
+    "ROL": 8.9,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 1.5
+   },
+   "contra": 2.5,
+   "contraNote": "The film's thesis is that strategy beats force; she wins by avalanche, not melee.",
+   "base": 4.796
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 8.7,
+   "rankInRow": 13,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 3.0,
+    "ARC": 0.0,
+    "ICO": 2.5,
+    "TMP": 1.4
+   },
+   "contra": 3.5,
+   "contraNote": "The matchmaker sequence is a staged rejection of the beauty-bride role.",
+   "base": 1.395
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 15.3,
+   "rankInRow": 7,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 3.1,
+    "ROL": 0.6,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 6.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.124
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 12.2,
+   "rankInRow": 11,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 1.3,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 1.5,
+    "TMP": 5.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.627
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 23.5,
+   "rankInRow": 3,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 6.2,
+    "ROL": 1.4,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 3.52
+  },
+  {
+   "princess": "Mulan",
+   "princessSlug": "mulan",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 21.2,
+   "rankInRow": 4,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 0.6,
+    "ROL": 5.5,
+    "ARC": 5.3,
+    "ICO": 2.5,
+    "TMP": 1.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 3.119
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 14.6,
+   "rankInRow": 5,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 0.9,
+    "ROL": 0.6,
+    "ARC": 5.5,
+    "ICO": 0.0,
+    "TMP": 3.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.007
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 11.2,
+   "rankInRow": 7,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 1.2,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.1,
+    "TMP": 4.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.479
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 11.0,
+   "rankInRow": 9,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 2.0,
+    "ARC": 2.8,
+    "ICO": 0.0,
+    "TMP": 2.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.438
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 14.7,
+   "rankInRow": 4,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 1.2,
+    "ARC": 0.0,
+    "ICO": 4.5,
+    "TMP": 4.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.034
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 17.3,
+   "rankInRow": 3,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 2.5,
+    "ROL": 0.7,
+    "ARC": 0.0,
+    "ICO": 0.6,
+    "TMP": 8.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.458
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 4.5,
+   "rankInRow": 12,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 1.2,
+    "TMP": 1.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.507
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 6.2,
+   "rankInRow": 10,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.737
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 2.6,
+   "rankInRow": 13,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 1.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.267
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 5.9,
+   "rankInRow": 11,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.2,
+    "TMP": 1.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.698
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 47.5,
+   "rankInRow": 1,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 10.0,
+    "ROL": 8.4,
+    "ARC": 10.0,
+    "ICO": 2.8,
+    "TMP": 9.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 8.068
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 11.1,
+   "rankInRow": 8,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 6.7,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.6,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.452
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 35.4,
+   "rankInRow": 2,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 7.5,
+    "ROL": 2.6,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 8.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 5.708
+  },
+  {
+   "princess": "Tiana",
+   "princessSlug": "tiana",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 13.5,
+   "rankInRow": 6,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 5.7,
+    "ROL": 3.6,
+    "ARC": 0.0,
+    "ICO": 2.4,
+    "TMP": 0.4
+   },
+   "contra": 4.0,
+   "contraNote": "The film explicitly contrasts Tiana's labor with Naveen's Dionysian idleness. She is the anti-reveler.",
+   "base": 2.437
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 12.1,
+   "rankInRow": 5,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 1.7,
+    "ROL": 4.2,
+    "ARC": 0.0,
+    "ICO": 1.1,
+    "TMP": 1.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.619
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 4.7,
+   "rankInRow": 13,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.4,
+    "ROL": 1.2,
+    "ARC": 0.0,
+    "ICO": 0.4,
+    "TMP": 0.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 0.528
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 11.3,
+   "rankInRow": 6,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 5.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.482
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 17.4,
+   "rankInRow": 4,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 1.6,
+    "ROL": 7.3,
+    "ARC": 0.0,
+    "ICO": 3.0,
+    "TMP": 0.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.483
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 9.6,
+   "rankInRow": 9,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 2.2,
+    "ROL": 2.1,
+    "ARC": 0.0,
+    "ICO": 1.0,
+    "TMP": 0.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.23
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 32.8,
+   "rankInRow": 1,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 9.7,
+    "ROL": 1.2,
+    "ARC": 0.0,
+    "ICO": 5.2,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 5.219
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 9.9,
+   "rankInRow": 8,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 2.7,
+    "ROL": 1.3,
+    "ARC": 0.0,
+    "ICO": 0.7,
+    "TMP": 1.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.279
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 9.4,
+   "rankInRow": 11,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 2.4,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.193
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 11.2,
+   "rankInRow": 7,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.6,
+    "TMP": 4.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.471
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 9.5,
+   "rankInRow": 10,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 4.3,
+    "ARC": 0.0,
+    "ICO": 1.7,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.209
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 17.6,
+   "rankInRow": 3,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 7.5,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 4.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.501
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 7.1,
+   "rankInRow": 12,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 0.7,
+    "ROL": 1.3,
+    "ARC": 0.0,
+    "ICO": 3.5,
+    "TMP": 0.0
+   },
+   "contra": 3.5,
+   "contraNote": "Hestia is the one who stays; Rapunzel's arc is leaving the house she is confined to.",
+   "base": 1.101
+  },
+  {
+   "princess": "Rapunzel",
+   "princessSlug": "rapunzel",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 28.7,
+   "rankInRow": 2,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 8.2,
+    "ROL": 2.5,
+    "ARC": 1.6,
+    "ICO": 4.7,
+    "TMP": 5.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 4.467
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 17.6,
+   "rankInRow": 6,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 2.4,
+    "ROL": 5.2,
+    "ARC": 0.0,
+    "ICO": 2.5,
+    "TMP": 2.4
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.508
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 10.8,
+   "rankInRow": 11,
+   "rankInColumn": 10,
+   "facets": {
+    "DOM": 2.1,
+    "ROL": 3.5,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.1
+   },
+   "contra": 3.0,
+   "contraNote": "Actively destroys her own betrothal ceremony.",
+   "base": 1.744
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 26.1,
+   "rankInRow": 2,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 1.9,
+    "ROL": 2.4,
+    "ARC": 3.1,
+    "ICO": 3.5,
+    "TMP": 9.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 3.995
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 10.7,
+   "rankInRow": 12,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 0.5,
+    "ROL": 3.5,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.398
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 14.5,
+   "rankInRow": 7,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 1.7,
+    "ROL": 5.6,
+    "ARC": 0.0,
+    "ICO": 2.7,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.991
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 22.9,
+   "rankInRow": 3,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 3.2,
+    "ROL": 3.2,
+    "ARC": 4.1,
+    "ICO": 4.9,
+    "TMP": 1.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 3.425
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 42.5,
+   "rankInRow": 1,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 10.0,
+    "ROL": 5.7,
+    "ARC": 0.0,
+    "ICO": 9.7,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 7.073
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 20.3,
+   "rankInRow": 5,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 3.4,
+    "ARC": 0.0,
+    "ICO": 1.5,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.969
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 11.1,
+   "rankInRow": 10,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 7.6,
+    "ARC": 0.0,
+    "ICO": 1.0,
+    "TMP": 0.4
+   },
+   "contra": 3.0,
+   "contraNote": "Rejects the suitor-contest and the beauty-economy outright.",
+   "base": 1.794
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 8.1,
+   "rankInRow": 13,
+   "rankInColumn": 12,
+   "facets": {
+    "DOM": 0.7,
+    "ROL": 1.5,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 2.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.012
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 13.4,
+   "rankInRow": 8,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 3.5,
+    "ROL": 0.5,
+    "ARC": 4.2,
+    "ICO": 1.0,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.822
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 12.9,
+   "rankInRow": 9,
+   "rankInColumn": 11,
+   "facets": {
+    "DOM": 5.0,
+    "ROL": 3.2,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.748
+  },
+  {
+   "princess": "Merida",
+   "princessSlug": "merida",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 20.5,
+   "rankInRow": 4,
+   "rankInColumn": 6,
+   "facets": {
+    "DOM": 3.0,
+    "ROL": 3.2,
+    "ARC": 0.0,
+    "ICO": 4.0,
+    "TMP": 4.9
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 3.004
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 15.1,
+   "rankInRow": 8,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 4.3,
+    "ROL": 5.6,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.6
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.097
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 14.3,
+   "rankInRow": 9,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 2.4,
+    "ROL": 4.9,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.973
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 27.3,
+   "rankInRow": 2,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 8.4,
+    "ROL": 4.1,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 2.4
+   },
+   "contra": 2.5,
+   "contraNote": "Moana is the sea's chosen, not its sovereign; the ocean is a separate character acting on her.",
+   "base": 4.979
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 37.1,
+   "rankInRow": 1,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 5.7,
+    "ROL": 7.2,
+    "ARC": 10.0,
+    "ICO": 0.0,
+    "TMP": 7.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 6.024
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 26.7,
+   "rankInRow": 3,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 0.7,
+    "ROL": 9.8,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 4.1
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 11.7,
+   "rankInRow": 13,
+   "rankInColumn": 9,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 7.2,
+    "ARC": 0.0,
+    "ICO": 0.6,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.557
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 13.4,
+   "rankInRow": 10,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 5.3,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.815
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 12.9,
+   "rankInRow": 11,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 7.2,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 1.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.743
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 12.5,
+   "rankInRow": 12,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 3.7,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 4.2,
+    "TMP": 1.8
+   },
+   "contra": 2.0,
+   "contraNote": "No romance plot exists in the film.",
+   "base": 1.923
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 16.5,
+   "rankInRow": 7,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 0.6,
+    "ROL": 0.0,
+    "ARC": 4.2,
+    "ICO": 0.6,
+    "TMP": 6.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.317
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 19.9,
+   "rankInRow": 4,
+   "rankInColumn": 3,
+   "facets": {
+    "DOM": 3.1,
+    "ROL": 7.4,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 4.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.905
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 19.4,
+   "rankInRow": 5,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 3.5,
+    "ROL": 0.6,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 10.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.82
+  },
+  {
+   "princess": "Moana",
+   "princessSlug": "moana",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 19.4,
+   "rankInRow": 5,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 3.6,
+    "ROL": 2.3,
+    "ARC": 5.3,
+    "ICO": 1.7,
+    "TMP": 1.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.814
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 17.7,
+   "rankInRow": 7,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 2.6,
+    "ROL": 6.8,
+    "ARC": 0.0,
+    "ICO": 2.7,
+    "TMP": 0.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.527
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 13.8,
+   "rankInRow": 10,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 1.5,
+    "ROL": 5.1,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.883
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 18.3,
+   "rankInRow": 6,
+   "rankInColumn": 4,
+   "facets": {
+    "DOM": 3.6,
+    "ROL": 6.2,
+    "ARC": 0.0,
+    "ICO": 1.6,
+    "TMP": 1.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.622
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 26.9,
+   "rankInRow": 3,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 10.0,
+    "ARC": 4.9,
+    "ICO": 0.0,
+    "TMP": 5.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 4.135
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 39.1,
+   "rankInRow": 1,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 6.2,
+    "ROL": 10.0,
+    "ARC": 0.0,
+    "ICO": 7.4,
+    "TMP": 8.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 6.426
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 14.3,
+   "rankInRow": 9,
+   "rankInColumn": 5,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 8.2,
+    "ARC": 0.0,
+    "ICO": 1.6,
+    "TMP": 0.0
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.961
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 20.0,
+   "rankInRow": 4,
+   "rankInColumn": 2,
+   "facets": {
+    "DOM": 0.0,
+    "ROL": 8.4,
+    "ARC": 0.0,
+    "ICO": 2.5,
+    "TMP": 3.8
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.923
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 33.5,
+   "rankInRow": 2,
+   "rankInColumn": 1,
+   "facets": {
+    "DOM": 6.2,
+    "ROL": 10.0,
+    "ARC": 0.0,
+    "ICO": 9.1,
+    "TMP": 1.5
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 5.355
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 3.5,
+   "rankInRow": 13,
+   "rankInColumn": 13,
+   "facets": {
+    "DOM": 0.6,
+    "ROL": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 1.5
+   },
+   "contra": 2.0,
+   "contraNote": "No romance plot exists in the film.",
+   "base": 0.429
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 13.7,
+   "rankInRow": 11,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 0.6,
+    "ROL": 0.7,
+    "ARC": 1.2,
+    "ICO": 0.6,
+    "TMP": 6.2
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.862
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 13.0,
+   "rankInRow": 12,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 3.0,
+    "ROL": 2.8,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.1
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 1.762
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 16.9,
+   "rankInRow": 8,
+   "rankInColumn": 7,
+   "facets": {
+    "DOM": 3.3,
+    "ROL": 0.4,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 8.3
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.386
+  },
+  {
+   "princess": "Raya",
+   "princessSlug": "raya",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 19.2,
+   "rankInRow": 5,
+   "rankInColumn": 8,
+   "facets": {
+    "DOM": 2.4,
+    "ROL": 4.4,
+    "ARC": 1.4,
+    "ICO": 2.9,
+    "TMP": 2.7
+   },
+   "contra": 0.0,
+   "contraNote": null,
+   "base": 2.778
+  }
+ ]
+}

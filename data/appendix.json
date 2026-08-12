@@ -1,0 +1,61 @@
+{
+ "pairing": "Elsa x Hades",
+ "facets": {
+  "DOM": 9.8,
+  "ROL": 10.0,
+  "ARC": 2.9,
+  "ICO": 8.8,
+  "TMP": 10.0
+ },
+ "base": 8.3,
+ "score": 48.7,
+ "note": "Exceeds the 47.5 cap because it outscores the strongest cell in the matrix. Neither entity is in the scored set.",
+ "exactMatches": {
+  "DOM": [
+   "sovereignty",
+   "wealth-palace",
+   "household-order"
+  ],
+  "ROL": [
+   "sovereign-ruler",
+   "the-one-who-stays",
+   "cast-out",
+   "guardian-of-order"
+  ],
+  "ARC": [
+   "static-incumbent"
+  ],
+  "ICO": [
+   "crown-diadem",
+   "scepter",
+   "jewels"
+  ],
+  "TMP": [
+   "aloof",
+   "regal",
+   "brooding",
+   "resolute",
+   "self-effacing",
+   "patient"
+  ]
+ },
+ "alternatives": [
+  {
+   "god": "Hera",
+   "score": 39.2
+  },
+  {
+   "god": "Hestia",
+   "score": 28.3
+  },
+  {
+   "god": "Zeus",
+   "score": 27.9
+  },
+  {
+   "god": "Dionysus",
+   "score": 27.1
+  }
+ ],
+ "caveat": "Neither profile has been through the adversarial review the 26 core profiles received. Indicative, not ranked."
+}
