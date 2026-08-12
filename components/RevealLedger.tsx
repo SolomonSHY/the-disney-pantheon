@@ -167,18 +167,26 @@ export default function RevealLedger({
                   </div>
 
                   {open ? (
-                    <div className="mt-3 flex items-end gap-1" aria-hidden>
+                    <div className="mt-3 flex items-end gap-1.5" aria-hidden>
                       {FACET_ORDER.map((code) => (
-                        <span
-                          key={code}
-                          className="w-8 rounded-sm"
-                          style={{
-                            height: `${Math.max(2, (it.facets[code] / 10) * 18)}px`,
-                            background: facetColor(it.facets[code]),
-                            opacity: 0.85,
-                          }}
-                          title={`${code} ${it.facets[code].toFixed(1)}`}
-                        />
+                        <span key={code} className="flex flex-col items-center">
+                          <span
+                            className="flex h-[18px] items-end"
+                            title={`${code} ${it.facets[code].toFixed(1)}`}
+                          >
+                            <span
+                              className="w-8 rounded-sm"
+                              style={{
+                                height: `${Math.max(2, (it.facets[code] / 10) * 18)}px`,
+                                background: facetColor(it.facets[code]),
+                                opacity: 0.85,
+                              }}
+                            />
+                          </span>
+                          <span className="facet-code mt-1 font-mono text-[0.6rem] leading-none text-faint">
+                            {code}
+                          </span>
+                        </span>
                       ))}
                     </div>
                   ) : (

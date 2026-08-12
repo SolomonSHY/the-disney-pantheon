@@ -36,7 +36,7 @@ export default function BonusPage() {
             href="/"
             className="font-mono text-xs uppercase tracking-[0.25em] text-faint transition-colors hover:text-muted"
           >
-            ← Main
+            ← Pantheon
           </Link>
 
           <div className="mt-8">

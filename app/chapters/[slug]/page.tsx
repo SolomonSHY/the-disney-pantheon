@@ -65,7 +65,7 @@ export default async function ChapterPage({ params }: Params) {
             href="/"
             className="font-mono text-xs uppercase tracking-[0.25em] text-faint transition-colors hover:text-muted"
           >
-            ← Main
+            ← Pantheon
           </Link>
 
           <div className="mt-8">
