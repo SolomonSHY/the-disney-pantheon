@@ -131,8 +131,10 @@
     transform: none;
   }
 }
+/* --flash-delay (set per row inline) makes a batch reveal roll down the list
+   as a visible wave instead of one simultaneous blink. */
 .reveal-in {
-  animation: revealIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: revealIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) var(--flash-delay, 0s) both;
 }
 
 /* The five facet bars grow up from the baseline, gently staggered. */
@@ -146,29 +148,36 @@
 }
 .reveal-in .facet-bar {
   transform-origin: bottom;
-  animation: barGrow 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation: barGrow 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) var(--flash-delay, 0s) both;
 }
 .reveal-in > span:nth-child(1) .facet-bar {
-  animation-delay: 0.04s;
+  animation-delay: calc(var(--flash-delay, 0s) + 0.04s);
 }
 .reveal-in > span:nth-child(2) .facet-bar {
-  animation-delay: 0.1s;
+  animation-delay: calc(var(--flash-delay, 0s) + 0.1s);
 }
 .reveal-in > span:nth-child(3) .facet-bar {
-  animation-delay: 0.16s;
+  animation-delay: calc(var(--flash-delay, 0s) + 0.16s);
 }
 .reveal-in > span:nth-child(4) .facet-bar {
-  animation-delay: 0.22s;
+  animation-delay: calc(var(--flash-delay, 0s) + 0.22s);
 }
 .reveal-in > span:nth-child(5) .facet-bar {
-  animation-delay: 0.28s;
+  animation-delay: calc(var(--flash-delay, 0s) + 0.28s);
 }
 
-/* The revealed princess name flares gold, then settles to parchment ink. */
+/* The revealed princess name flares bright gold with a glow, then settles to
+   parchment ink — bold enough to catch the eye even in a full-board reveal. */
 @keyframes goldFlash {
   0% {
-    color: #d9be86;
-    text-shadow: 0 0 18px rgba(200, 162, 90, 0.75);
+    color: #fff4d6;
+    text-shadow:
+      0 0 30px rgba(217, 190, 134, 0.95),
+      0 0 12px rgba(255, 244, 214, 0.85);
+  }
+  30% {
+    color: #e8c67c;
+    text-shadow: 0 0 20px rgba(217, 190, 134, 0.6);
   }
   100% {
     color: #e9e3d6;
@@ -176,7 +185,7 @@
   }
 }
 .reveal-name-flash {
-  animation: goldFlash 1s ease-out both;
+  animation: goldFlash 1.3s ease-out var(--flash-delay, 0s) forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {

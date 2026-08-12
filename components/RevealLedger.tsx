@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type CSSProperties } from 'react'
 import Link from 'next/link'
 import PrincessIcon from '@/components/PrincessIcon'
 import {
@@ -107,14 +107,25 @@ export default function RevealLedger({
   }
 
   const startGuess = (it: RevealItem) => {
-    // The god's next-best princesses make the tempting wrong answers. Fall back
-    // to random names only if (somehow) too few near-misses were supplied.
-    const pool = it.distractors.filter((n) => n !== it.princess)
-    const filler = shuffle(
-      princesses.map((p) => p.name).filter((n) => n !== it.princess && !pool.includes(n)),
+    // Princesses already spent on another god are off the table — each can only
+    // be used once (it's a one-to-one matching).
+    const usedElsewhere = new Set(
+      items
+        .filter((i) => i.godSlug !== it.godSlug && !revealed.has(i.godSlug) && pending[i.godSlug])
+        .map((i) => pending[i.godSlug]),
     )
-    const distractors = [...pool, ...filler].slice(0, 3)
-    setOptions((o) => ({ ...o, [it.godSlug]: shuffle([it.princess, ...distractors]) }))
+    const canUseCorrect = !usedElsewhere.has(it.princess)
+    // The god's next-best princesses make the tempting wrong answers; fill with
+    // other unused names if needed.
+    const nearMiss = it.distractors.filter((n) => n !== it.princess && !usedElsewhere.has(n))
+    const filler = shuffle(
+      princesses
+        .map((p) => p.name)
+        .filter((n) => n !== it.princess && !usedElsewhere.has(n) && !nearMiss.includes(n)),
+    )
+    const pool = [...nearMiss, ...filler]
+    const opts = canUseCorrect ? [it.princess, ...pool.slice(0, 3)] : pool.slice(0, 4)
+    setOptions((o) => ({ ...o, [it.godSlug]: shuffle(opts) }))
   }
 
   // Lock in a pick WITHOUT revealing — the answer waits for the batch reveal.
@@ -172,9 +183,20 @@ export default function RevealLedger({
   }
 
   // Which princess (by slug) has already been matched, and to whom.
-  const matchedTo = new Map(
-    items.filter((i) => revealed.has(i.godSlug)).map((i) => [i.princessSlug, i.god]),
-  )
+  // Which princesses are "spent" — by a locked-in guess while playing, or by
+  // the real pairing once revealed — mapped to the god that used them. Drives
+  // both the candidate-set strike-through and the double-use guard.
+  const usedByName = new Map<string, string>() // princess name → god label
+  const usedByGodSlug = new Map<string, string>() // princess name → god slug that used her
+  items.forEach((it) => {
+    if (revealed.has(it.godSlug)) {
+      usedByName.set(it.princess, it.god)
+      usedByGodSlug.set(it.princess, it.godSlug)
+    } else if (pending[it.godSlug]) {
+      usedByName.set(pending[it.godSlug], it.god)
+      usedByGodSlug.set(pending[it.godSlug], it.godSlug)
+    }
+  })
 
   return (
     <div>
@@ -253,7 +275,7 @@ export default function RevealLedger({
         <div className="border-t border-white/8 px-4 py-4">
           <ul className="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3">
             {princesses.map((p) => {
-              const god = matchedTo.get(p.slug)
+              const god = usedByName.get(p.name)
               return (
                 <li
                   key={p.slug}
@@ -279,7 +301,7 @@ export default function RevealLedger({
             })}
           </ul>
           <p className="mt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">
-            {princesses.length - matchedTo.size} still hidden
+            {princesses.length - usedByName.size} still available
           </p>
         </div>
       </details>
@@ -330,7 +352,7 @@ export default function RevealLedger({
       </div>
 
       <ol>
-        {items.map((it) => {
+        {items.map((it, idx) => {
           const open = revealed.has(it.godSlug)
           const rel = it.score / strongest
           const picking = !open && !!options[it.godSlug]
@@ -338,7 +360,11 @@ export default function RevealLedger({
           const flashOn = flashed.has(it.godSlug)
           const outcome = guesses[it.godSlug]
           return (
-            <li key={it.godSlug} className="group border-t border-white/8 last:border-b">
+            <li
+              key={it.godSlug}
+              className="group border-t border-white/8 last:border-b"
+              style={flashOn ? ({ '--flash-delay': `${idx * 0.06}s` } as CSSProperties) : undefined}
+            >
               <div className="relative grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-6 transition-colors group-hover:bg-white/[0.025] sm:gap-x-8">
                 {/* Sequence */}
                 <span className="pl-2 font-mono text-sm tabular-nums text-faint">
@@ -348,12 +374,9 @@ export default function RevealLedger({
                 {/* God — a stretched link over the whole row + princess/hints */}
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline gap-x-3">
-                    <Link
-                      href={`/chapters/${it.godSlug}`}
-                      className="font-serif text-2xl tracking-title text-goldsoft/90 transition-colors after:absolute after:inset-0 after:content-[''] group-hover:text-goldsoft sm:text-3xl"
-                    >
+                    <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
                       {it.god}
-                    </Link>
+                    </span>
                     {open && (
                       <>
                         <span className="text-faint">is</span>
@@ -404,13 +427,19 @@ export default function RevealLedger({
                           </span>
                         ))}
                       </div>
-                      {/* Signpost: the whole row links to the god's chapter. */}
-                      <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/55 transition-colors group-hover:text-goldsoft">
+                      {/* The one link to the chapter — only after reveal. */}
+                      <Link
+                        href={`/chapters/${it.godSlug}`}
+                        className="group/a mt-3 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/75 transition-colors hover:text-goldsoft"
+                      >
                         Read the analysis
-                        <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                        <span
+                          aria-hidden
+                          className="transition-transform group-hover/a:translate-x-0.5"
+                        >
                           →
                         </span>
-                      </span>
+                      </Link>
                     </>
                   ) : picking ? (
                     <div className="relative z-10 mt-3">
@@ -418,15 +447,21 @@ export default function RevealLedger({
                         Which princess?
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        {options[it.godSlug].map((name) => (
-                          <button
-                            key={name}
-                            onClick={() => pick(it, name)}
-                            className="rounded-full border border-white/15 px-3.5 py-1 font-serif text-base text-ink/90 transition-colors hover:border-gold/50 hover:bg-gold/[0.06] hover:text-goldsoft"
-                          >
-                            {name}
-                          </button>
-                        ))}
+                        {options[it.godSlug]
+                          .filter((name) => {
+                            // Drop any option a *different* god has since claimed.
+                            const usedBy = usedByGodSlug.get(name)
+                            return !usedBy || usedBy === it.godSlug
+                          })
+                          .map((name) => (
+                            <button
+                              key={name}
+                              onClick={() => pick(it, name)}
+                              className="rounded-full border border-white/15 px-3.5 py-1 font-serif text-base text-ink/90 transition-colors hover:border-gold/50 hover:bg-gold/[0.06] hover:text-goldsoft"
+                            >
+                              {name}
+                            </button>
+                          ))}
                         <button
                           onClick={() => drop(it.godSlug)}
                           className="rounded-full px-2 py-1 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
@@ -522,12 +557,9 @@ export default function RevealLedger({
             </span>
             <div className="min-w-0">
               <div className="flex flex-wrap items-baseline gap-x-3">
-                <Link
-                  href={bonus.href}
-                  className="font-serif text-2xl tracking-title text-goldsoft/90 transition-colors after:absolute after:inset-0 after:content-[''] group-hover:text-goldsoft sm:text-3xl"
-                >
+                <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
                   {bonus.god}
-                </Link>
+                </span>
                 {bonusOpen && (
                   <>
                     <span className="text-faint">is</span>
@@ -560,12 +592,15 @@ export default function RevealLedger({
                 </div>
               )}
               {bonusOpen && (
-                <span className="mt-2.5 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/55 transition-colors group-hover:text-goldsoft">
+                <Link
+                  href={bonus.href}
+                  className="group/a mt-2.5 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/75 transition-colors hover:text-goldsoft"
+                >
                   Read the analysis
-                  <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                  <span aria-hidden className="transition-transform group-hover/a:translate-x-0.5">
                     →
                   </span>
-                </span>
+                </Link>
               )}
             </div>
             <div className="text-right">
