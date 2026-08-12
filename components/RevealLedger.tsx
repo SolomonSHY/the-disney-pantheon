@@ -147,7 +147,8 @@ export default function RevealLedger({
             Every god below is one of the thirteen princesses in disguise. Hit{' '}
             <span className="font-mono text-[0.8em] uppercase tracking-wider text-goldsoft">Guess</span>{' '}
             to name who — the unmasking and its five-facet score flip in. Or just{' '}
-            <span className="text-ink/80">Reveal all</span> to skip ahead.
+            <span className="text-ink/80">Reveal all</span> to skip ahead. Once
+            unmasked, click a row to read the full pairing analysis.
           </p>
           <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[0.65rem] uppercase tracking-widest text-faint">
             <span>
@@ -297,31 +298,40 @@ export default function RevealLedger({
                   </div>
 
                   {open ? (
-                    <div
-                      className={`mt-3 flex items-end gap-1.5 ${flashOn ? 'reveal-in' : ''}`}
-                      aria-hidden
-                    >
-                      {FACET_ORDER.map((code) => (
-                        <span key={code} className="flex flex-col items-center">
-                          <span
-                            className="flex h-[18px] items-end"
-                            title={`${code} ${it.facets[code].toFixed(1)}`}
-                          >
+                    <>
+                      <div
+                        className={`mt-3 flex items-end gap-1.5 ${flashOn ? 'reveal-in' : ''}`}
+                        aria-hidden
+                      >
+                        {FACET_ORDER.map((code) => (
+                          <span key={code} className="flex flex-col items-center">
                             <span
-                              className="facet-bar w-8 rounded-sm"
-                              style={{
-                                height: `${Math.max(2, (it.facets[code] / 10) * 18)}px`,
-                                background: facetColor(it.facets[code]),
-                                opacity: 0.85,
-                              }}
-                            />
+                              className="flex h-[18px] items-end"
+                              title={`${code} ${it.facets[code].toFixed(1)}`}
+                            >
+                              <span
+                                className="facet-bar w-8 rounded-sm"
+                                style={{
+                                  height: `${Math.max(2, (it.facets[code] / 10) * 18)}px`,
+                                  background: facetColor(it.facets[code]),
+                                  opacity: 0.85,
+                                }}
+                              />
+                            </span>
+                            <span className="facet-code mt-1 font-mono text-[0.6rem] leading-none text-faint">
+                              {code}
+                            </span>
                           </span>
-                          <span className="facet-code mt-1 font-mono text-[0.6rem] leading-none text-faint">
-                            {code}
-                          </span>
+                        ))}
+                      </div>
+                      {/* Signpost: the whole row links to the god's chapter. */}
+                      <span className="mt-3 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/55 transition-colors group-hover:text-goldsoft">
+                        Read the analysis
+                        <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                          →
                         </span>
-                      ))}
-                    </div>
+                      </span>
+                    </>
                   ) : guessing ? (
                     <div className="relative z-10 mt-3">
                       <p className="mb-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint">
@@ -445,6 +455,14 @@ export default function RevealLedger({
                     </span>
                   ))}
                 </div>
+              )}
+              {bonusOpen && (
+                <span className="mt-2.5 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/55 transition-colors group-hover:text-goldsoft">
+                  Read the analysis
+                  <span aria-hidden className="transition-transform group-hover:translate-x-0.5">
+                    →
+                  </span>
+                </span>
               )}
             </div>
             <div className="text-right">
