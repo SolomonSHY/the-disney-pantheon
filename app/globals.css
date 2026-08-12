@@ -117,3 +117,72 @@
   font-variant: small-caps;
   letter-spacing: 0.06em;
 }
+
+/* ── The unmasking moment ──────────────────────────────────────────────────
+   Applied only to rows revealed *this interaction* (not to rows already open
+   on load), so the reveal feels like an event without a burst on every refresh. */
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.reveal-in {
+  animation: revealIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* The five facet bars grow up from the baseline, gently staggered. */
+@keyframes barGrow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.reveal-in .facet-bar {
+  transform-origin: bottom;
+  animation: barGrow 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.reveal-in > span:nth-child(1) .facet-bar {
+  animation-delay: 0.04s;
+}
+.reveal-in > span:nth-child(2) .facet-bar {
+  animation-delay: 0.1s;
+}
+.reveal-in > span:nth-child(3) .facet-bar {
+  animation-delay: 0.16s;
+}
+.reveal-in > span:nth-child(4) .facet-bar {
+  animation-delay: 0.22s;
+}
+.reveal-in > span:nth-child(5) .facet-bar {
+  animation-delay: 0.28s;
+}
+
+/* The revealed princess name flares gold, then settles to parchment ink. */
+@keyframes goldFlash {
+  0% {
+    color: #d9be86;
+    text-shadow: 0 0 18px rgba(200, 162, 90, 0.75);
+  }
+  100% {
+    color: #e9e3d6;
+    text-shadow: none;
+  }
+}
+.reveal-name-flash {
+  animation: goldFlash 1s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-in,
+  .reveal-in .facet-bar,
+  .reveal-name-flash {
+    animation: none;
+  }
+}

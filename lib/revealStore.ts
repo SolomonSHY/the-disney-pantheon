@@ -42,8 +42,13 @@ export function revealGod(slug: string) {
 
 export function hideGod(slug: string) {
   const cur = load()
-  if (!cur.includes(slug)) return
-  save(cur.filter((s) => s !== slug))
+  if (cur.includes(slug)) save(cur.filter((s) => s !== slug))
+  // Let the row be replayed: forget any recorded guess for it too.
+  const g = gload()
+  if (g[slug]) {
+    const { [slug]: _drop, ...rest } = g
+    gsave(rest)
+  }
 }
 
 export function revealMany(slugs: string[]) {
@@ -53,6 +58,63 @@ export function revealMany(slugs: string[]) {
 
 export function resetReveals() {
   save([])
+  gsave({})
+}
+
+// ── Guess outcomes ─────────────────────────────────────────────────────────
+// A parallel store recording, per god slug, whether the player's guess was
+// right or wrong. Drives the running "N correct" score. Cleared on reset.
+const GKEY = 'pantheon:guesses'
+export type Outcome = 'correct' | 'wrong'
+let gcache: Record<string, Outcome> | null = null
+const glisteners = new Set<Listener>()
+
+function gload(): Record<string, Outcome> {
+  if (gcache) return gcache
+  if (typeof window === 'undefined') return (gcache = {})
+  try {
+    gcache = JSON.parse(sessionStorage.getItem(GKEY) || '{}')
+  } catch {
+    gcache = {}
+  }
+  return gcache as Record<string, Outcome>
+}
+
+function gsave(next: Record<string, Outcome>) {
+  gcache = next
+  if (typeof window !== 'undefined') {
+    try {
+      sessionStorage.setItem(GKEY, JSON.stringify(next))
+    } catch {
+      /* ignore */
+    }
+  }
+  glisteners.forEach((l) => l())
+}
+
+/** Record a guess outcome and unmask the god in one step. */
+export function recordGuess(slug: string, correct: boolean) {
+  gsave({ ...gload(), [slug]: correct ? 'correct' : 'wrong' })
+  revealGod(slug)
+}
+
+function gsubscribe(l: Listener) {
+  glisteners.add(l)
+  return () => {
+    glisteners.delete(l)
+  }
+}
+function ggetSnapshot(): string {
+  return JSON.stringify(gload())
+}
+function ggetServerSnapshot(): string {
+  return '{}'
+}
+
+/** Reactive map of god slug → guess outcome. */
+export function useGuesses(): Record<string, Outcome> {
+  const snap = useSyncExternalStore(gsubscribe, ggetSnapshot, ggetServerSnapshot)
+  return JSON.parse(snap) as Record<string, Outcome>
 }
 
 function subscribe(l: Listener) {

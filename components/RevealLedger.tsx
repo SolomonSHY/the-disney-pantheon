@@ -1,9 +1,25 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import PrincessIcon from '@/components/PrincessIcon'
-import { FACET_ORDER, facetColor, facetDefinitions, princesses, scoreColor } from '@/lib/data'
-import { hideGod, resetReveals, revealGod, revealMany, useRevealed } from '@/lib/revealStore'
+import {
+  DISPLAY_CAP,
+  FACET_ORDER,
+  facetColor,
+  facetDefinitions,
+  princesses,
+  scoreColor,
+} from '@/lib/data'
+import {
+  hideGod,
+  recordGuess,
+  resetReveals,
+  revealGod,
+  revealMany,
+  useGuesses,
+  useRevealed,
+} from '@/lib/revealStore'
 import type { FacetScores } from '@/lib/types'
 
 export type RevealItem = {
@@ -35,12 +51,71 @@ export default function RevealLedger({
   bonus?: BonusItem
 }) {
   const revealed = useRevealed()
+  const guesses = useGuesses()
   const bonusOpen = revealed.has('hades')
   const strongest = Math.max(...items.map((i) => i.score))
   const coreRevealed = items.filter((i) => revealed.has(i.godSlug)).length
   const allOpen = coreRevealed === items.length && (!bonus || bonusOpen)
 
-  const reveal = (slug: string) => revealGod(slug)
+  const guessedCount = items.filter((i) => guesses[i.godSlug]).length
+  const correctCount = items.filter((i) => guesses[i.godSlug] === 'correct').length
+
+  // Per-row multiple-choice options, generated on demand and held until answered.
+  const [options, setOptions] = useState<Record<string, string[]>>({})
+  // Slugs revealed *this interaction* — only these get the flashy animation
+  // (rows already open from storage on load stay calm).
+  const [flashed, setFlashed] = useState<Set<string>>(() => new Set())
+  const [introDismissed, setIntroDismissed] = useState(false)
+
+  useEffect(() => {
+    try {
+      if (localStorage.getItem('pantheon:introDismissed')) setIntroDismissed(true)
+    } catch {
+      /* ignore */
+    }
+  }, [])
+
+  const dismissIntro = () => {
+    setIntroDismissed(true)
+    try {
+      localStorage.setItem('pantheon:introDismissed', '1')
+    } catch {
+      /* ignore */
+    }
+  }
+
+  const flash = (slug: string) => setFlashed((s) => new Set(s).add(slug))
+  const drop = (slug: string) =>
+    setOptions((o) => {
+      const { [slug]: _gone, ...rest } = o
+      return rest
+    })
+
+  const shuffle = <T,>(arr: T[]): T[] => {
+    const a = [...arr]
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[a[i], a[j]] = [a[j], a[i]]
+    }
+    return a
+  }
+
+  const startGuess = (it: RevealItem) => {
+    const distractors = shuffle(princesses.map((p) => p.name).filter((n) => n !== it.princess)).slice(0, 3)
+    setOptions((o) => ({ ...o, [it.godSlug]: shuffle([it.princess, ...distractors]) }))
+  }
+
+  const answer = (it: RevealItem, name: string) => {
+    flash(it.godSlug)
+    drop(it.godSlug)
+    recordGuess(it.godSlug, name === it.princess)
+  }
+
+  const reveal = (slug: string) => {
+    flash(slug)
+    drop(slug)
+    revealGod(slug)
+  }
   const revealAll = () =>
     revealMany([...items.map((i) => i.godSlug), ...(bonus ? ['hades'] : [])])
 
@@ -51,6 +126,34 @@ export default function RevealLedger({
 
   return (
     <div>
+      {/* How to play — a one-time framing for first visitors, dismissible */}
+      {!introDismissed && (
+        <div className="relative mb-6 overflow-hidden rounded-lg border border-gold/20 bg-gradient-to-br from-gold/[0.07] to-transparent px-5 py-4 pr-10">
+          <button
+            onClick={dismissIntro}
+            aria-label="Dismiss how to play"
+            className="absolute right-2.5 top-2.5 grid h-6 w-6 place-items-center rounded-full text-faint transition-colors hover:bg-white/5 hover:text-ink"
+          >
+            ✕
+          </button>
+          <p className="font-serif text-lg text-ink">How this works</p>
+          <p className="prose-editorial mt-1 max-w-measure text-sm text-muted">
+            Every god below is one of the thirteen princesses in disguise. Hit{' '}
+            <span className="font-mono text-[0.8em] uppercase tracking-wider text-goldsoft">Guess</span>{' '}
+            to name who — the unmasking and its five-facet score flip in. Or just{' '}
+            <span className="text-ink/80">Reveal all</span> to skip ahead.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[0.65rem] uppercase tracking-widest text-faint">
+            <span>
+              <span className="text-muted">bars</span> = DOM · ROL · ARC · ICO · TMP
+            </span>
+            <span>
+              <span className="text-muted">number</span> = total ⁄ {DISPLAY_CAP}
+            </span>
+          </div>
+        </div>
+      )}
+
       {/* Candidate princesses — a reminder of the roster, ticked off as matched */}
       <details className="group mb-6 rounded-lg border border-white/8 bg-raised/25">
         <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-ink">
@@ -97,6 +200,11 @@ export default function RevealLedger({
       <div className="mb-3 flex items-center justify-between">
         <p className="font-mono text-xs uppercase tracking-[0.25em] text-faint">
           {coreRevealed} / {items.length} unmasked
+          {guessedCount > 0 && (
+            <span className="ml-3 text-goldsoft">
+              · {correctCount}/{guessedCount} guessed right
+            </span>
+          )}
         </p>
         <div className="flex items-center gap-4">
           {coreRevealed > 0 && (
@@ -139,6 +247,9 @@ export default function RevealLedger({
         {items.map((it) => {
           const open = revealed.has(it.godSlug)
           const rel = it.score / strongest
+          const guessing = !open && !!options[it.godSlug]
+          const flashOn = flashed.has(it.godSlug)
+          const outcome = guesses[it.godSlug]
           return (
             <li key={it.godSlug} className="group border-t border-white/8 last:border-b">
               <div className="relative grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-6 transition-colors group-hover:bg-white/[0.025] sm:gap-x-8">
@@ -159,15 +270,31 @@ export default function RevealLedger({
                     {open && (
                       <>
                         <span className="text-faint">is</span>
-                        <span className="font-serif text-2xl tracking-title text-ink transition-colors group-hover:text-goldsoft sm:text-3xl">
+                        <span
+                          className={`font-serif text-2xl tracking-title text-ink transition-colors group-hover:text-goldsoft sm:text-3xl ${
+                            flashOn ? 'reveal-name-flash' : ''
+                          }`}
+                        >
                           {it.princess}
                         </span>
+                        {outcome && (
+                          <span
+                            className={`relative z-10 font-mono text-[0.6rem] uppercase tracking-[0.2em] ${
+                              outcome === 'correct' ? 'text-goldsoft' : 'text-wine'
+                            }`}
+                          >
+                            {outcome === 'correct' ? '✓ unmasked' : '✗ missed'}
+                          </span>
+                        )}
                       </>
                     )}
                   </div>
 
                   {open ? (
-                    <div className="mt-3 flex items-end gap-1.5" aria-hidden>
+                    <div
+                      className={`mt-3 flex items-end gap-1.5 ${flashOn ? 'reveal-in' : ''}`}
+                      aria-hidden
+                    >
                       {FACET_ORDER.map((code) => (
                         <span key={code} className="flex flex-col items-center">
                           <span
@@ -175,7 +302,7 @@ export default function RevealLedger({
                             title={`${code} ${it.facets[code].toFixed(1)}`}
                           >
                             <span
-                              className="w-8 rounded-sm"
+                              className="facet-bar w-8 rounded-sm"
                               style={{
                                 height: `${Math.max(2, (it.facets[code] / 10) * 18)}px`,
                                 background: facetColor(it.facets[code]),
@@ -188,6 +315,29 @@ export default function RevealLedger({
                           </span>
                         </span>
                       ))}
+                    </div>
+                  ) : guessing ? (
+                    <div className="relative z-10 mt-3">
+                      <p className="mb-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint">
+                        Which princess?
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {options[it.godSlug].map((name) => (
+                          <button
+                            key={name}
+                            onClick={() => answer(it, name)}
+                            className="rounded-full border border-white/15 px-3.5 py-1 font-serif text-base text-ink/90 transition-colors hover:border-gold/50 hover:bg-gold/[0.06] hover:text-goldsoft"
+                          >
+                            {name}
+                          </button>
+                        ))}
+                        <button
+                          onClick={() => reveal(it.godSlug)}
+                          className="rounded-full px-2 py-1 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
+                        >
+                          skip
+                        </button>
+                      </div>
                     </div>
                   ) : (
                     it.hints.length > 0 && (
@@ -205,10 +355,10 @@ export default function RevealLedger({
                   )}
                 </div>
 
-                {/* Right: reveal control or score */}
+                {/* Right: guess control or score */}
                 <div className="text-right">
                   {open ? (
-                    <>
+                    <div className={flashOn ? 'reveal-in' : ''}>
                       <div className="font-mono text-3xl tabular-nums text-ink sm:text-4xl">
                         {it.score.toFixed(1)}
                       </div>
@@ -218,11 +368,11 @@ export default function RevealLedger({
                           style={{ width: `${rel * 100}%`, background: scoreColor(it.score) }}
                         />
                       </div>
-                    </>
-                  ) : (
+                    </div>
+                  ) : guessing ? null : (
                     <button
-                      onClick={() => reveal(it.godSlug)}
-                      aria-label={`Reveal which princess is ${it.god}`}
+                      onClick={() => startGuess(it)}
+                      aria-label={`Guess which princess is ${it.god}`}
                       className="relative z-10 mr-2 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-faint transition-colors hover:text-goldsoft"
                     >
                       <span
@@ -231,7 +381,7 @@ export default function RevealLedger({
                       >
                         ?
                       </span>
-                      <span className="hidden sm:inline">reveal</span>
+                      <span className="hidden sm:inline">guess</span>
                     </button>
                   )}
                 </div>
@@ -262,7 +412,11 @@ export default function RevealLedger({
                 {bonusOpen && (
                   <>
                     <span className="text-faint">is</span>
-                    <span className="font-serif text-2xl tracking-title text-ink transition-colors group-hover:text-goldsoft sm:text-3xl">
+                    <span
+                      className={`font-serif text-2xl tracking-title text-ink transition-colors group-hover:text-goldsoft sm:text-3xl ${
+                        flashed.has('hades') ? 'reveal-name-flash' : ''
+                      }`}
+                    >
                       {bonus.princess}
                     </span>
                     <button
@@ -296,7 +450,7 @@ export default function RevealLedger({
                 </>
               ) : (
                 <button
-                  onClick={() => revealGod('hades')}
+                  onClick={() => reveal('hades')}
                   aria-label={`Reveal who ${bonus.god} is`}
                   className="relative z-10 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-faint transition-colors hover:text-goldsoft"
                 >
