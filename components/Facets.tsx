@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import {
   DISPLAY_CAP,
   FACET_ORDER,
@@ -25,6 +26,8 @@ type FacetsProps = {
   score?: number
   /** Hide the header row (used when a chapter already sets the scene). */
   bare?: boolean
+  /** Show a short "what the bars & score mean" note + link to the facets guide. */
+  explain?: boolean
   className?: string
 }
 
@@ -41,6 +44,7 @@ export default function Facets({
   god,
   score,
   bare = false,
+  explain = false,
   className = '',
 }: FacetsProps) {
   const pairing = princess
@@ -112,6 +116,19 @@ export default function Facets({
           )
         })}
       </dl>
+
+      {explain && (
+        <figcaption className="mt-5 border-t border-white/8 pt-3 text-xs leading-relaxed text-faint">
+          Each bar is one of five facets, scored 0–10; the pairing&rsquo;s score is
+          their sum, out of {DISPLAY_CAP}.{' '}
+          <Link
+            href="/matrix#facets"
+            className="text-goldsoft underline decoration-gold/30 underline-offset-2 transition-colors hover:decoration-gold"
+          >
+            What the five facets mean →
+          </Link>
+        </figcaption>
+      )}
     </figure>
   )
 }

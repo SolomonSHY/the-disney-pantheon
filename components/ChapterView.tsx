@@ -162,7 +162,7 @@ export default function ChapterView({
         {analysis === 'human' ? humanEssay : aiEssay}
       </div>
 
-      <Facets bare facets={facets} />
+      <Facets bare explain facets={facets} />
 
       {exactTags}
 

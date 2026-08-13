@@ -4,15 +4,7 @@ import { useEffect, useState, type CSSProperties } from 'react'
 import Link from 'next/link'
 import GodIcon from '@/components/GodIcon'
 import PrincessIcon from '@/components/PrincessIcon'
-import {
-  DISPLAY_CAP,
-  FACET_ORDER,
-  facetColor,
-  facetDefinitions,
-  godAccent,
-  princesses,
-  scoreColor,
-} from '@/lib/data'
+import { godAccent, princesses } from '@/lib/data'
 import {
   hideGod,
   recordGuess,
@@ -61,7 +53,6 @@ export default function RevealLedger({
   const guesses = useGuesses()
   const pending = usePending()
   const bonusOpen = revealed.has('hades')
-  const strongest = Math.max(...items.map((i) => i.score))
   const coreRevealed = items.filter((i) => revealed.has(i.godSlug)).length
   const complete = coreRevealed === items.length
 
@@ -255,14 +246,6 @@ export default function RevealLedger({
             <span className="text-ink/80">Reveal all</span> to just skip ahead.) Once unmasked, click
             a row to read the full pairing analysis.
           </p>
-          <div className="mt-3 flex flex-wrap gap-x-6 gap-y-1 font-mono text-[0.65rem] uppercase tracking-widest text-faint">
-            <span>
-              <span className="text-muted">bars</span> = DOM · ROL · ARC · ICO · TMP
-            </span>
-            <span>
-              <span className="text-muted">number</span> = total ⁄ {DISPLAY_CAP}
-            </span>
-          </div>
         </div>
       )}
 
@@ -337,27 +320,10 @@ export default function RevealLedger({
         </div>
       )}
 
-      {/* Legend for the facet sparkline on each revealed row */}
-      <div className="mb-4 flex flex-wrap items-center gap-x-4 gap-y-1 border-y border-white/5 py-2 text-[0.7rem] text-faint">
-        <span className="font-mono uppercase tracking-widest">Bars →</span>
-        {facetDefinitions.map((f) => (
-          <span key={f.code} className="inline-flex items-baseline gap-1.5">
-            <span className="facet-code font-mono text-muted">{f.code}</span>
-            <span>{f.name}</span>
-          </span>
-        ))}
-        <Link
-          href="/matrix#facets"
-          className="text-goldsoft underline decoration-gold/30 underline-offset-2 transition-colors hover:decoration-gold"
-        >
-          what these mean →
-        </Link>
-      </div>
+      <ol className="border-t border-white/5">
 
-      <ol>
         {items.map((it, idx) => {
           const open = revealed.has(it.godSlug)
-          const rel = it.score / strongest
           const picking = !open && !!options[it.godSlug]
           const pend = !open && !picking ? pending[it.godSlug] : undefined
           const flashOn = flashed.has(it.godSlug)
@@ -368,24 +334,40 @@ export default function RevealLedger({
               className="group border-t border-white/8 last:border-b"
               style={flashOn ? ({ '--flash-delay': `${idx * 0.06}s` } as CSSProperties) : undefined}
             >
-              <div className="relative grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-6 transition-colors group-hover:bg-white/[0.025] sm:gap-x-8">
+              <div
+                className={`relative grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-6 transition-colors group-hover:bg-white/[0.025] sm:gap-x-8 ${
+                  picking ? '' : 'cursor-pointer'
+                }`}
+                role={!open && !picking ? 'button' : undefined}
+                tabIndex={!open && !picking ? 0 : undefined}
+                aria-label={!open && !picking ? `Guess which princess is ${it.god}` : undefined}
+                onClick={!open && !picking ? () => startGuess(it) : undefined}
+                onKeyDown={
+                  !open && !picking
+                    ? (e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault()
+                          startGuess(it)
+                        }
+                      }
+                    : undefined
+                }
+              >
                 {/* Sequence */}
                 <span className="pl-2 font-mono text-sm tabular-nums text-faint">
                   {String(it.seq).padStart(2, '0')}
                 </span>
 
-                {/* God — a stretched link over the whole row + princess/hints */}
+                {/* God + reveal state */}
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline gap-x-3">
-                    <span className="inline-flex items-center gap-2.5">
-                      <GodIcon
-                        slug={it.godSlug}
-                        className="h-[1.5rem] w-[1.5rem] shrink-0 sm:h-[1.8rem] sm:w-[1.8rem]"
-                        style={{ color: godAccent(it.godSlug) }}
-                      />
-                      <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
-                        {it.god}
-                      </span>
+                    <GodIcon
+                      slug={it.godSlug}
+                      className="h-[1.5rem] w-[1.5rem] shrink-0 self-center sm:h-[1.8rem] sm:w-[1.8rem]"
+                      style={{ color: godAccent(it.godSlug) }}
+                    />
+                    <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
+                      {it.god}
                     </span>
                     {open && (
                       <>
@@ -399,7 +381,7 @@ export default function RevealLedger({
                         </span>
                         {outcome && (
                           <span
-                            className={`relative z-10 font-mono text-[0.6rem] uppercase tracking-[0.2em] ${
+                            className={`font-mono text-[0.6rem] uppercase tracking-[0.2em] ${
                               outcome === 'correct' ? 'text-goldsoft' : 'text-wine'
                             }`}
                           >
@@ -411,46 +393,19 @@ export default function RevealLedger({
                   </div>
 
                   {open ? (
-                    <>
-                      <div
-                        className={`mt-3 flex items-end gap-1.5 ${flashOn ? 'reveal-in' : ''}`}
+                    /* Whole revealed row links to the chapter (stretched link). */
+                    <Link
+                      href={`/chapters/${it.godSlug}`}
+                      className="group/a mt-2.5 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/75 transition-colors after:absolute after:inset-0 after:content-[''] hover:text-goldsoft"
+                    >
+                      Read the analysis
+                      <span
                         aria-hidden
+                        className="transition-transform group-hover/a:translate-x-0.5"
                       >
-                        {FACET_ORDER.map((code) => (
-                          <span key={code} className="flex flex-col items-center">
-                            <span
-                              className="flex h-[18px] items-end"
-                              title={`${code} ${it.facets[code].toFixed(1)}`}
-                            >
-                              <span
-                                className="facet-bar w-8 rounded-sm"
-                                style={{
-                                  height: `${Math.max(2, (it.facets[code] / 10) * 18)}px`,
-                                  background: facetColor(it.facets[code]),
-                                  opacity: 0.85,
-                                }}
-                              />
-                            </span>
-                            <span className="facet-code mt-1 font-mono text-[0.6rem] leading-none text-faint">
-                              {code}
-                            </span>
-                          </span>
-                        ))}
-                      </div>
-                      {/* The one link to the chapter — only after reveal. */}
-                      <Link
-                        href={`/chapters/${it.godSlug}`}
-                        className="group/a mt-3 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/75 transition-colors hover:text-goldsoft"
-                      >
-                        Read the analysis
-                        <span
-                          aria-hidden
-                          className="transition-transform group-hover/a:translate-x-0.5"
-                        >
-                          →
-                        </span>
-                      </Link>
-                    </>
+                        →
+                      </span>
+                    </Link>
                   ) : picking ? (
                     <div className="relative z-10 mt-3">
                       <p className="mb-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint">
@@ -481,19 +436,16 @@ export default function RevealLedger({
                       </div>
                     </div>
                   ) : pend ? (
-                    <div className="relative z-10 mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <div className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2">
                       <span className="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-faint">
                         Your guess
                       </span>
                       <span className="rounded-full border border-gold/40 bg-gold/[0.06] px-3 py-0.5 font-serif text-base text-goldsoft">
                         {pend}
                       </span>
-                      <button
-                        onClick={() => startGuess(it)}
-                        className="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
-                      >
+                      <span className="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 group-hover:text-muted">
                         change
-                      </button>
+                      </span>
                     </div>
                   ) : (
                     it.hints.length > 0 && (
@@ -511,42 +463,27 @@ export default function RevealLedger({
                   )}
                 </div>
 
-                {/* Right: guess control / locked marker / score */}
+                {/* Right: guess affordance / locked marker (the row itself is
+                    the click target, so these are visual only) */}
                 <div className="text-right">
-                  {open ? (
-                    <div className={flashOn ? 'reveal-in' : ''}>
-                      <div className="font-mono text-3xl tabular-nums text-ink sm:text-4xl">
-                        {it.score.toFixed(1)}
-                      </div>
-                      <div className="mt-2 ml-auto h-1 w-24 overflow-hidden rounded-full bg-white/8">
-                        <div
-                          className="h-full rounded-full"
-                          style={{ width: `${rel * 100}%`, background: scoreColor(it.score) }}
-                        />
-                      </div>
-                    </div>
-                  ) : picking ? null : pend ? (
+                  {open || picking ? null : pend ? (
                     <span
-                      aria-label="Guess locked in"
+                      aria-hidden
                       title="Guess locked in"
-                      className="relative z-10 mr-2 grid h-8 w-8 place-items-center rounded-full border border-gold/40 text-sm text-gold/80"
+                      className="mr-2 grid h-8 w-8 place-items-center rounded-full border border-gold/40 text-sm text-gold/80"
                     >
                       ✓
                     </span>
                   ) : (
-                    <button
-                      onClick={() => startGuess(it)}
-                      aria-label={`Guess which princess is ${it.god}`}
-                      className="relative z-10 mr-2 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-faint transition-colors hover:text-goldsoft"
+                    <span
+                      aria-hidden
+                      className="mr-2 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-faint transition-colors group-hover:text-goldsoft"
                     >
-                      <span
-                        aria-hidden
-                        className="grid h-8 w-8 place-items-center rounded-full border border-white/12 text-base transition-colors hover:border-gold/50"
-                      >
+                      <span className="grid h-8 w-8 place-items-center rounded-full border border-white/12 text-base transition-colors group-hover:border-gold/50">
                         ?
                       </span>
                       <span className="hidden sm:inline">guess</span>
-                    </button>
+                    </span>
                   )}
                 </div>
               </div>
@@ -561,21 +498,35 @@ export default function RevealLedger({
           <p className="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-gold/70">
             The fourteenth · off the matrix
           </p>
-          <div className="group relative grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-2 transition-colors hover:bg-white/[0.025] sm:gap-x-8">
+          <div
+            className="group relative grid cursor-pointer grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-2 transition-colors hover:bg-white/[0.025] sm:gap-x-8"
+            role={!bonusOpen ? 'button' : undefined}
+            tabIndex={!bonusOpen ? 0 : undefined}
+            aria-label={!bonusOpen ? `Reveal who ${bonus.god} is` : undefined}
+            onClick={!bonusOpen ? revealBonus : undefined}
+            onKeyDown={
+              !bonusOpen
+                ? (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      revealBonus()
+                    }
+                  }
+                : undefined
+            }
+          >
             <span aria-hidden className="text-center font-mono text-lg text-gold/70">
               ✦
             </span>
             <div className="min-w-0">
               <div className="flex flex-wrap items-baseline gap-x-3">
-                <span className="inline-flex items-center gap-2.5">
-                  <GodIcon
-                    slug="hades"
-                    className="h-[1.5rem] w-[1.5rem] shrink-0 sm:h-[1.8rem] sm:w-[1.8rem]"
-                    style={{ color: godAccent('hades') }}
-                  />
-                  <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
-                    {bonus.god}
-                  </span>
+                <GodIcon
+                  slug="hades"
+                  className="h-[1.5rem] w-[1.5rem] shrink-0 self-center sm:h-[1.8rem] sm:w-[1.8rem]"
+                  style={{ color: godAccent('hades') }}
+                />
+                <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
+                  {bonus.god}
                 </span>
                 {bonusOpen && (
                   <>
@@ -588,7 +539,10 @@ export default function RevealLedger({
                       {bonus.princess}
                     </span>
                     <button
-                      onClick={() => hideGod('hades')}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        hideGod('hades')
+                      }}
                       className="relative z-10 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
                     >
                       hide
@@ -596,35 +550,6 @@ export default function RevealLedger({
                   </>
                 )}
               </div>
-              {bonusOpen && (
-                <div
-                  className={`mt-3 flex items-end gap-1.5 ${
-                    flashed.has('hades') ? 'reveal-in' : ''
-                  }`}
-                  aria-hidden
-                >
-                  {FACET_ORDER.map((code) => (
-                    <span key={code} className="flex flex-col items-center">
-                      <span
-                        className="flex h-[18px] items-end"
-                        title={`${code} ${bonus.facets[code].toFixed(1)}`}
-                      >
-                        <span
-                          className="facet-bar w-8 rounded-sm"
-                          style={{
-                            height: `${Math.max(2, (bonus.facets[code] / 10) * 18)}px`,
-                            background: facetColor(bonus.facets[code]),
-                            opacity: 0.85,
-                          }}
-                        />
-                      </span>
-                      <span className="facet-code mt-1 font-mono text-[0.6rem] leading-none text-faint">
-                        {code}
-                      </span>
-                    </span>
-                  ))}
-                </div>
-              )}
               {!bonusOpen && bonus.hints.length > 0 && (
                 <div className="mt-2.5 flex flex-wrap gap-2">
                   {bonus.hints.map((h) => (
@@ -640,7 +565,7 @@ export default function RevealLedger({
               {bonusOpen && (
                 <Link
                   href={bonus.href}
-                  className="group/a mt-2.5 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/75 transition-colors hover:text-goldsoft"
+                  className="group/a mt-2.5 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/75 transition-colors after:absolute after:inset-0 after:content-[''] hover:text-goldsoft"
                 >
                   Read the analysis
                   <span aria-hidden className="transition-transform group-hover/a:translate-x-0.5">
@@ -650,35 +575,16 @@ export default function RevealLedger({
               )}
             </div>
             <div className="text-right">
-              {bonusOpen ? (
-                <div className={flashed.has('hades') ? 'reveal-in' : ''}>
-                  <div className="font-mono text-3xl tabular-nums text-ink sm:text-4xl">
-                    {bonus.score.toFixed(1)}
-                  </div>
-                  <div className="mt-2 ml-auto h-1 w-24 overflow-hidden rounded-full bg-white/8">
-                    <div
-                      className="h-full rounded-full"
-                      style={{
-                        width: `${Math.min(1, bonus.score / strongest) * 100}%`,
-                        background: scoreColor(bonus.score),
-                      }}
-                    />
-                  </div>
-                </div>
-              ) : (
-                <button
-                  onClick={revealBonus}
-                  aria-label={`Reveal who ${bonus.god} is`}
-                  className="relative z-10 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-faint transition-colors hover:text-goldsoft"
+              {!bonusOpen && (
+                <span
+                  aria-hidden
+                  className="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-faint transition-colors group-hover:text-goldsoft"
                 >
-                  <span
-                    aria-hidden
-                    className="grid h-8 w-8 place-items-center rounded-full border border-white/12 text-base transition-colors hover:border-gold/50"
-                  >
+                  <span className="grid h-8 w-8 place-items-center rounded-full border border-white/12 text-base transition-colors group-hover:border-gold/50">
                     ?
                   </span>
                   <span className="hidden sm:inline">reveal</span>
-                </button>
+                </span>
               )}
             </div>
           </div>
