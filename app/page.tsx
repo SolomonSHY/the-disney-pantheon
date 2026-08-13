@@ -48,7 +48,7 @@ export default function LandingPage() {
               Thirteen gods · thirteen disguises · thirteen princesses
             </p>
             <h1 className="text-balance text-5xl leading-[1.05] sm:text-6xl">
-              The Disney <span className="italic text-goldsoft">Pantheon</span>
+              The Disney Princess <span className="italic text-goldsoft">Pantheon</span>
             </h1>
             <p className="prose-editorial mt-8 max-w-measure text-muted">
               The 13 Olympian gods, starved of worship, have each disguised

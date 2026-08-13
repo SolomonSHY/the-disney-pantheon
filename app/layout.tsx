@@ -18,23 +18,23 @@ const serif = Newsreader({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://the-disney-pantheon.vercel.app'),
   title: {
-    default: 'The Disney Pantheon',
-    template: '%s · The Disney Pantheon',
+    default: 'The Disney Princess Pantheon',
+    template: '%s · The Disney Princess Pantheon',
   },
   description:
     'Thirteen Olympian gods, each disguised as a Disney princess — a scored, adversarially-reviewed mapping across five facets of character.',
   openGraph: {
-    title: 'The Disney Pantheon',
+    title: 'The Disney Princess Pantheon',
     description:
       'The Olympian gods, starved of worship, have each disguised themselves as a Disney princess.',
     url: '/',
-    siteName: 'The Disney Pantheon',
+    siteName: 'The Disney Princess Pantheon',
     locale: 'en_US',
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'The Disney Pantheon',
+    title: 'The Disney Princess Pantheon',
     description:
       'The Olympian gods, starved of worship, have each disguised themselves as a Disney princess.',
   },
@@ -48,7 +48,7 @@ function SiteHeader() {
           href="/"
           className="font-serif text-lg tracking-title text-ink transition-colors hover:text-goldsoft"
         >
-          The Disney&nbsp;Pantheon
+          The Disney Princess&nbsp;Pantheon
         </Link>
         <nav className="flex items-center gap-4 text-sm text-muted sm:gap-6">
           <Link href="/" className="transition-colors hover:text-ink">

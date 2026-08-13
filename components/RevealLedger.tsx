@@ -167,7 +167,7 @@ export default function RevealLedger({
       typeof window !== 'undefined' ? window.location.origin : 'https://the-disney-pantheon.vercel.app'
     const scoreLine =
       guessedCount > 0 ? `Guessed ${correctCount}/${guessedCount} right` : 'All thirteen unmasked'
-    const text = `The Disney Pantheon 🏛️\n${squares}\n${scoreLine}\n${site}`
+    const text = `The Disney Princess Pantheon 🏛️\n${squares}\n${scoreLine}\n${site}`
     try {
       if (typeof navigator !== 'undefined' && navigator.share) {
         await navigator.share({ text })
