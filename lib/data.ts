@@ -232,22 +232,22 @@ export function godAccent(slug: string): string {
   return GOD_ACCENTS[slug] ?? '#c8a25a'
 }
 
-// Reveal order — the sequence the source uses for its per-god reveal, and the
-// order the site now presents everywhere. Ordered by god, not by score, because
-// it reads best as a sequential unmasking.
+// Presentation order for the god-first ledger, chapters and numbering. Now that
+// players guess the whole board at once, a "gentle first" ordering no longer
+// matters — so this follows the natural/canonical Olympian order instead.
 export const revealOrder: string[] = [
-  'artemis',
-  'athena',
-  'demeter',
-  'poseidon',
-  'hermes',
-  'hera',
   'zeus',
-  'hestia',
+  'hera',
+  'poseidon',
+  'demeter',
+  'athena',
+  'apollo',
+  'artemis',
   'ares',
   'aphrodite',
   'hephaestus',
-  'apollo',
+  'hermes',
+  'hestia',
   'dionysus',
 ]
 const pairingByGod = new Map(authorial.pairs.map((p) => [p.godSlug, p]))

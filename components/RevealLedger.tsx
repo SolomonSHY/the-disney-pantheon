@@ -2,12 +2,14 @@
 
 import { useEffect, useState, type CSSProperties } from 'react'
 import Link from 'next/link'
+import GodIcon from '@/components/GodIcon'
 import PrincessIcon from '@/components/PrincessIcon'
 import {
   DISPLAY_CAP,
   FACET_ORDER,
   facetColor,
   facetDefinitions,
+  godAccent,
   princesses,
   scoreColor,
 } from '@/lib/data'
@@ -375,8 +377,15 @@ export default function RevealLedger({
                 {/* God — a stretched link over the whole row + princess/hints */}
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-baseline gap-x-3">
-                    <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
-                      {it.god}
+                    <span className="inline-flex items-center gap-2.5">
+                      <GodIcon
+                        slug={it.godSlug}
+                        className="h-[1.5rem] w-[1.5rem] shrink-0 sm:h-[1.8rem] sm:w-[1.8rem]"
+                        style={{ color: godAccent(it.godSlug) }}
+                      />
+                      <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
+                        {it.god}
+                      </span>
                     </span>
                     {open && (
                       <>
@@ -558,8 +567,15 @@ export default function RevealLedger({
             </span>
             <div className="min-w-0">
               <div className="flex flex-wrap items-baseline gap-x-3">
-                <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
-                  {bonus.god}
+                <span className="inline-flex items-center gap-2.5">
+                  <GodIcon
+                    slug="hades"
+                    className="h-[1.5rem] w-[1.5rem] shrink-0 sm:h-[1.8rem] sm:w-[1.8rem]"
+                    style={{ color: godAccent('hades') }}
+                  />
+                  <span className="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl">
+                    {bonus.god}
+                  </span>
                 </span>
                 {bonusOpen && (
                   <>
@@ -666,6 +682,18 @@ export default function RevealLedger({
               )}
             </div>
           </div>
+        </div>
+      )}
+
+      {/* The full grid — offered once everything's been unmasked. */}
+      {complete && (
+        <div className="mt-12 border-t border-white/8 pt-8 text-center">
+          <Link
+            href="/matrix"
+            className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/[0.06] px-5 py-2 font-mono text-xs uppercase tracking-[0.22em] text-goldsoft transition-colors hover:border-gold/70 hover:bg-gold/[0.12]"
+          >
+            See the full 13 × 13 matrix →
+          </Link>
         </div>
       )}
     </div>

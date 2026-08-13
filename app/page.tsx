@@ -1,8 +1,6 @@
-import Link from 'next/link'
 import GodNav from '@/components/GodNav'
 import RevealLedger, { type BonusItem, type RevealItem } from '@/components/RevealLedger'
 import {
-  DISPLAY_CAP,
   appendix,
   getNearMissPrincesses,
   godDomainHints,
@@ -58,17 +56,6 @@ export default function LandingPage() {
               have disguised themselves very cleverly, and some disguises are
               barely disguises at all.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-faint">
-              <Link
-                href="/matrix"
-                className="text-goldsoft underline decoration-gold/30 underline-offset-4 hover:decoration-gold"
-              >
-                See the full 13 × 13 matrix →
-              </Link>
-              <span className="font-mono text-xs">
-                scores 0–{DISPLAY_CAP} · the five facets summed
-              </span>
-            </div>
           </section>
 
           {/* The reveal ledger */}
