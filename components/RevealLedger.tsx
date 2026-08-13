@@ -195,6 +195,23 @@ export default function RevealLedger({
     }
   })
 
+  // The options actually shown for an open picker: the generated set minus any a
+  // different god has since claimed, then backfilled to four (correct answer,
+  // near-misses, then any remaining unused) so a full slate shows when possible.
+  const displayOptions = (it: RevealItem): string[] => {
+    const usedByOther = (name: string) => {
+      const g = usedByGodSlug.get(name)
+      return !!g && g !== it.godSlug
+    }
+    const shown = (options[it.godSlug] ?? []).filter((n) => !usedByOther(n))
+    for (const name of [it.princess, ...it.distractors, ...princesses.map((p) => p.name)]) {
+      if (shown.length >= 4) break
+      if (shown.includes(name) || usedByOther(name)) continue
+      shown.push(name)
+    }
+    return shown
+  }
+
   return (
     <div>
       {/* Completion — the payoff once the whole board is unmasked */}
@@ -407,21 +424,15 @@ export default function RevealLedger({
                         Which princess?
                       </p>
                       <div className="flex flex-wrap gap-2">
-                        {options[it.godSlug]
-                          .filter((name) => {
-                            // Drop any option a *different* god has since claimed.
-                            const usedBy = usedByGodSlug.get(name)
-                            return !usedBy || usedBy === it.godSlug
-                          })
-                          .map((name) => (
-                            <button
-                              key={name}
-                              onClick={() => pick(it, name)}
-                              className="rounded-full border border-white/15 px-3.5 py-1 font-serif text-base text-ink/90 transition-colors hover:border-gold/50 hover:bg-gold/[0.06] hover:text-goldsoft"
-                            >
-                              {name}
-                            </button>
-                          ))}
+                        {displayOptions(it).map((name) => (
+                          <button
+                            key={name}
+                            onClick={() => pick(it, name)}
+                            className="rounded-full border border-white/15 px-3.5 py-1 font-serif text-base text-ink/90 transition-colors hover:border-gold/50 hover:bg-gold/[0.06] hover:text-goldsoft"
+                          >
+                            {name}
+                          </button>
+                        ))}
                         <button
                           onClick={() => {
                             clearPending(it.godSlug)
