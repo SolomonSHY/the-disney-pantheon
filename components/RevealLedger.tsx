@@ -305,7 +305,7 @@ export default function RevealLedger({
             )}
           </p>
           <div className="flex items-center gap-4">
-            {(coreRevealed > 0 || pendingCount > 0) && (
+            {(coreRevealed > 0 || pendingCount > 0 || bonusOpen) && (
               <button
                 onClick={resetReveals}
                 className="font-mono text-xs uppercase tracking-[0.2em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"

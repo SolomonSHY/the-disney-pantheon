@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import Heatmap from '@/components/Heatmap'
 import GodNav from '@/components/GodNav'
 import {
@@ -82,6 +83,15 @@ export default function MatrixPage() {
             cells={cells}
             canonicalKeys={canonicalKeys}
           />
+
+          <div className="mt-12 flex justify-center border-t border-white/8 pt-8">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 rounded-full border border-white/12 px-5 py-2 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-muted transition-colors hover:border-gold/50 hover:text-goldsoft"
+            >
+              ← Back to the pantheon
+            </Link>
+          </div>
         </div>
       </div>
     </div>
