@@ -43,6 +43,7 @@ export type BonusItem = {
   god: string
   princess: string
   score: number
+  facets: FacetScores
   hints: string[]
   href: string
 }
@@ -579,6 +580,35 @@ export default function RevealLedger({
                   </>
                 )}
               </div>
+              {bonusOpen && (
+                <div
+                  className={`mt-3 flex items-end gap-1.5 ${
+                    flashed.has('hades') ? 'reveal-in' : ''
+                  }`}
+                  aria-hidden
+                >
+                  {FACET_ORDER.map((code) => (
+                    <span key={code} className="flex flex-col items-center">
+                      <span
+                        className="flex h-[18px] items-end"
+                        title={`${code} ${bonus.facets[code].toFixed(1)}`}
+                      >
+                        <span
+                          className="facet-bar w-8 rounded-sm"
+                          style={{
+                            height: `${Math.max(2, (bonus.facets[code] / 10) * 18)}px`,
+                            background: facetColor(bonus.facets[code]),
+                            opacity: 0.85,
+                          }}
+                        />
+                      </span>
+                      <span className="facet-code mt-1 font-mono text-[0.6rem] leading-none text-faint">
+                        {code}
+                      </span>
+                    </span>
+                  ))}
+                </div>
+              )}
               {!bonusOpen && bonus.hints.length > 0 && (
                 <div className="mt-2.5 flex flex-wrap gap-2">
                   {bonus.hints.map((h) => (
@@ -605,8 +635,19 @@ export default function RevealLedger({
             </div>
             <div className="text-right">
               {bonusOpen ? (
-                <div className="font-mono text-3xl tabular-nums text-ink sm:text-4xl">
-                  {bonus.score.toFixed(1)}
+                <div className={flashed.has('hades') ? 'reveal-in' : ''}>
+                  <div className="font-mono text-3xl tabular-nums text-ink sm:text-4xl">
+                    {bonus.score.toFixed(1)}
+                  </div>
+                  <div className="mt-2 ml-auto h-1 w-24 overflow-hidden rounded-full bg-white/8">
+                    <div
+                      className="h-full rounded-full"
+                      style={{
+                        width: `${Math.min(1, bonus.score / strongest) * 100}%`,
+                        background: scoreColor(bonus.score),
+                      }}
+                    />
+                  </div>
                 </div>
               ) : (
                 <button

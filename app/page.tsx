@@ -29,6 +29,7 @@ export default function LandingPage() {
     god: 'Hades',
     princess: 'Elsa',
     score: appendix.score,
+    facets: appendix.facets,
     hints: ['the dead', 'underworld', 'riches'],
     href: '/bonus',
   }
