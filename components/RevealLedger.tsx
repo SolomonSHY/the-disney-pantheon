@@ -111,6 +111,15 @@ export default function RevealLedger({
     drop(it.godSlug)
   }
 
+  // Unmask a single god whose guess is locked in (commit + score just that one).
+  const unmaskOne = (it: RevealItem) => {
+    const pickName = pending[it.godSlug]
+    if (!pickName) return
+    recordGuess(it.godSlug, pickName === it.princess)
+    clearPending(it.godSlug)
+    setFlashed((s) => new Set(s).add(it.godSlug))
+  }
+
   // Unmask ONLY the gods with a pending guess — commit + score just those,
   // leaving the un-guessed gods still masked.
   const unmaskGuessed = () => {
@@ -348,14 +357,14 @@ export default function RevealLedger({
             >
               <div
                 className={`relative grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-6 transition-colors before:pointer-events-none before:absolute before:inset-y-2 before:left-0 before:w-[2px] before:rounded-full before:bg-transparent before:transition-colors before:content-[''] group-hover:bg-white/[0.025] group-hover:before:bg-gold/50 sm:gap-x-8 ${
-                  picking ? '' : 'cursor-pointer'
+                  picking || pend ? '' : 'cursor-pointer'
                 }`}
-                role={!open && !picking ? 'button' : undefined}
-                tabIndex={!open && !picking ? 0 : undefined}
-                aria-label={!open && !picking ? `Guess which princess is ${it.god}` : undefined}
-                onClick={!open && !picking ? () => startGuess(it) : undefined}
+                role={!open && !picking && !pend ? 'button' : undefined}
+                tabIndex={!open && !picking && !pend ? 0 : undefined}
+                aria-label={!open && !picking && !pend ? `Guess which princess is ${it.god}` : undefined}
+                onClick={!open && !picking && !pend ? () => startGuess(it) : undefined}
                 onKeyDown={
-                  !open && !picking
+                  !open && !picking && !pend
                     ? (e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault()
@@ -452,9 +461,12 @@ export default function RevealLedger({
                       <span className="rounded-full border border-gold/40 bg-gold/[0.06] px-3 py-0.5 font-serif text-base text-goldsoft">
                         {pend}
                       </span>
-                      <span className="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 group-hover:text-muted">
+                      <button
+                        onClick={() => startGuess(it)}
+                        className="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
+                      >
                         change
-                      </span>
+                      </button>
                     </div>
                   ) : (
                     it.hints.length > 0 && (
@@ -472,17 +484,18 @@ export default function RevealLedger({
                   )}
                 </div>
 
-                {/* Right: guess affordance / locked marker (the row itself is
-                    the click target, so these are visual only) */}
+                {/* Right: the ? guess affordance is visual (whole masked row is
+                    the click target); the ✓ on a locked-in guess unmasks it. */}
                 <div className="text-right">
                   {open || picking ? null : pend ? (
-                    <span
-                      aria-hidden
-                      title="Guess locked in"
-                      className="mr-2 grid h-8 w-8 place-items-center rounded-full border border-gold/40 text-sm text-gold/80"
+                    <button
+                      onClick={() => unmaskOne(it)}
+                      aria-label={`Unmask ${it.god}`}
+                      title="Unmask god"
+                      className="mr-2 grid h-8 w-8 place-items-center rounded-full border border-gold/40 text-sm text-gold/80 transition-colors hover:border-gold hover:bg-gold/10 hover:text-goldsoft"
                     >
                       ✓
-                    </span>
+                    </button>
                   ) : (
                     <span
                       aria-hidden
