@@ -57,11 +57,9 @@ export default function Heatmap({ princesses, gods, cells, canonicalKeys }: Heat
 
   return (
     <div className="relative">
-      {/* Spoiler-safe toggle for the princess names across the top */}
-      <div className="mb-4 flex items-center justify-between gap-4">
-        <p className="font-mono text-[0.7rem] uppercase tracking-widest text-faint">
-          {namesShown ? 'Princess names shown' : 'Princess names hidden'}
-        </p>
+      {/* Spoiler-safe toggle for the princess names across the top — the button
+          label alone conveys the current state, so no separate status line. */}
+      <div className="mb-4">
         <button
           onClick={() => setManualNames(!namesShown)}
           className="font-mono text-xs uppercase tracking-[0.2em] text-goldsoft underline decoration-gold/30 underline-offset-4 transition-colors hover:decoration-gold"
