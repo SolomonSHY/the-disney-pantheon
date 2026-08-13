@@ -118,6 +118,54 @@
   letter-spacing: 0.06em;
 }
 
+/* ── Footnotes (remark-gfm) ─────────────────────────────────────────────────
+   The in-text reference: a small gold superscript. */
+.prose-editorial [data-footnote-ref] {
+  font-family: theme('fontFamily.mono');
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  padding: 0 0.15em;
+  color: theme('colors.goldsoft');
+  text-decoration: none;
+}
+.prose-editorial [data-footnote-ref]:hover {
+  color: theme('colors.gold');
+}
+
+/* The notes themselves, gathered under a hairline rule at the essay's foot. */
+.prose-editorial .footnotes {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: theme('colors.muted');
+}
+.prose-editorial .footnotes ol {
+  margin: 0;
+  max-width: 34rem;
+  padding-left: 1.4rem;
+  list-style: decimal;
+}
+.prose-editorial .footnotes li {
+  padding-left: 0.35rem;
+  margin: 0.5rem 0;
+}
+.prose-editorial .footnotes li::marker {
+  color: theme('colors.gold');
+  font-family: theme('fontFamily.mono');
+  font-size: 0.85em;
+}
+/* Cancel the em-dash bullet the prose gives generic list items. */
+.prose-editorial .footnotes li::before {
+  content: none;
+}
+.prose-editorial .footnotes [data-footnote-backref] {
+  margin-left: 0.35em;
+  color: theme('colors.gold');
+  text-decoration: none;
+}
+
 /* ── The unmasking moment ──────────────────────────────────────────────────
    Applied only to rows revealed *this interaction* (not to rows already open
    on load), so the reveal feels like an event without a burst on every refresh. */
