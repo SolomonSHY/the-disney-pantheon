@@ -61,7 +61,7 @@ export default function BonusPage() {
               godSlug="hades"
               accent={accent}
               princessSlug="elsa"
-              label="Bonus · off the grid"
+              label="The fourteenth"
               god="Hades"
               princess="Elsa"
               film="Frozen"

@@ -54,9 +54,18 @@ export default function LandingPage() {
             </h1>
             <p className="prose-editorial mt-8 max-w-measure text-muted">
               The 13 Olympian gods, starved of worship, have each disguised
-              themselves as one of the official 13 Disney princesses. Some gods
-              have disguised themselves very cleverly, and some disguises are
-              barely disguises at all.
+              themselves as one of the official 13 Disney princesses.
+            </p>
+            <p className="prose-editorial mt-5 max-w-measure text-sm text-muted">
+              <span className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-goldsoft">
+                How to play —{' '}
+              </span>
+              Lock in a{' '}
+              <span className="font-mono text-[0.85em] uppercase tracking-wider text-goldsoft">
+                Guess
+              </span>{' '}
+              for each god, then <span className="text-ink/80">Unmask guessed</span> to reveal and
+              score your picks. (Or <span className="text-ink/80">Unmask all</span> to skip ahead.)
             </p>
           </section>
 

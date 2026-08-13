@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, type CSSProperties } from 'react'
+import { useState, type CSSProperties } from 'react'
 import Link from 'next/link'
 import GodIcon from '@/components/GodIcon'
 import PrincessIcon from '@/components/PrincessIcon'
@@ -66,25 +66,7 @@ export default function RevealLedger({
   // Slugs revealed *this interaction* — only these get the flashy animation
   // (rows already open from storage on load stay calm).
   const [flashed, setFlashed] = useState<Set<string>>(() => new Set())
-  const [introDismissed, setIntroDismissed] = useState(false)
   const [shared, setShared] = useState(false)
-
-  useEffect(() => {
-    try {
-      if (localStorage.getItem('pantheon:introDismissed')) setIntroDismissed(true)
-    } catch {
-      /* ignore */
-    }
-  }, [])
-
-  const dismissIntro = () => {
-    setIntroDismissed(true)
-    try {
-      localStorage.setItem('pantheon:introDismissed', '1')
-    } catch {
-      /* ignore */
-    }
-  }
 
   const drop = (slug: string) =>
     setOptions((o) => {
@@ -245,27 +227,6 @@ export default function RevealLedger({
               Play again
             </button>
           </div>
-        </div>
-      )}
-
-      {/* How to play — a one-time framing for first visitors, dismissible */}
-      {!introDismissed && !complete && (
-        <div className="relative mb-6 overflow-hidden rounded-lg border border-gold/20 bg-gradient-to-br from-gold/[0.07] to-transparent px-5 py-4 pr-10">
-          <button
-            onClick={dismissIntro}
-            aria-label="Dismiss how to play"
-            className="absolute right-2.5 top-2.5 grid h-6 w-6 place-items-center rounded-full text-faint transition-colors hover:bg-white/5 hover:text-ink"
-          >
-            ✕
-          </button>
-          <p className="font-serif text-lg text-ink">How to play</p>
-          <p className="prose-editorial mt-1 max-w-measure text-sm text-muted">
-            Lock in a{' '}
-            <span className="font-mono text-[0.8em] uppercase tracking-wider text-goldsoft">Guess</span>{' '}
-            for each god, then <span className="text-ink/80">Unmask guessed</span> to reveal and score
-            your picks. (Or <span className="text-ink/80">Unmask all</span> to skip ahead.) Then click
-            any row to read its full pairing.
-          </p>
         </div>
       )}
 
