@@ -105,11 +105,6 @@ function SiteFooter() {
   return (
     <footer className="relative z-20 border-t border-white/5">
       <div className="mx-auto max-w-[72rem] space-y-4 px-6 py-10">
-        <p className="max-w-measure font-serif text-sm leading-relaxed text-muted">
-          A playful work of comparative mythology: thirteen Olympian gods matched to
-          thirteen Disney princesses across five facets of character —
-          algorithmically derived, then human curated and analyzed.
-        </p>
         <p className="max-w-measure text-xs leading-relaxed text-faint">
           An unofficial fan project, unaffiliated with and unendorsed by The Walt
           Disney Company. Disney, the Disney Princesses, and all related characters
