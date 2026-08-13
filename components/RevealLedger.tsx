@@ -6,6 +6,7 @@ import GodIcon from '@/components/GodIcon'
 import PrincessIcon from '@/components/PrincessIcon'
 import { godAccent, princesses } from '@/lib/data'
 import {
+  clearPending,
   hideGod,
   recordGuess,
   resetReveals,
@@ -296,9 +297,12 @@ export default function RevealLedger({
       {!complete && (
         <div className="mb-3 flex items-center justify-between">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-faint">
-            {coreRevealed} / {items.length} unmasked
-            {pendingCount > 0 && (
-              <span className="ml-3 text-goldsoft">· {pendingCount} locked in</span>
+            {pendingCount > 0 ? (
+              <span className="text-goldsoft">
+                {pendingCount} / {items.length} locked in
+              </span>
+            ) : (
+              <span>Guess the thirteen</span>
             )}
           </p>
           <div className="flex items-center gap-4">
@@ -428,7 +432,10 @@ export default function RevealLedger({
                             </button>
                           ))}
                         <button
-                          onClick={() => drop(it.godSlug)}
+                          onClick={() => {
+                            clearPending(it.godSlug)
+                            drop(it.godSlug)
+                          }}
                           className="rounded-full px-2 py-1 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
                         >
                           cancel
