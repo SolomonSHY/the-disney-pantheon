@@ -232,7 +232,7 @@ async function buildResultCard(
   ctx.fillStyle = '#6b6559'
   ctx.font = `600 22px ${MONO}`
   ls(3)
-  ctx.fillText('THE-DISNEY-PANTHEON.VERCEL.APP', W / 2, 972)
+  ctx.fillText('DISNEY-PANTHEON.COM', W / 2, 972)
   ls(0)
   return cv
 }
@@ -362,7 +362,7 @@ export default function RevealLedger({
       })
       .join('')
     const site =
-      typeof window !== 'undefined' ? window.location.origin : 'https://the-disney-pantheon.vercel.app'
+      typeof window !== 'undefined' ? window.location.origin : 'https://disney-pantheon.com'
     const scoreLine =
       guessedCount > 0 ? `Guessed ${correctCount}/${guessedCount} right` : 'All thirteen unmasked'
     const text = `The Disney Princess Pantheon 🏛️\n${squares}\n${scoreLine}\n${site}`

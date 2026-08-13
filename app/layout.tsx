@@ -16,7 +16,7 @@ const serif = Newsreader({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://the-disney-pantheon.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://disney-pantheon.com'),
   title: {
     default: 'The Disney Princess Pantheon',
     template: '%s · The Disney Princess Pantheon',

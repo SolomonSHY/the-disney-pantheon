@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { chapterSlugs } from '@/lib/data'
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://the-disney-pantheon.vercel.app'
+const BASE = process.env.NEXT_PUBLIC_SITE_URL || 'https://disney-pantheon.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
