@@ -193,6 +193,13 @@ export function getPrincess(slug: string): Princess | undefined {
   return princessBySlug.get(slug)
 }
 
+// Where a princess ranks among all thirteen for a given god (1 = the god's
+// highest-scoring princess). The god's-eye view of a pairing.
+export function godRankOfPrincess(godSlug: string, princessSlug: string): number {
+  const column = cells.filter((c) => c.godSlug === godSlug).sort((a, b) => b.score - a.score)
+  return column.findIndex((c) => c.princessSlug === princessSlug) + 1
+}
+
 // The princesses who scored NEXT-highest in a god's column — the plausible
 // near-misses that make the landing guess a real challenge, rather than three
 // random names you can dismiss on sight.

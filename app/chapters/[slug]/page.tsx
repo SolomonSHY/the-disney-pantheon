@@ -13,6 +13,7 @@ import {
   getPairingByGod,
   getPrincess,
   godAccent,
+  godRankOfPrincess,
   isOverrideGod,
 } from '@/lib/data'
 
@@ -105,9 +106,9 @@ export default async function ChapterPage({ params }: Params) {
               score={pairing.score}
               facets={pairing.facets}
               rankLabel={
-                pairing.rankInRow === 1
+                godRankOfPrincess(slug, pairing.princessSlug) === 1
                   ? 'first choice'
-                  : `${ordinal(pairing.rankInRow)}-closest god`
+                  : `${ordinal(godRankOfPrincess(slug, pairing.princessSlug))}-closest princess`
               }
               override={alg ? { algPrincess: alg.princess, algScore: alg.score } : null}
               humanEssay={<HumanEssay />}
