@@ -129,17 +129,37 @@ export default function RevealLedger({
     drop(it.godSlug)
   }
 
-  // Commit every pending guess, score it, and unmask the whole board at once.
-  const revealAll = () => {
+  // Unmask ONLY the gods with a pending guess — commit + score just those,
+  // leaving the un-guessed gods still masked.
+  const unmaskGuessed = () => {
     const freshly: string[] = []
     items.forEach((it) => {
       if (revealed.has(it.godSlug)) return
       const pickName = pending[it.godSlug]
-      if (pickName) recordGuess(it.godSlug, pickName === it.princess)
-      freshly.push(it.godSlug)
+      if (pickName) {
+        recordGuess(it.godSlug, pickName === it.princess)
+        clearPending(it.godSlug)
+        freshly.push(it.godSlug)
+      }
     })
-    revealMany([...items.map((i) => i.godSlug), ...(bonus && !bonusOpen ? ['hades'] : [])])
-    setFlashed((prev) => new Set([...prev, ...freshly, ...(bonus && !bonusOpen ? ['hades'] : [])]))
+    setFlashed((prev) => new Set([...prev, ...freshly]))
+  }
+
+  // Unmask everything still hidden (any pending guesses score; the rest just
+  // reveal), plus the bonus.
+  const unmaskAll = () => {
+    const bonusFresh = bonus && !bonusOpen ? ['hades'] : []
+    const freshly = items.filter((it) => !revealed.has(it.godSlug)).map((it) => it.godSlug)
+    items.forEach((it) => {
+      if (revealed.has(it.godSlug)) return
+      const pickName = pending[it.godSlug]
+      if (pickName) {
+        recordGuess(it.godSlug, pickName === it.princess)
+        clearPending(it.godSlug)
+      }
+    })
+    revealMany([...items.map((i) => i.godSlug), ...bonusFresh])
+    setFlashed((prev) => new Set([...prev, ...freshly, ...bonusFresh]))
   }
 
   // Bonus (Hades) stays an independent one-off reveal.
@@ -242,9 +262,9 @@ export default function RevealLedger({
           <p className="prose-editorial mt-1 max-w-measure text-sm text-muted">
             Lock in a{' '}
             <span className="font-mono text-[0.8em] uppercase tracking-wider text-goldsoft">Guess</span>{' '}
-            for each god, then <span className="text-ink/80">Reveal answers</span> to unmask them all
-            at once and see how you scored. (Or <span className="text-ink/80">Reveal all</span> to
-            skip ahead.) Then click any row to read its full pairing.
+            for each god, then <span className="text-ink/80">Unmask guessed</span> to reveal and score
+            your picks. (Or <span className="text-ink/80">Unmask all</span> to skip ahead.) Then click
+            any row to read its full pairing.
           </p>
         </div>
       )}
@@ -298,7 +318,7 @@ export default function RevealLedger({
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-faint">
             {pendingCount > 0 ? (
               <span className="text-goldsoft">
-                {pendingCount} / {items.length} locked in
+                {pendingCount} / {items.length} divined
               </span>
             ) : (
               <span>Guess the thirteen</span>
@@ -314,10 +334,10 @@ export default function RevealLedger({
               </button>
             )}
             <button
-              onClick={revealAll}
+              onClick={pendingCount > 0 ? unmaskGuessed : unmaskAll}
               className="font-mono text-xs uppercase tracking-[0.2em] text-goldsoft underline decoration-gold/30 underline-offset-4 transition-colors hover:decoration-gold"
             >
-              {pendingCount > 0 ? `Reveal answers (${pendingCount})` : 'Reveal all'}
+              {pendingCount > 0 ? `Unmask guessed (${pendingCount})` : 'Unmask all'}
             </button>
           </div>
         </div>
@@ -502,7 +522,7 @@ export default function RevealLedger({
       {bonus && (
         <div className="mt-10 border-t border-gold/25 pt-6">
           <p className="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-gold/70">
-            The fourteenth · off the grid
+            The fourteenth · non-Olympian · unofficial
           </p>
           <div
             className="group relative grid cursor-pointer grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-2 transition-colors before:pointer-events-none before:absolute before:inset-y-1 before:left-0 before:w-[2px] before:rounded-full before:bg-transparent before:transition-colors before:content-[''] hover:bg-white/[0.025] hover:before:bg-gold/50 sm:gap-x-8"
