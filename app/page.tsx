@@ -54,12 +54,15 @@ export default function LandingPage() {
             </h1>
             <p className="prose-editorial mt-8 max-w-measure text-muted">
               The 13 Olympian gods, starved of worship, have each disguised
-              themselves as one of the official 13 Disney princesses. Lock in a{' '}
+              themselves as one of the 13 official Disney princesses.{' '}
               <span className="font-mono text-[0.85em] uppercase tracking-wider text-goldsoft">
                 Guess
               </span>{' '}
-              for each god, then <span className="text-ink/80">Unmask guessed</span> to reveal and
-              score your picks. (Or <span className="text-ink/80">Unmask all</span> to skip ahead.)
+              which princess hides each god, then{' '}
+              <span className="font-mono text-[0.85em] uppercase tracking-wider text-goldsoft">
+                Unmask
+              </span>{' '}
+              to score your picks — or unmask all to skip straight to the answers.
             </p>
           </section>
 

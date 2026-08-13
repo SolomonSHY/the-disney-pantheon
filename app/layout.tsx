@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 function SiteHeader() {
   return (
     <header className="relative z-20 border-b border-white/5">
-      <div className="mx-auto flex max-w-[72rem] items-baseline justify-between px-6 py-5">
+      <div className="mx-auto flex max-w-[72rem] flex-wrap items-baseline justify-between gap-x-6 gap-y-2 px-6 py-5">
         <Link
           href="/"
           className="font-serif text-lg tracking-title text-ink transition-colors hover:text-goldsoft"
@@ -101,12 +101,44 @@ function SiteHeader() {
   )
 }
 
+function SiteFooter() {
+  return (
+    <footer className="relative z-20 border-t border-white/5">
+      <div className="mx-auto max-w-[72rem] space-y-4 px-6 py-10">
+        <p className="max-w-measure font-serif text-sm leading-relaxed text-muted">
+          A playful work of comparative mythology: thirteen Olympian gods matched to
+          thirteen Disney princesses across five facets of character — scored by
+          algorithm, settled by argument.
+        </p>
+        <p className="max-w-measure text-xs leading-relaxed text-faint">
+          An unofficial fan project, unaffiliated with and unendorsed by The Walt
+          Disney Company. Disney, the Disney Princesses, and all related characters
+          and films are trademarks of their respective owners, used here for
+          commentary and criticism. Pairing portraits are AI-generated.
+        </p>
+        <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-faint">
+          <Link href="/" className="transition-colors hover:text-muted">
+            Pantheon
+          </Link>
+          <Link href="/matrix" className="transition-colors hover:text-muted">
+            Concordance
+          </Link>
+          <Link href="/overrides" className="transition-colors hover:text-muted">
+            Emendations
+          </Link>
+        </nav>
+      </div>
+    </footer>
+  )
+}
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={serif.variable}>
-      <body className="min-h-screen">
+      <body className="flex min-h-screen flex-col">
         <SiteHeader />
-        <main className="relative z-10 pb-24">{children}</main>
+        <main className="relative z-10 flex-1 pb-24">{children}</main>
+        <SiteFooter />
         <Analytics />
       </body>
     </html>

@@ -66,7 +66,7 @@ export default function Heatmap({ princesses, gods, cells, canonicalKeys }: Heat
           onClick={() => setManualNames(!namesShown)}
           className="font-mono text-xs uppercase tracking-[0.2em] text-goldsoft underline decoration-gold/30 underline-offset-4 transition-colors hover:decoration-gold"
         >
-          {namesShown ? 'Hide princesses' : 'Reveal princesses'}
+          {namesShown ? 'Hide princesses' : 'Unmask princesses'}
         </button>
       </div>
 

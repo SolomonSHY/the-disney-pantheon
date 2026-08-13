@@ -236,7 +236,7 @@ export default function RevealLedger({
                 right
               </>
             ) : (
-              'All thirteen revealed'
+              'All thirteen unmasked'
             )}
           </p>
           <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
@@ -317,7 +317,7 @@ export default function RevealLedger({
                   {coreRevealed} / {items.length} unmasked
                 </span>
                 {pendingCount > 0 && (
-                  <span className="ml-3 text-goldsoft">· {pendingCount} divined</span>
+                  <span className="ml-3 text-goldsoft">· {pendingCount} guessed</span>
                 )}
               </>
             )}
@@ -406,7 +406,7 @@ export default function RevealLedger({
                               outcome === 'correct' ? 'text-goldsoft' : 'text-wine'
                             }`}
                           >
-                            {outcome === 'correct' ? '✓ unmasked' : '✗ missed'}
+                            {outcome === 'correct' ? '✓ right' : '✗ wrong'}
                           </span>
                         )}
                       </>
@@ -524,7 +524,7 @@ export default function RevealLedger({
             className="group relative grid cursor-pointer grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-2 transition-colors before:pointer-events-none before:absolute before:inset-y-1 before:left-0 before:w-[2px] before:rounded-full before:bg-transparent before:transition-colors before:content-[''] hover:bg-white/[0.025] hover:before:bg-gold/50 sm:gap-x-8"
             role={!bonusOpen ? 'button' : undefined}
             tabIndex={!bonusOpen ? 0 : undefined}
-            aria-label={!bonusOpen ? `Reveal who ${bonus.god} is` : undefined}
+            aria-label={!bonusOpen ? `Unmask who ${bonus.god} is` : undefined}
             onClick={!bonusOpen ? revealBonus : undefined}
             onKeyDown={
               !bonusOpen
@@ -605,7 +605,7 @@ export default function RevealLedger({
                   <span className="grid h-8 w-8 place-items-center rounded-full border border-white/12 text-base transition-colors group-hover:border-gold/50">
                     ?
                   </span>
-                  <span className="hidden sm:inline">reveal</span>
+                  <span className="hidden sm:inline">unmask</span>
                 </span>
               )}
             </div>

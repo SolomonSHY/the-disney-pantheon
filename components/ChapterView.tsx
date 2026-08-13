@@ -100,11 +100,11 @@ export default function ChapterView({
           ) : (
             <button
               onClick={() => revealGod(godSlug)}
-              aria-label={`Reveal which princess is ${god}`}
+              aria-label={`Unmask which princess is ${god}`}
               className="group inline-flex translate-y-[-0.15em] items-center gap-1.5 rounded-full border border-white/15 px-3.5 py-1 align-middle font-mono text-xs uppercase tracking-[0.18em] text-muted transition-colors hover:border-gold/50 hover:text-goldsoft"
             >
               <span aria-hidden className="text-sm leading-none">?</span>
-              reveal
+              unmask
             </button>
           )}
         </h1>
