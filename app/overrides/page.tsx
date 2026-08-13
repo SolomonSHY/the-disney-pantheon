@@ -1,14 +1,37 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import GodIcon from '@/components/GodIcon'
 import GodNav from '@/components/GodNav'
-import { DISPLAY_CAP, getPairing, overrides } from '@/lib/data'
+import {
+  DISPLAY_CAP,
+  getAlgorithmicPairingByGod,
+  godAccent,
+  isOverrideGod,
+  orderedPairings,
+} from '@/lib/data'
 import Overrides from '@/content/overrides.mdx'
 
 export const metadata: Metadata = {
-  title: 'Manual Overrides',
+  title: 'Emendations',
   description:
     'The four places where a human overruled the machine — with the reasons why.',
 }
+
+// God-first view of the four corrections: for each affected god, the princess
+// the algorithm assigned it (struck) vs. the princess it ended up with.
+const emendations = orderedPairings
+  .filter((p) => isOverrideGod(p.godSlug))
+  .map((canonical) => {
+    const alg = getAlgorithmicPairingByGod(canonical.godSlug)
+    return {
+      god: canonical.god,
+      godSlug: canonical.godSlug,
+      fromPrincess: alg?.princess ?? '',
+      fromScore: alg?.score ?? 0,
+      toPrincess: canonical.princess,
+      toScore: canonical.score,
+    }
+  })
 
 export default function OverridesPage() {
   return (
@@ -24,46 +47,51 @@ export default function OverridesPage() {
           <p className="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-faint">
             Masters of disguise · model limitations
           </p>
-          <h1 className="text-4xl leading-tight sm:text-5xl">Manual Overrides</h1>
+          <h1 className="text-4xl leading-tight sm:text-5xl">Emendations</h1>
           <p className="prose-editorial mt-6 text-muted">
-            Fable&rsquo;s initial analysis produced two purely sacrificial pairings
-            — Snow White with Poseidon, Aurora with Hera. Both were narratively
-            unsatisfying (read: clearly wrong), and it took the four manual
-            overrides below to arrive at the right answer.
+            The AI powered matching algorithm produced two purely sacrificial
+            pairings — Snow White with Poseidon, Aurora with Hera. Both were
+            narratively unsatisfying (read:{' '}
+            <span className="font-semibold uppercase tracking-wide text-wine">wrong</span>), and we
+            used four manual overrides below to arrive at the right answer:
           </p>
 
           <div className="mt-8 overflow-x-auto">
             <table className="w-full border-collapse text-left">
               <thead>
                 <tr className="border-b border-white/12 font-mono text-[0.65rem] uppercase tracking-widest text-faint">
-                  <th className="py-3 pr-4 font-normal">Princess</th>
-                  <th className="py-3 pr-4 font-normal">Computer</th>
-                  <th className="py-3 pr-4 font-normal">Human</th>
-                  <th className="py-3 pr-4 text-right font-normal">Score</th>
-                  <th className="py-3 text-right font-normal">Row</th>
+                  <th className="py-3 pr-4 font-normal">God</th>
+                  <th className="py-3 pr-4 font-normal">Algorithm chose</th>
+                  <th className="py-3 pr-2 font-normal" aria-hidden />
+                  <th className="py-3 pr-4 font-normal">Corrected to</th>
+                  <th className="py-3 text-right font-normal">Score</th>
                 </tr>
               </thead>
               <tbody className="font-serif">
-                {overrides.map((o) => (
-                  <tr key={o.princessSlug} className="border-b border-white/8">
+                {emendations.map((e) => (
+                  <tr key={e.godSlug} className="border-b border-white/8">
                     <td className="py-4 pr-4">
                       <Link
-                        href={`/chapters/${getPairing(o.princessSlug)?.godSlug ?? ''}`}
-                        className="text-ink transition-colors hover:text-goldsoft"
+                        href={`/chapters/${e.godSlug}`}
+                        className="inline-flex items-center gap-2.5 text-ink transition-colors hover:text-goldsoft"
                       >
-                        {o.princess}
+                        <GodIcon
+                          slug={e.godSlug}
+                          size={18}
+                          className="shrink-0"
+                          style={{ color: godAccent(e.godSlug) }}
+                        />
+                        {e.god}
                       </Link>
                     </td>
                     <td className="py-4 pr-4 text-muted line-through decoration-wine/60">
-                      {o.from.god}
+                      {e.fromPrincess}
                     </td>
-                    <td className="py-4 pr-4 text-goldsoft">{o.to.god}</td>
-                    <td className="py-4 pr-4 text-right font-mono text-sm tabular-nums text-muted">
-                      {o.from.score.toFixed(1)} <span className="text-faint">→</span>{' '}
-                      <span className="text-ink">{o.to.score.toFixed(1)}</span>
-                    </td>
-                    <td className="py-4 text-right font-mono text-sm tabular-nums text-faint">
-                      #{o.rankInRow}
+                    <td className="py-4 pr-2 text-center text-lg text-gold">→</td>
+                    <td className="py-4 pr-4 text-goldsoft">{e.toPrincess}</td>
+                    <td className="py-4 text-right font-mono text-sm tabular-nums text-muted">
+                      {e.fromScore.toFixed(1)} <span className="text-faint">→</span>{' '}
+                      <span className="text-ink">{e.toScore.toFixed(1)}</span>
                     </td>
                   </tr>
                 ))}
@@ -71,8 +99,9 @@ export default function OverridesPage() {
             </table>
           </div>
           <p className="mt-3 font-mono text-xs text-faint">
-            Scores out of {DISPLAY_CAP}. Two of the four cost points — the human
-            chose the narratively right god over the higher-scoring one.
+            Scores out of {DISPLAY_CAP}. Two of the four corrections cost points —
+            the human chose the narratively right princess over the
+            higher-scoring one.
           </p>
 
           <div className="prose-editorial mt-10 text-muted">

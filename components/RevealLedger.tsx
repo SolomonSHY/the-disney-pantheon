@@ -238,14 +238,13 @@ export default function RevealLedger({
           >
             ✕
           </button>
-          <p className="font-serif text-lg text-ink">How this works</p>
+          <p className="font-serif text-lg text-ink">How to play</p>
           <p className="prose-editorial mt-1 max-w-measure text-sm text-muted">
-            Every god below is one of the thirteen princesses in disguise. Lock in a{' '}
+            Lock in a{' '}
             <span className="font-mono text-[0.8em] uppercase tracking-wider text-goldsoft">Guess</span>{' '}
-            for each — then <span className="text-ink/80">Reveal answers</span> unmasks them all at
-            once and scores you, so earlier answers can&rsquo;t tip off the later ones. (Or{' '}
-            <span className="text-ink/80">Reveal all</span> to just skip ahead.) Once unmasked, click
-            a row to read the full pairing analysis.
+            for each god, then <span className="text-ink/80">Reveal answers</span> to unmask them all
+            at once and see how you scored. (Or <span className="text-ink/80">Reveal all</span> to
+            skip ahead.) Then click any row to read its full pairing.
           </p>
         </div>
       )}
@@ -339,7 +338,7 @@ export default function RevealLedger({
               style={flashOn ? ({ '--flash-delay': `${idx * 0.06}s` } as CSSProperties) : undefined}
             >
               <div
-                className={`relative grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-6 transition-colors group-hover:bg-white/[0.025] sm:gap-x-8 ${
+                className={`relative grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-6 transition-colors before:pointer-events-none before:absolute before:inset-y-2 before:left-0 before:w-[2px] before:rounded-full before:bg-transparent before:transition-colors before:content-[''] group-hover:bg-white/[0.025] group-hover:before:bg-gold/50 sm:gap-x-8 ${
                   picking ? '' : 'cursor-pointer'
                 }`}
                 role={!open && !picking ? 'button' : undefined}
@@ -503,10 +502,10 @@ export default function RevealLedger({
       {bonus && (
         <div className="mt-10 border-t border-gold/25 pt-6">
           <p className="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-gold/70">
-            The fourteenth · off the matrix
+            The fourteenth · off the grid
           </p>
           <div
-            className="group relative grid cursor-pointer grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-2 transition-colors hover:bg-white/[0.025] sm:gap-x-8"
+            className="group relative grid cursor-pointer grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-2 transition-colors before:pointer-events-none before:absolute before:inset-y-1 before:left-0 before:w-[2px] before:rounded-full before:bg-transparent before:transition-colors before:content-[''] hover:bg-white/[0.025] hover:before:bg-gold/50 sm:gap-x-8"
             role={!bonusOpen ? 'button' : undefined}
             tabIndex={!bonusOpen ? 0 : undefined}
             aria-label={!bonusOpen ? `Reveal who ${bonus.god} is` : undefined}
@@ -605,7 +604,7 @@ export default function RevealLedger({
             href="/matrix"
             className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/[0.06] px-5 py-2 font-mono text-xs uppercase tracking-[0.22em] text-goldsoft transition-colors hover:border-gold/70 hover:bg-gold/[0.12]"
           >
-            See the full 13 × 13 matrix →
+            See the full 13 × 13 concordance →
           </Link>
         </div>
       )}

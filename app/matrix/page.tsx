@@ -11,7 +11,7 @@ import {
 } from '@/lib/data'
 
 export const metadata: Metadata = {
-  title: 'The Matrix',
+  title: 'The Concordance',
   description:
     'The full 13 × 13 grid of princesses against gods, every cell scored across five facets. Hover a cell for its breakdown.',
 }
@@ -33,7 +33,7 @@ export default function MatrixPage() {
             <p className="mb-4 font-mono text-xs uppercase tracking-[0.3em] text-faint">
               169 cells · 5 facets each
             </p>
-            <h1 className="text-4xl leading-tight sm:text-5xl">The Matrix</h1>
+            <h1 className="text-4xl leading-tight sm:text-5xl">The Concordance</h1>
             <p className="prose-editorial mt-6 text-muted">
               Every princess measured against every god — gods down the side
               (click one to read its chapter), princesses across the top with

@@ -21,6 +21,11 @@ export function generateStaticParams() {
   return chapterSlugs.map((slug) => ({ slug }))
 }
 
+const ORDINALS = ['', '1st', '2nd', '3rd', '4th', '5th', '6th', '7th', '8th', '9th', '10th', '11th', '12th', '13th']
+function ordinal(n: number): string {
+  return ORDINALS[n] ?? `${n}th`
+}
+
 export const dynamicParams = false
 
 type Params = { params: Promise<{ slug: string }> }
@@ -92,14 +97,18 @@ export default async function ChapterPage({ params }: Params) {
               godSlug={slug}
               accent={accent}
               princessSlug={pairing.princessSlug}
-              label={`Chapter ${String(index + 1).padStart(2, '0')}`}
+              label={`Hymn ${String(index + 1).padStart(2, '0')}`}
               god={pairing.god}
               princess={pairing.princess}
               film={princess.film}
               year={princess.year}
               score={pairing.score}
               facets={pairing.facets}
-              rankLabel={pairing.rankInRow === 1 ? 'first choice' : `row #${pairing.rankInRow}`}
+              rankLabel={
+                pairing.rankInRow === 1
+                  ? 'first choice'
+                  : `${ordinal(pairing.rankInRow)}-closest god`
+              }
               override={alg ? { algPrincess: alg.princess, algScore: alg.score } : null}
               humanEssay={<HumanEssay />}
               aiEssay={<AiEssay />}

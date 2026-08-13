@@ -55,10 +55,10 @@ function SiteHeader() {
             Pantheon
           </Link>
           <Link href="/matrix" className="transition-colors hover:text-ink">
-            Matrix
+            Concordance
           </Link>
           <Link href="/overrides" className="transition-colors hover:text-ink">
-            Overrides
+            Emendations
           </Link>
         </nav>
       </div>
