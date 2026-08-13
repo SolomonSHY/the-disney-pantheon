@@ -33,10 +33,10 @@ export default function BonusPage() {
           style={{ background: `radial-gradient(55% 45% at 82% 6%, ${accent}22, transparent 62%)` }}
         />
         <div
-          className="absolute -right-20 top-24 sm:-right-10"
-          style={{ color: accent, opacity: 0.09 }}
+          className="absolute -right-16 top-20 sm:right-0"
+          style={{ color: accent, opacity: 0.14 }}
         >
-          <GodIcon slug="hades" size={520} strokeWidth={0.6} />
+          <GodIcon slug="hades" size={580} strokeWidth={0.7} />
         </div>
       </div>
 

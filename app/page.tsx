@@ -1,5 +1,6 @@
 import GodNav from '@/components/GodNav'
 import RevealLedger, { type BonusItem, type RevealItem } from '@/components/RevealLedger'
+import TempleCrest from '@/components/TempleCrest'
 import {
   appendix,
   getNearMissPrincesses,
@@ -44,6 +45,7 @@ export default function LandingPage() {
         <div className="max-w-wide">
           {/* Masthead */}
           <section className="pb-14 pt-4">
+            <TempleCrest className="mb-7 w-44 text-gold/50 sm:w-52" />
             <p className="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-faint">
               Thirteen gods · thirteen disguises · thirteen princesses
             </p>

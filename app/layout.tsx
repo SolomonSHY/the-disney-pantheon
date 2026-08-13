@@ -52,7 +52,7 @@ function SiteHeader() {
         </Link>
         <nav className="flex items-center gap-4 text-sm text-muted sm:gap-6">
           <Link href="/" className="transition-colors hover:text-ink">
-            Pairings
+            Pantheon
           </Link>
           <Link href="/matrix" className="transition-colors hover:text-ink">
             Matrix
