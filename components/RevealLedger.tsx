@@ -227,6 +227,12 @@ export default function RevealLedger({
               Play again
             </button>
           </div>
+          <Link
+            href="/matrix"
+            className="mt-5 inline-block max-w-measure text-sm text-goldsoft/80 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-goldsoft hover:decoration-gold"
+          >
+            The Concordance — how each princess was matched to a god →
+          </Link>
         </div>
       )}
 
@@ -277,12 +283,17 @@ export default function RevealLedger({
       {!complete && (
         <div className="mb-3 flex items-center justify-between">
           <p className="font-mono text-xs uppercase tracking-[0.25em] text-faint">
-            {pendingCount > 0 ? (
-              <span className="text-goldsoft">
-                {pendingCount} / {items.length} divined
-              </span>
-            ) : (
+            {coreRevealed === 0 && pendingCount === 0 ? (
               <span>Guess the thirteen</span>
+            ) : (
+              <>
+                <span>
+                  {coreRevealed} / {items.length} unmasked
+                </span>
+                {pendingCount > 0 && (
+                  <span className="ml-3 text-goldsoft">· {pendingCount} divined</span>
+                )}
+              </>
             )}
           </p>
           <div className="flex items-center gap-4">
@@ -578,17 +589,6 @@ export default function RevealLedger({
         </div>
       )}
 
-      {/* The full grid — offered once everything's been unmasked. */}
-      {complete && (
-        <div className="mt-12 border-t border-white/8 pt-8 text-center">
-          <Link
-            href="/matrix"
-            className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/[0.06] px-5 py-2 font-mono text-xs uppercase tracking-[0.22em] text-goldsoft transition-colors hover:border-gold/70 hover:bg-gold/[0.12]"
-          >
-            See the full 13 × 13 concordance →
-          </Link>
-        </div>
-      )}
     </div>
   )
 }

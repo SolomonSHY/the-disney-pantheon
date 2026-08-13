@@ -6,7 +6,6 @@ import Link from 'next/link'
 import Facets from '@/components/Facets'
 import GodIcon from '@/components/GodIcon'
 import PrincessIcon from '@/components/PrincessIcon'
-import { DISPLAY_CAP } from '@/lib/data'
 import { hideGod, revealGod, useRevealed } from '@/lib/revealStore'
 import type { FacetScores } from '@/lib/types'
 
@@ -23,10 +22,10 @@ type ChapterViewProps = {
   princess: string
   film: string
   year: number
-  score: number
+  /** Kept in the props for the callers; the header no longer renders them. */
+  score?: number
   facets: FacetScores
-  /** Small caption by the score, e.g. "first choice" or "highest of all". */
-  rankLabel: string
+  rankLabel?: string
   override: { algPrincess: string; algScore: number } | null
   humanEssay: ReactNode
   aiEssay: ReactNode
@@ -47,9 +46,7 @@ export default function ChapterView({
   princess,
   film,
   year,
-  score,
   facets,
-  rankLabel,
   override,
   humanEssay,
   aiEssay,
@@ -111,17 +108,6 @@ export default function ChapterView({
             </button>
           )}
         </h1>
-
-        <div className="mt-4 flex flex-wrap items-baseline gap-x-4 gap-y-1">
-          <span className="font-mono text-sm text-muted">
-            <span className="text-2xl text-gold">{score.toFixed(1)}</span> / {DISPLAY_CAP}
-          </span>
-          {rankLabel && (
-            <span className="font-mono text-[0.65rem] uppercase tracking-widest text-faint">
-              {rankLabel}
-            </span>
-          )}
-        </div>
       </header>
 
       {intro && <div className="prose-editorial mt-8 text-muted">{intro}</div>}
