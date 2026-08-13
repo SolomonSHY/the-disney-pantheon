@@ -36,18 +36,9 @@ export default function MatrixPage() {
             </p>
             <h1 className="text-4xl leading-tight sm:text-5xl">The Concordance</h1>
             <p className="prose-editorial mt-6 text-muted">
-              Every princess measured against every god — gods down the side
-              (click one to read its chapter), princesses across the top with
-              their names hidden by default, so the grid doesn&rsquo;t spoil the
-              pairings; reveal them when you&rsquo;re ready. Colour is heat: ash
-              at zero, gold at the cap. Both axes share one order,
-              with kindred gods grouped together — sovereignty, hearth and craft,
-              earth and sea, war, arts and love, the liminal — so the canonical
-              picks (the gold-ringed cells) run down the diagonal while the
-              near-misses cluster right beside it. Hover any cell for its five
-              facets. Compare down a column — one princess against every god —
-              never across a row: the gods differ wildly in breadth, so a
-              god&rsquo;s row of scores is not commensurable.
+              Every princess measured for similarity against every god, across
+              five facets. Optimal disguises selected via the Hungarian
+              algorithm — one Greek god, one Disney princess.
             </p>
           </header>
 
