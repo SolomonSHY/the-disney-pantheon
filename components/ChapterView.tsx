@@ -110,6 +110,24 @@ export default function ChapterView({
         </h1>
       </header>
 
+      {/* The pairing portrait — the god fused with the princess. Only mounted
+          (and only fetched) once the pair is revealed, so it can't spoil. */}
+      {revealed && (
+        <figure
+          className="reveal-in mt-8 overflow-hidden rounded-lg border"
+          style={{ borderColor: `${accent}55` }}
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`/pairings/${godSlug}.jpg`}
+            alt={`${god}, disguised as ${princess}`}
+            width={1280}
+            height={698}
+            className="block w-full"
+          />
+        </figure>
+      )}
+
       {intro && <div className="prose-editorial mt-8 text-muted">{intro}</div>}
 
       {/* Analysis toggle */}
