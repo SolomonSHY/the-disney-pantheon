@@ -87,12 +87,12 @@ export default function BonusPage() {
                 Dionysus
               </span>
             </Link>
-            <Link href="/chapters/zeus" className="group block text-right">
+            <Link href="/matrix" className="group block text-right">
               <span className="font-mono text-xs uppercase tracking-widest text-faint">
-                Start over →
+                Next →
               </span>
               <span className="mt-1 block font-serif text-lg text-ink/85 transition-colors group-hover:text-goldsoft">
-                Zeus
+                The Concordance
               </span>
             </Link>
           </nav>

@@ -253,20 +253,12 @@ export default function RevealLedger({
               Play again
             </button>
           </div>
-          <div className="mt-5 flex flex-col items-center gap-2">
-            <Link
-              href="/chapters/zeus"
-              className="text-sm text-goldsoft/80 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-goldsoft hover:decoration-gold"
-            >
-              Walk the pantheon — read every pairing, from Zeus →
-            </Link>
-            <Link
-              href="/matrix"
-              className="max-w-measure text-sm text-goldsoft/80 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-goldsoft hover:decoration-gold"
-            >
-              The Concordance — how each princess was matched to a god →
-            </Link>
-          </div>
+          <Link
+            href="/chapters/zeus"
+            className="mt-5 inline-block text-sm text-goldsoft/80 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-goldsoft hover:decoration-gold"
+          >
+            Walk the unmasked pantheon →
+          </Link>
         </div>
       )}
 
