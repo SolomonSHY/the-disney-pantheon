@@ -122,6 +122,18 @@ function SiteFooter() {
             Open an issue on GitHub →
           </a>
         </p>
+        <p className="max-w-measure text-xs leading-relaxed text-faint">
+          Playtesting by{' '}
+          <a
+            href="https://suzyahyah.github.io/about/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
+          >
+            Suzy Ahyah
+          </a>
+          .
+        </p>
         <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-faint">
           <Link href="/" className="transition-colors hover:text-muted">
             Pantheon
