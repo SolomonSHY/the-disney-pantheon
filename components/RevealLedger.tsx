@@ -516,6 +516,17 @@ export default function RevealLedger({
         </div>
       )}
 
+      {/* Escape hatch for readers who'd rather skip the game and read the essays. */}
+      <div className="mb-4">
+        <Link
+          href="/chapters/zeus"
+          className="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
+        >
+          Rather just read? Walk the pantheon from Zeus
+          <span aria-hidden>→</span>
+        </Link>
+      </div>
+
       {/* Candidate princesses — a reminder of the roster, ticked off as matched */}
       <details className="group mb-6 rounded-lg border border-white/8 bg-raised/25">
         <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-ink">
@@ -611,18 +622,27 @@ export default function RevealLedger({
             >
               <div
                 className={`relative grid grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-6 transition-colors before:pointer-events-none before:absolute before:inset-y-2 before:left-0 before:w-[2px] before:rounded-full before:bg-transparent before:transition-colors before:content-[''] group-hover:bg-white/[0.025] group-hover:before:bg-gold/50 sm:gap-x-8 ${
-                  picking || pend ? '' : 'cursor-pointer'
+                  picking ? '' : 'cursor-pointer'
                 }`}
-                role={!open && !picking && !pend ? 'button' : undefined}
-                tabIndex={!open && !picking && !pend ? 0 : undefined}
-                aria-label={!open && !picking && !pend ? `Guess which princess is ${it.god}` : undefined}
-                onClick={!open && !picking && !pend ? () => startGuess(it) : undefined}
+                role={!open && !picking ? 'button' : undefined}
+                tabIndex={!open && !picking ? 0 : undefined}
+                aria-label={
+                  !open && !picking
+                    ? pend
+                      ? `Unmask ${it.god}`
+                      : `Guess which princess is ${it.god}`
+                    : undefined
+                }
+                onClick={
+                  !open && !picking ? () => (pend ? unmaskOne(it) : startGuess(it)) : undefined
+                }
                 onKeyDown={
-                  !open && !picking && !pend
+                  !open && !picking
                     ? (e) => {
                         if (e.key === 'Enter' || e.key === ' ') {
                           e.preventDefault()
-                          startGuess(it)
+                          if (pend) unmaskOne(it)
+                          else startGuess(it)
                         }
                       }
                     : undefined
@@ -716,8 +736,11 @@ export default function RevealLedger({
                         {pend}
                       </span>
                       <button
-                        onClick={() => startGuess(it)}
-                        className="font-mono text-[0.6rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
+                        onClick={(e) => {
+                          e.stopPropagation()
+                          startGuess(it)
+                        }}
+                        className="relative z-10 font-mono text-[0.6rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
                       >
                         change
                       </button>
@@ -738,18 +761,19 @@ export default function RevealLedger({
                   )}
                 </div>
 
-                {/* Right: the ? guess affordance is visual (whole masked row is
-                    the click target); the ✓ on a locked-in guess unmasks it. */}
+                {/* Right column is a visual affordance only — the whole row is the
+                    click target (masked → guess; locked-in guess → unmask). */}
                 <div className="text-right">
                   {open || picking ? null : pend ? (
-                    <button
-                      onClick={() => unmaskOne(it)}
-                      aria-label={`Unmask ${it.god}`}
-                      title="Unmask god"
-                      className="mr-2 grid h-8 w-8 place-items-center rounded-full border border-gold/40 text-sm text-gold/80 transition-colors hover:border-gold hover:bg-gold/10 hover:text-goldsoft"
+                    <span
+                      aria-hidden
+                      className="mr-2 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-gold/70 transition-colors group-hover:text-goldsoft"
                     >
-                      ✓
-                    </button>
+                      <span className="grid h-8 w-8 place-items-center rounded-full border border-gold/40 text-sm transition-colors group-hover:border-gold">
+                        ✓
+                      </span>
+                      <span className="hidden sm:inline">unmask</span>
+                    </span>
                   ) : (
                     <span
                       aria-hidden
