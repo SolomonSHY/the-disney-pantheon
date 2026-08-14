@@ -111,6 +111,7 @@ export default async function ChapterPage({ params }: Params) {
                   : `${ordinal(godRankOfPrincess(slug, pairing.princessSlug))}-closest princess`
               }
               override={alg ? { algPrincess: alg.princess, algScore: alg.score } : null}
+              hideable
               humanEssay={<HumanEssay />}
               aiEssay={<AiEssay />}
               exactTags={<ExactTags matches={getExactMatches(pairing.princess, pairing.god)} />}
