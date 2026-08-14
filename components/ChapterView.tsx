@@ -6,6 +6,7 @@ import Link from 'next/link'
 import Facets from '@/components/Facets'
 import GodIcon from '@/components/GodIcon'
 import PrincessIcon from '@/components/PrincessIcon'
+import { hideArt, useArtHidden } from '@/lib/artPref'
 import { hideGod, revealGod, useRevealed } from '@/lib/revealStore'
 import type { FacetScores } from '@/lib/types'
 
@@ -55,6 +56,7 @@ export default function ChapterView({
   hideable = false,
 }: ChapterViewProps) {
   const revealed = useRevealed().has(godSlug)
+  const artHidden = useArtHidden()
   const [analysis, setAnalysis] = useState<'human' | 'ai'>('human')
 
   return (
@@ -116,21 +118,33 @@ export default function ChapterView({
       </header>
 
       {/* The pairing portrait — the god fused with the princess. Only mounted
-          (and only fetched) once the pair is revealed, so it can't spoil. */}
-      {revealed && (
-        <figure
-          className="reveal-in mt-8 overflow-hidden rounded-lg border"
-          style={{ borderColor: `${accent}55` }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={`/pairings/${godSlug}.jpg`}
-            alt={`${god}, disguised as ${princess}`}
-            width={1280}
-            height={698}
-            className="block w-full"
-          />
-        </figure>
+          (and only fetched) once the pair is revealed, so it can't spoil — and
+          only if the visitor hasn't opted out of the AI-generated art. */}
+      {revealed && !artHidden && (
+        <>
+          <figure
+            className="reveal-in mt-8 overflow-hidden rounded-lg border"
+            style={{ borderColor: `${accent}55` }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/pairings/${godSlug}.jpg`}
+              alt={`${god}, disguised as ${princess}`}
+              width={1280}
+              height={698}
+              className="block w-full"
+            />
+          </figure>
+          <div className="mt-2 flex justify-end">
+            <button
+              onClick={hideArt}
+              title="Hide the AI-generated portraits on every page"
+              className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-faint underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
+            >
+              Hide AI art
+            </button>
+          </div>
+        </>
       )}
 
       {intro && <div className="prose-editorial mt-8 text-muted">{intro}</div>}
