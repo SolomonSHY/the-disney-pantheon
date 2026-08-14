@@ -43,200 +43,6 @@ export type BonusItem = {
   href: string
 }
 
-// ── Shareable result card ───────────────────────────────────────────────
-// Drawn client-side on a <canvas> so it only ever renders the player's own
-// grid — never the answers or the pairing portraits — and needs no server
-// route. The temple crest matches components/TempleCrest.tsx.
-const CREST_SVG =
-  "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 132' fill='none' stroke='%23c8a25a' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'><path d='M18 52 L119 12 L220 52'/><path d='M34 49 L119 20 L204 49'/><path d='M119 12 V7 M18 52 V49 M220 52 V49'/><path d='M16 52 H222'/><path d='M20 57 H218'/><path d='M23 62 H215'/><path d='M29 62 H39 M31.5 63 V101 M36.5 63 V101 M29 102 H39'/><path d='M63 62 H73 M65.5 63 V101 M70.5 63 V101 M63 102 H73'/><path d='M97 62 H107 M99.5 63 V101 M104.5 63 V101 M97 102 H107'/><path d='M131 62 H141 M133.5 63 V101 M138.5 63 V101 M131 102 H141'/><path d='M165 62 H175 M167.5 63 V101 M172.5 63 V101 M165 102 H175'/><path d='M199 62 H209 M201.5 63 V101 M206.5 63 V101 M199 102 H209'/><path d='M23 103 H215'/><path d='M18 109 H220'/><path d='M13 116 H225'/></svg>"
-
-function roundRect(
-  ctx: CanvasRenderingContext2D,
-  x: number,
-  y: number,
-  w: number,
-  h: number,
-  r: number,
-) {
-  const c = ctx as unknown as { roundRect?: (x: number, y: number, w: number, h: number, r: number) => void }
-  if (typeof c.roundRect === 'function') {
-    ctx.beginPath()
-    c.roundRect(x, y, w, h, r)
-    return
-  }
-  ctx.beginPath()
-  ctx.moveTo(x + r, y)
-  ctx.arcTo(x + w, y, x + w, y + h, r)
-  ctx.arcTo(x + w, y + h, x, y + h, r)
-  ctx.arcTo(x, y + h, x, y, r)
-  ctx.arcTo(x, y, x + w, y, r)
-  ctx.closePath()
-}
-
-async function buildResultCard(
-  results: Array<'correct' | 'wrong' | 'blank'>,
-  correct: number,
-  guessed: number,
-): Promise<HTMLCanvasElement> {
-  const W = 1080,
-    H = 1080
-  const cv = document.createElement('canvas')
-  cv.width = W
-  cv.height = H
-  const ctx = cv.getContext('2d')!
-  const serifVar = getComputedStyle(document.documentElement).getPropertyValue('--font-serif').trim()
-  const SERIF = `${serifVar || 'Georgia'}, Georgia, serif`
-  const MONO = 'ui-monospace, Consolas, Menlo, monospace'
-  try {
-    await (document as unknown as { fonts?: { ready?: Promise<unknown> } }).fonts?.ready
-  } catch {
-    /* fonts API unavailable — fall back to whatever's loaded */
-  }
-  const ls = (v: number) => {
-    const c = ctx as unknown as { letterSpacing?: string }
-    if ('letterSpacing' in c) c.letterSpacing = v + 'px'
-  }
-
-  // Ground + faint gold vignette
-  ctx.fillStyle = '#0c0b0e'
-  ctx.fillRect(0, 0, W, H)
-  const g = ctx.createRadialGradient(W / 2, H * 0.4, 120, W / 2, H * 0.4, 780)
-  g.addColorStop(0, 'rgba(200,162,90,0.06)')
-  g.addColorStop(1, 'rgba(0,0,0,0)')
-  ctx.fillStyle = g
-  ctx.fillRect(0, 0, W, H)
-  ctx.strokeStyle = 'rgba(200,162,90,0.30)'
-  ctx.lineWidth = 2
-  ctx.strokeRect(40, 40, W - 80, H - 80)
-  ctx.strokeStyle = 'rgba(200,162,90,0.14)'
-  ctx.lineWidth = 1
-  ctx.strokeRect(52, 52, W - 104, H - 104)
-
-  // Temple crest
-  const crest = new Image()
-  await new Promise<void>((res) => {
-    crest.onload = () => res()
-    crest.onerror = () => res()
-    crest.src = 'data:image/svg+xml;utf8,' + CREST_SVG
-  })
-  const cw = 260,
-    ch = (cw * 132) / 240
-  ctx.drawImage(crest, (W - cw) / 2, 96, cw, ch)
-
-  ctx.textAlign = 'center'
-  ctx.textBaseline = 'alphabetic'
-  ctx.fillStyle = '#6b6559'
-  ctx.font = `600 20px ${MONO}`
-  ls(6)
-  ctx.fillText('THIRTEEN GODS · THIRTEEN DISGUISES', W / 2, 332)
-  ls(0)
-  ctx.fillStyle = '#e9e3d6'
-  ctx.font = `500 58px ${SERIF}`
-  ctx.fillText('The Disney Princess', W / 2, 408)
-  ctx.fillStyle = '#d9be86'
-  ctx.font = `italic 500 76px ${SERIF}`
-  ctx.fillText('Pantheon', W / 2, 494)
-
-  // The result grid — one square per god, in play order
-  const n = results.length,
-    sq = 58,
-    gap = 15,
-    gw = n * sq + (n - 1) * gap,
-    x0 = (W - gw) / 2,
-    y0 = 596
-  for (let i = 0; i < n; i++) {
-    const x = x0 + i * (sq + gap),
-      o = results[i]
-    if (o === 'correct') {
-      ctx.fillStyle = '#c8a25a'
-      roundRect(ctx, x, y0, sq, sq, 12)
-      ctx.fill()
-    } else if (o === 'wrong') {
-      ctx.fillStyle = '#8f4b52'
-      roundRect(ctx, x, y0, sq, sq, 12)
-      ctx.fill()
-    } else {
-      ctx.strokeStyle = 'rgba(107,101,89,0.55)'
-      ctx.lineWidth = 2
-      roundRect(ctx, x, y0, sq, sq, 12)
-      ctx.stroke()
-    }
-  }
-
-  // Legend
-  const hasBlank = results.some((o) => o === 'blank')
-  const leg: Array<[string | null, string]> = [
-    ['#c8a25a', 'Right'],
-    ['#8f4b52', 'Wrong'],
-  ]
-  if (hasBlank) leg.push([null, 'Revealed'])
-  ctx.font = `500 24px ${SERIF}`
-  const swatch = 22,
-    pad = 11,
-    itemGap = 42
-  const total =
-    leg.reduce((a, [, l]) => a + swatch + pad + ctx.measureText(l).width, 0) +
-    itemGap * (leg.length - 1)
-  let lx = (W - total) / 2
-  const ly = 712
-  ctx.textAlign = 'left'
-  leg.forEach(([c, l]) => {
-    if (c) {
-      ctx.fillStyle = c
-      roundRect(ctx, lx, ly - 18, swatch, swatch, 6)
-      ctx.fill()
-    } else {
-      ctx.strokeStyle = 'rgba(107,101,89,0.7)'
-      ctx.lineWidth = 2
-      roundRect(ctx, lx, ly - 18, swatch, swatch, 6)
-      ctx.stroke()
-    }
-    lx += swatch + pad
-    ctx.fillStyle = '#a49c8c'
-    ctx.fillText(l, lx, ly)
-    lx += ctx.measureText(l).width + itemGap
-  })
-  ctx.textAlign = 'center'
-
-  // Score
-  const sy = 822
-  if (guessed > 0) {
-    const a = 'You guessed ',
-      b = String(correct),
-      c = ` of ${guessed} right`
-    ctx.font = `500 46px ${SERIF}`
-    const wa = ctx.measureText(a).width,
-      wc = ctx.measureText(c).width
-    ctx.font = `600 46px ${SERIF}`
-    const wb = ctx.measureText(b).width
-    let sx = (W - (wa + wb + wc)) / 2
-    ctx.textAlign = 'left'
-    ctx.fillStyle = '#e9e3d6'
-    ctx.font = `500 46px ${SERIF}`
-    ctx.fillText(a, sx, sy)
-    sx += wa
-    ctx.fillStyle = '#d9be86'
-    ctx.font = `600 46px ${SERIF}`
-    ctx.fillText(b, sx, sy)
-    sx += wb
-    ctx.fillStyle = '#e9e3d6'
-    ctx.font = `500 46px ${SERIF}`
-    ctx.fillText(c, sx, sy)
-    ctx.textAlign = 'center'
-  } else {
-    ctx.fillStyle = '#e9e3d6'
-    ctx.font = `500 46px ${SERIF}`
-    ctx.fillText('All thirteen unmasked', W / 2, sy)
-  }
-
-  ctx.fillStyle = '#6b6559'
-  ctx.font = `600 22px ${MONO}`
-  ls(3)
-  ctx.fillText('DISNEY-PANTHEON.COM', W / 2, 972)
-  ls(0)
-  return cv
-}
-
 export default function RevealLedger({
   items,
   bonus,
@@ -261,7 +67,6 @@ export default function RevealLedger({
   // (rows already open from storage on load stay calm).
   const [flashed, setFlashed] = useState<Set<string>>(() => new Set())
   const [shared, setShared] = useState(false)
-  const [imgState, setImgState] = useState<'idle' | 'working' | 'done'>('idle')
 
   const drop = (slug: string) =>
     setOptions((o) => {
@@ -383,54 +188,6 @@ export default function RevealLedger({
     }
   }
 
-  // Render the result as a PNG. On mobile, hand it to the native share sheet
-  // (so it can go straight to a Story/chat); on desktop, download it.
-  const saveImage = async () => {
-    setImgState('working')
-    try {
-      const results = items.map((it) =>
-        guesses[it.godSlug] === 'correct'
-          ? 'correct'
-          : guesses[it.godSlug] === 'wrong'
-            ? 'wrong'
-            : 'blank',
-      ) as Array<'correct' | 'wrong' | 'blank'>
-      const canvas = await buildResultCard(results, correctCount, guessedCount)
-      const blob = await new Promise<Blob | null>((res) => canvas.toBlob((b) => res(b), 'image/png'))
-      if (!blob) throw new Error('render failed')
-      const file = new File([blob], 'disney-princess-pantheon.png', { type: 'image/png' })
-      const nav = navigator as Navigator & {
-        canShare?: (data?: ShareData) => boolean
-        share?: (data?: ShareData) => Promise<void>
-      }
-      if (nav.canShare && nav.share && nav.canShare({ files: [file] })) {
-        try {
-          await nav.share({ files: [file] })
-          setImgState('idle')
-          return
-        } catch (e) {
-          // User cancelled the share sheet — don't also force a download.
-          if (e instanceof Error && e.name === 'AbortError') {
-            setImgState('idle')
-            return
-          }
-        }
-      }
-      const url = URL.createObjectURL(blob)
-      const a = document.createElement('a')
-      a.href = url
-      a.download = file.name
-      document.body.appendChild(a)
-      a.click()
-      a.remove()
-      URL.revokeObjectURL(url)
-      setImgState('done')
-      setTimeout(() => setImgState('idle'), 2000)
-    } catch {
-      setImgState('idle')
-    }
-  }
-
   // Which princess (by slug) has already been matched, and to whom.
   // Which princesses are "spent" — by a locked-in guess while playing, or by
   // the real pairing once revealed — mapped to the god that used them. Drives
@@ -490,41 +247,41 @@ export default function RevealLedger({
               {shared ? 'Copied to clipboard ✓' : 'Share your result'}
             </button>
             <button
-              onClick={saveImage}
-              disabled={imgState === 'working'}
-              className="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/[0.08] px-5 py-2 font-mono text-xs uppercase tracking-[0.22em] text-goldsoft transition-colors hover:border-gold/70 hover:bg-gold/[0.14] disabled:opacity-60"
-            >
-              {imgState === 'working'
-                ? 'Rendering…'
-                : imgState === 'done'
-                  ? 'Image saved ✓'
-                  : 'Save image'}
-            </button>
-            <button
               onClick={resetReveals}
               className="font-mono text-xs uppercase tracking-[0.2em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
             >
               Play again
             </button>
           </div>
-          <Link
-            href="/matrix"
-            className="mt-5 inline-block max-w-measure text-sm text-goldsoft/80 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-goldsoft hover:decoration-gold"
-          >
-            The Concordance — how each princess was matched to a god →
-          </Link>
+          <div className="mt-5 flex flex-col items-center gap-2">
+            <Link
+              href="/chapters/zeus"
+              className="text-sm text-goldsoft/80 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-goldsoft hover:decoration-gold"
+            >
+              Walk the pantheon — read every pairing, from Zeus →
+            </Link>
+            <Link
+              href="/matrix"
+              className="max-w-measure text-sm text-goldsoft/80 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-goldsoft hover:decoration-gold"
+            >
+              The Concordance — how each princess was matched to a god →
+            </Link>
+          </div>
         </div>
       )}
 
-      {/* Escape hatch for readers who'd rather skip the game and read the essays. */}
-      <div className="mb-4">
-        <Link
-          href="/chapters/zeus"
-          className="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
-        >
-          Skip guessing? Walk the pantheon.
-        </Link>
-      </div>
+      {/* Escape hatch for readers who'd rather skip the game and read the essays.
+          Hidden once the board is complete — the payoff banner links out instead. */}
+      {!complete && (
+        <div className="mb-4">
+          <Link
+            href="/chapters/zeus"
+            className="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
+          >
+            Skip guessing? Walk the pantheon.
+          </Link>
+        </div>
+      )}
 
       {/* Candidate princesses — a reminder of the roster, ticked off as matched */}
       <details className="group mb-6 rounded-lg border border-white/8 bg-raised/25">
