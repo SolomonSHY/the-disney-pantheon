@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Facets from '@/components/Facets'
 import GodIcon from '@/components/GodIcon'
 import PrincessIcon from '@/components/PrincessIcon'
-import { hideArt, useArtHidden } from '@/lib/artPref'
+import { revealArt, useArtRevealed } from '@/lib/artPref'
 import { hideGod, revealGod, useRevealed } from '@/lib/revealStore'
 import type { FacetScores } from '@/lib/types'
 
@@ -56,7 +56,7 @@ export default function ChapterView({
   hideable = false,
 }: ChapterViewProps) {
   const revealed = useRevealed().has(godSlug)
-  const artHidden = useArtHidden()
+  const artRevealed = useArtRevealed()
   const [analysis, setAnalysis] = useState<'human' | 'ai'>('human')
 
   return (
@@ -117,11 +117,12 @@ export default function ChapterView({
         </h1>
       </header>
 
-      {/* The pairing portrait — the god fused with the princess. Only mounted
-          (and only fetched) once the pair is revealed, so it can't spoil — and
-          only if the visitor hasn't opted out of the AI-generated art. */}
-      {revealed && !artHidden && (
-        <>
+      {/* The pairing portrait — the god fused with the princess. AI-generated, so
+          hidden by default: a visitor opts in with "Reveal AI art", which shows the
+          portraits site-wide. Only mounted after the pair is revealed, so it can't
+          spoil. */}
+      {revealed &&
+        (artRevealed ? (
           <figure
             className="reveal-in mt-8 overflow-hidden rounded-lg border"
             style={{ borderColor: `${accent}55` }}
@@ -135,17 +136,17 @@ export default function ChapterView({
               className="block w-full"
             />
           </figure>
-          <div className="mt-2 flex justify-end">
+        ) : (
+          <div className="mt-8">
             <button
-              onClick={hideArt}
-              title="Hide the AI-generated portraits on every page"
+              onClick={revealArt}
+              title="Show the AI-generated portraits on every page"
               className="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-faint underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
             >
-              Hide AI art
+              Reveal AI art →
             </button>
           </div>
-        </>
-      )}
+        ))}
 
       {intro && <div className="prose-editorial mt-8 text-muted">{intro}</div>}
 

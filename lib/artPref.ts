@@ -2,15 +2,16 @@
 
 import { useSyncExternalStore } from 'react'
 
-// A one-way, persistent preference: once a visitor hides the AI-generated pairing
-// portraits, they stay hidden on every god page (and the bonus) across the whole
-// site — and across future visits. Stored in localStorage so it outlives the tab.
-const KEY = 'pantheon:hideArt'
+// AI-generated pairing portraits are hidden by DEFAULT. A visitor who wants to see
+// them opts in once — a one-way, persistent, site-wide choice — after which the
+// portraits show on every god page (and the bonus) and the reveal control vanishes.
+// Stored in localStorage so the choice outlives the tab and future visits.
+const KEY = 'pantheon:revealArt'
 type Listener = () => void
 const listeners = new Set<Listener>()
 
-/** Hide the AI pairing portraits everywhere. One-way (no un-hide control). */
-export function hideArt() {
+/** Opt in to the AI pairing portraits everywhere. One-way. */
+export function revealArt() {
   if (typeof window !== 'undefined') {
     try {
       localStorage.setItem(KEY, '1')
@@ -46,7 +47,7 @@ function getServerSnapshot(): boolean {
   return false
 }
 
-/** Reactive: true once the visitor has chosen to hide the AI portraits. */
-export function useArtHidden(): boolean {
+/** Reactive: true once the visitor has opted in to see the AI portraits. */
+export function useArtRevealed(): boolean {
   return useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot)
 }
