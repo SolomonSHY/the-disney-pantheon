@@ -17,6 +17,14 @@
     font-feature-settings: 'kern', 'liga', 'onum', 'pnum';
   }
 
+  /* Visible keyboard focus for every interactive element. Zero-specificity
+     :where() so components can still override; the outline hugs each element's
+     own border-radius (pills stay round). Mouse clicks don't trigger it. */
+  :where(a, button, summary, input, textarea, select, [role='button'], [tabindex]):focus-visible {
+    outline: 2px solid theme('colors.gold');
+    outline-offset: 2px;
+  }
+
   ::selection {
     background: rgba(200, 162, 90, 0.28);
     color: #fff;
