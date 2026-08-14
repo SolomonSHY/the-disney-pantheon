@@ -189,13 +189,16 @@ export default function RevealLedger({
   }
 
   // Which princesses are "spent" — by a locked-in guess while playing, or by the
-  // real pairing once revealed — mapped to the god slug that used them. Drives the
-  // double-use guard so a princess can't be picked for two gods at once.
+  // real pairing once revealed — mapped to the god that used them. Drives both the
+  // candidate-set strike-through and the double-use guard.
+  const usedByName = new Map<string, string>() // princess name → god label
   const usedByGodSlug = new Map<string, string>() // princess name → god slug that used her
   items.forEach((it) => {
     if (revealed.has(it.godSlug)) {
+      usedByName.set(it.princess, it.god)
       usedByGodSlug.set(it.princess, it.godSlug)
     } else if (pending[it.godSlug]) {
+      usedByName.set(pending[it.godSlug], it.god)
       usedByGodSlug.set(pending[it.godSlug], it.godSlug)
     }
   })
@@ -270,6 +273,49 @@ export default function RevealLedger({
           </Link>
         </div>
       )}
+
+      {/* Candidate princesses — a reminder of the roster, ticked off as matched */}
+      <details className="group mb-6 rounded-lg border border-white/8 bg-raised/25">
+        <summary className="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-ink">
+          <span>The 13 princesses · the candidate set</span>
+          <span className="text-faint">
+            <span className="group-open:hidden">show ▾</span>
+            <span className="hidden group-open:inline">hide ▴</span>
+          </span>
+        </summary>
+        <div className="border-t border-white/8 px-4 py-4">
+          <ul className="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3">
+            {princesses.map((p) => {
+              const god = usedByName.get(p.name)
+              return (
+                <li
+                  key={p.slug}
+                  className={`flex items-center justify-between gap-2 text-sm ${
+                    god ? 'text-faint' : 'text-ink/85'
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <PrincessIcon
+                      slug={p.slug}
+                      size={15}
+                      className={`shrink-0 ${god ? 'text-faint' : 'text-muted'}`}
+                    />
+                    <span className={god ? 'line-through decoration-wine/50' : ''}>{p.name}</span>
+                  </span>
+                  {god && (
+                    <span className="shrink-0 font-mono text-[0.6rem] uppercase tracking-widest text-gold/70">
+                      {god}
+                    </span>
+                  )}
+                </li>
+              )
+            })}
+          </ul>
+          <p className="mt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint">
+            {princesses.length - usedByName.size} still available
+          </p>
+        </div>
+      </details>
 
       {/* Status + controls (hidden once the board is fully unmasked) */}
       {!complete && (
@@ -370,7 +416,7 @@ export default function RevealLedger({
                         <span className="text-faint">is</span>
                         <PrincessIcon
                           slug={it.princessSlug}
-                          className="h-[1.3rem] w-[1.3rem] shrink-0 self-center text-goldsoft/75 sm:h-[1.55rem] sm:w-[1.55rem]"
+                          className="h-[1.5rem] w-[1.5rem] shrink-0 self-center text-goldsoft/80 sm:h-[1.8rem] sm:w-[1.8rem]"
                         />
                         <span
                           className={`font-serif text-2xl tracking-title text-ink transition-colors group-hover:text-goldsoft sm:text-3xl ${
