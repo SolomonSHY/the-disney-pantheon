@@ -35,10 +35,23 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params
   const pairing = getPairingByGod(slug)
   if (!pairing) return {}
+  const ogImage = `/og/${slug}.png`
+  const ogAlt = `${pairing.god} — which Disney princess is in disguise?`
   return {
     // Absolute title (no site suffix): the god, and an X for the hidden princess.
     title: { absolute: `${pairing.god} — X` },
     description: `${pairing.god} in disguise: the human reveal and an AI editorial reading of the pairing.`,
+    openGraph: {
+      title: `${pairing.god} — X`,
+      description: `Which Disney princess is ${pairing.god} in disguise?`,
+      images: [{ url: ogImage, width: 1200, height: 630, alt: ogAlt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${pairing.god} — X`,
+      description: `Which Disney princess is ${pairing.god} in disguise?`,
+      images: [ogImage],
+    },
   }
 }
 

@@ -12,6 +12,17 @@ export const metadata: Metadata = {
   title: { absolute: 'Hades — X' },
   description:
     'The off-matrix fourteenth pairing: the most famous god who is not an Olympian against the most famous heroine who is not a princess.',
+  openGraph: {
+    title: 'Hades — X',
+    description: 'Which Disney heroine is Hades in disguise?',
+    images: [{ url: '/og/hades.png', width: 1200, height: 630, alt: 'Hades — which Disney heroine is in disguise?' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Hades — X',
+    description: 'Which Disney heroine is Hades in disguise?',
+    images: ['/og/hades.png'],
+  },
 }
 
 const intro = (
