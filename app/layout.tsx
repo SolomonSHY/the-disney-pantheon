@@ -111,6 +111,17 @@ function SiteFooter() {
           and films are trademarks of their respective owners, used here for
           commentary and criticism. Pairing portraits are AI-generated.
         </p>
+        <p className="max-w-measure text-xs leading-relaxed text-faint">
+          Found a bug, or think a pairing is wrong?{' '}
+          <a
+            href="https://github.com/SolomonSHY/the-disney-pantheon"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
+          >
+            Open an issue on GitHub →
+          </a>
+        </p>
         <nav className="flex flex-wrap items-center gap-x-5 gap-y-2 pt-1 font-mono text-[0.65rem] uppercase tracking-[0.25em] text-faint">
           <Link href="/" className="transition-colors hover:text-muted">
             Pantheon
