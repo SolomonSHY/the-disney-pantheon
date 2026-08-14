@@ -522,8 +522,7 @@ export default function RevealLedger({
           href="/chapters/zeus"
           className="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
         >
-          Rather just read? Walk the pantheon from Zeus
-          <span aria-hidden>→</span>
+          Skip guessing? Walk the pantheon.
         </Link>
       </div>
 
