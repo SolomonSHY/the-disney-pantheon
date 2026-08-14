@@ -62,7 +62,7 @@ export default function LandingPage() {
               <span className="font-mono text-[0.85em] uppercase tracking-wider text-goldsoft">
                 Unmask
               </span>{' '}
-              to score your picks — or unmask all to skip straight to the answers.
+              to score your picks.
             </p>
           </section>
 
