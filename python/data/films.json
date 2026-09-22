@@ -1,0 +1,2808 @@
+{
+ "note": "Same rubric, same god profiles. The princess side is rebuilt as the FILM: its world, whole cast including antagonists, plot arc, full visual vocabulary, tonal register.",
+ "facets": [
+  "DOM",
+  "NAR",
+  "ARC",
+  "ICO",
+  "TMP"
+ ],
+ "weights": {
+  "DOM": 0.2,
+  "NAR": 0.2,
+  "ARC": 0.2,
+  "ICO": 0.2,
+  "TMP": 0.2
+ },
+ "total": 490.3,
+ "floor": 23.5,
+ "firstChoices": 11,
+ "films": [
+  {
+   "name": "Snow White (1937)",
+   "slug": "snow-white-1937"
+  },
+  {
+   "name": "Cinderella (1950)",
+   "slug": "cinderella-1950"
+  },
+  {
+   "name": "Sleeping Beauty (1959)",
+   "slug": "sleeping-beauty-1959"
+  },
+  {
+   "name": "The Little Mermaid (1989)",
+   "slug": "the-little-mermaid-1989"
+  },
+  {
+   "name": "Beauty and the Beast (1991)",
+   "slug": "beauty-and-the-beast-1991"
+  },
+  {
+   "name": "Aladdin (1992)",
+   "slug": "aladdin-1992"
+  },
+  {
+   "name": "Pocahontas (1995)",
+   "slug": "pocahontas-1995"
+  },
+  {
+   "name": "Mulan (1998)",
+   "slug": "mulan-1998"
+  },
+  {
+   "name": "The Princess and the Frog (2009)",
+   "slug": "the-princess-and-the-frog-2009"
+  },
+  {
+   "name": "Tangled (2010)",
+   "slug": "tangled-2010"
+  },
+  {
+   "name": "Brave (2012)",
+   "slug": "brave-2012"
+  },
+  {
+   "name": "Moana (2016)",
+   "slug": "moana-2016"
+  },
+  {
+   "name": "Raya and the Last Dragon (2021)",
+   "slug": "raya-and-the-last-dragon-2021"
+  }
+ ],
+ "assignment": [
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 47.5,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 7.9,
+    "ARC": 3.3,
+    "ICO": 10.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 45.2,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.6,
+    "NAR": 9.3,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 43.0,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 6.9,
+    "ARC": 10.0,
+    "ICO": 2.5,
+    "TMP": 7.2
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 42.7,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.1,
+    "NAR": 10.0,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 7.2
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 42.6,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.8,
+    "NAR": 4.5,
+    "ARC": 2.0,
+    "ICO": 10.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 42.3,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 7.0,
+    "ARC": 0.0,
+    "ICO": 9.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 38.0,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.0,
+    "NAR": 3.5,
+    "ARC": 8.6,
+    "ICO": 3.6,
+    "TMP": 7.0
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 38.0,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 5.0,
+    "NAR": 5.7,
+    "ARC": 4.7,
+    "ICO": 6.2,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 37.9,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.7,
+    "NAR": 10.0,
+    "ARC": 0.0,
+    "ICO": 4.5,
+    "TMP": 7.3
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 34.0,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 7.3,
+    "NAR": 10.0,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 31.4,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 8.3,
+    "NAR": 2.2,
+    "ARC": 0.0,
+    "ICO": 4.8,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 24.2,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 3.3,
+    "NAR": 3.9,
+    "ARC": 0.0,
+    "ICO": 4.2,
+    "TMP": 7.3
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 23.5,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 5.0,
+    "NAR": 2.6,
+    "ARC": 6.9,
+    "ICO": 1.6,
+    "TMP": 1.9
+   }
+  }
+ ],
+ "cells": [
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 18.1,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 2.8,
+    "NAR": 3.2,
+    "ARC": 1.9,
+    "ICO": 2.7,
+    "TMP": 2.5
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 24.2,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 3.3,
+    "NAR": 3.9,
+    "ARC": 0.0,
+    "ICO": 4.2,
+    "TMP": 7.3
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 18.9,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 0.6,
+    "NAR": 6.9,
+    "ARC": 0.7,
+    "ICO": 1.0,
+    "TMP": 4.8
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 22.9,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 2.2,
+    "NAR": 5.2,
+    "ARC": 0.0,
+    "ICO": 3.4,
+    "TMP": 6.6
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 10.1,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 2.8,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 1.4,
+    "TMP": 2.5
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 9.1,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 1.9,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.3,
+    "TMP": 1.7
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 15.6,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 4.1,
+    "NAR": 0.7,
+    "ARC": 0.0,
+    "ICO": 2.1,
+    "TMP": 4.2
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 10.4,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 2.6,
+    "ARC": 0.0,
+    "ICO": 0.7,
+    "TMP": 3.6
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 10.2,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 0.4,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 4.8,
+    "TMP": 1.5
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 24.0,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 6.8,
+    "NAR": 1.9,
+    "ARC": 3.0,
+    "ICO": 3.1,
+    "TMP": 3.6
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 7.8,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 3.6,
+    "NAR": 0.4,
+    "ARC": 0.0,
+    "ICO": 1.0,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 25.7,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 7.7,
+    "NAR": 1.6,
+    "ARC": 0.0,
+    "ICO": 5.6,
+    "TMP": 5.1
+   }
+  },
+  {
+   "film": "Snow White (1937)",
+   "filmSlug": "snow-white-1937",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 16.1,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 3.2,
+    "NAR": 1.5,
+    "ARC": 0.0,
+    "ICO": 2.0,
+    "TMP": 4.7
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 15.1,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 3.3,
+    "NAR": 1.8,
+    "ARC": 5.2,
+    "ICO": 0.5,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 21.8,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 4.2,
+    "NAR": 2.9,
+    "ARC": 2.2,
+    "ICO": 3.9,
+    "TMP": 3.3
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 16.5,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 0.6,
+    "NAR": 4.6,
+    "ARC": 4.1,
+    "ICO": 0.0,
+    "TMP": 2.5
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 18.7,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 3.5,
+    "ARC": 0.0,
+    "ICO": 2.9,
+    "TMP": 7.4
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 18.1,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 1.0,
+    "NAR": 0.6,
+    "ARC": 1.6,
+    "ICO": 0.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 8.4,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 0.5,
+    "NAR": 0.7,
+    "ARC": 1.4,
+    "ICO": 0.9,
+    "TMP": 1.8
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 12.5,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 2.1,
+    "NAR": 0.9,
+    "ARC": 1.6,
+    "ICO": 0.0,
+    "TMP": 3.9
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 6.9,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 2.1,
+    "ARC": 1.7,
+    "ICO": 0.0,
+    "TMP": 0.6
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 11.7,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 3.8,
+    "ARC": 1.8,
+    "ICO": 1.4,
+    "TMP": 0.9
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 37.7,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 7.1,
+    "NAR": 3.4,
+    "ARC": 7.9,
+    "ICO": 3.7,
+    "TMP": 9.2
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 8.2,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 3.3,
+    "NAR": 0.0,
+    "ARC": 1.0,
+    "ICO": 0.9,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 47.5,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 7.9,
+    "ARC": 3.3,
+    "ICO": 10.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Cinderella (1950)",
+   "filmSlug": "cinderella-1950",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 13.2,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 3.1,
+    "NAR": 1.1,
+    "ARC": 0.0,
+    "ICO": 2.7,
+    "TMP": 2.2
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 19.5,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 3.5,
+    "NAR": 4.3,
+    "ARC": 0.0,
+    "ICO": 3.8,
+    "TMP": 2.8
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 23.3,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 2.3,
+    "NAR": 6.6,
+    "ARC": 0.0,
+    "ICO": 3.0,
+    "TMP": 6.0
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 17.8,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 0.5,
+    "NAR": 5.4,
+    "ARC": 0.0,
+    "ICO": 2.4,
+    "TMP": 4.7
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 38.0,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.0,
+    "NAR": 3.5,
+    "ARC": 8.6,
+    "ICO": 3.6,
+    "TMP": 7.0
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 19.2,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 1.6,
+    "NAR": 3.3,
+    "ARC": 0.0,
+    "ICO": 5.7,
+    "TMP": 3.5
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 17.3,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 5.2,
+    "NAR": 2.6,
+    "ARC": 0.0,
+    "ICO": 2.8,
+    "TMP": 1.9
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 22.5,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 4.5,
+    "NAR": 4.3,
+    "ARC": 0.0,
+    "ICO": 3.5,
+    "TMP": 4.9
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 20.2,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 4.6,
+    "ARC": 0.0,
+    "ICO": 6.4,
+    "TMP": 4.0
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 15.2,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 1.9,
+    "NAR": 3.5,
+    "ARC": 0.0,
+    "ICO": 3.6,
+    "TMP": 1.7
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 11.4,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 1.4,
+    "ARC": 2.1,
+    "ICO": 0.4,
+    "TMP": 3.8
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 7.2,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 3.6,
+    "NAR": 0.4,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 17.3,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 0.5,
+    "NAR": 2.2,
+    "ARC": 0.0,
+    "ICO": 3.3,
+    "TMP": 6.5
+   }
+  },
+  {
+   "film": "Sleeping Beauty (1959)",
+   "filmSlug": "sleeping-beauty-1959",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 20.8,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 5.8,
+    "NAR": 1.1,
+    "ARC": 2.5,
+    "ICO": 2.9,
+    "TMP": 3.3
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 17.6,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 4.7,
+    "NAR": 3.4,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 4.7
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 12.8,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 1.5,
+    "NAR": 4.4,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.0
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 42.6,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.8,
+    "NAR": 4.5,
+    "ARC": 2.0,
+    "ICO": 10.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 7.7,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 1.0,
+    "NAR": 1.3,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.5
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 8.3,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 1.8,
+    "NAR": 2.8,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.7
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 20.9,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 4.3,
+    "NAR": 2.0,
+    "ARC": 2.5,
+    "ICO": 1.8,
+    "TMP": 5.0
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 16.0,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 1.7,
+    "NAR": 0.8,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 8.9
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 15.1,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 0.7,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 12.4,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 2.1,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 3.7,
+    "TMP": 2.7
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 2.1,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 1.1,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 23.9,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 7.0,
+    "NAR": 5.4,
+    "ARC": 1.9,
+    "ICO": 0.0,
+    "TMP": 4.1
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 2.9,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 0.5,
+    "NAR": 1.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "The Little Mermaid (1989)",
+   "filmSlug": "the-little-mermaid-1989",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 26.9,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 6.8,
+    "NAR": 5.7,
+    "ARC": 0.0,
+    "ICO": 3.2,
+    "TMP": 5.4
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 14.8,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 0.4,
+    "NAR": 2.4,
+    "ARC": 0.0,
+    "ICO": 0.4,
+    "TMP": 7.3
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 14.0,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 4.4,
+    "NAR": 1.9,
+    "ARC": 0.0,
+    "ICO": 0.4,
+    "TMP": 3.0
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 10.3,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 1.7,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 5.1
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 12.1,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 0.5,
+    "NAR": 1.3,
+    "ARC": 0.0,
+    "ICO": 3.9,
+    "TMP": 2.5
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 14.9,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 2.7,
+    "NAR": 2.8,
+    "ARC": 0.0,
+    "ICO": 3.4,
+    "TMP": 1.6
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 12.8,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 1.9,
+    "NAR": 1.9,
+    "ARC": 0.0,
+    "ICO": 2.4,
+    "TMP": 2.6
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 11.2,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 1.2,
+    "NAR": 2.6,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.7
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 16.1,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 2.7,
+    "ARC": 0.0,
+    "ICO": 2.1,
+    "TMP": 6.7
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 37.9,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.7,
+    "NAR": 10.0,
+    "ARC": 0.0,
+    "ICO": 4.5,
+    "TMP": 7.3
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 18.6,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 2.7,
+    "NAR": 3.7,
+    "ARC": 0.0,
+    "ICO": 6.1,
+    "TMP": 1.1
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 19.0,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 6.0,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.9,
+    "TMP": 7.1
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 14.6,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 2.4,
+    "ARC": 0.0,
+    "ICO": 6.7,
+    "TMP": 1.2
+   }
+  },
+  {
+   "film": "Beauty and the Beast (1991)",
+   "filmSlug": "beauty-and-the-beast-1991",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 26.4,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 6.7,
+    "NAR": 8.5,
+    "ARC": 0.0,
+    "ICO": 2.3,
+    "TMP": 3.2
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 38.0,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 5.0,
+    "NAR": 5.7,
+    "ARC": 4.7,
+    "ICO": 6.2,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 33.3,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 5.2,
+    "NAR": 4.0,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 7.9
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 17.8,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 3.4,
+    "ARC": 1.2,
+    "ICO": 2.6,
+    "TMP": 5.8
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 3.9,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 1.0,
+    "ARC": 0.0,
+    "ICO": 0.8,
+    "TMP": 0.4
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 18.1,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 2.1,
+    "NAR": 5.1,
+    "ARC": 0.0,
+    "ICO": 1.3,
+    "TMP": 4.7
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 13.0,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 3.1,
+    "ARC": 0.0,
+    "ICO": 1.1,
+    "TMP": 4.7
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 13.7,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 0.3,
+    "NAR": 3.7,
+    "ARC": 0.0,
+    "ICO": 3.9,
+    "TMP": 1.7
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 9.0,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 1.3,
+    "ARC": 0.0,
+    "ICO": 1.5,
+    "TMP": 3.0
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 24.6,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 2.0,
+    "NAR": 6.6,
+    "ARC": 0.0,
+    "ICO": 2.8,
+    "TMP": 7.7
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 13.1,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 2.4,
+    "NAR": 1.4,
+    "ARC": 4.6,
+    "ICO": 0.6,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 30.7,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 4.7,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 13.2,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 3.3,
+    "ARC": 0.0,
+    "ICO": 5.8,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "Aladdin (1992)",
+   "filmSlug": "aladdin-1992",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 29.9,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 5.3,
+    "ARC": 3.2,
+    "ICO": 2.3,
+    "TMP": 3.1
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 10.4,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 2.1,
+    "NAR": 1.6,
+    "ARC": 0.0,
+    "ICO": 1.1,
+    "TMP": 2.2
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 11.1,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 1.8,
+    "ARC": 0.0,
+    "ICO": 3.3,
+    "TMP": 2.3
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 20.4,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 6.8,
+    "NAR": 1.1,
+    "ARC": 0.0,
+    "ICO": 4.9,
+    "TMP": 2.5
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 13.4,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 3.4,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.2,
+    "TMP": 3.6
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 23.5,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 2.8,
+    "NAR": 5.6,
+    "ARC": 0.0,
+    "ICO": 2.2,
+    "TMP": 7.5
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 19.5,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 5.1,
+    "NAR": 7.7,
+    "ARC": 0.0,
+    "ICO": 1.3,
+    "TMP": 0.4
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 15.6,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 4.1,
+    "NAR": 1.5,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 5.5
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 13.3,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 2.8,
+    "NAR": 0.7,
+    "ARC": 0.0,
+    "ICO": 2.2,
+    "TMP": 3.5
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 16.1,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 1.4,
+    "NAR": 2.7,
+    "ARC": 0.0,
+    "ICO": 3.7,
+    "TMP": 3.6
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 12.9,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 2.3,
+    "NAR": 0.6,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 5.5
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 34.0,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 7.3,
+    "NAR": 10.0,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 12.6,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 1.8,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 6.3
+   }
+  },
+  {
+   "film": "Pocahontas (1995)",
+   "filmSlug": "pocahontas-1995",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 16.6,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 3.8,
+    "NAR": 3.2,
+    "ARC": 0.0,
+    "ICO": 2.4,
+    "TMP": 2.5
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 15.9,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 2.1,
+    "NAR": 5.0,
+    "ARC": 0.0,
+    "ICO": 2.6,
+    "TMP": 1.6
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 14.8,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 1.4,
+    "NAR": 5.7,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.4
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 14.7,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 3.8,
+    "ARC": 0.0,
+    "ICO": 2.1,
+    "TMP": 4.5
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 15.8,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 0.8,
+    "NAR": 5.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 5.5
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 45.2,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.6,
+    "NAR": 9.3,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 13.9,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 2.0,
+    "NAR": 5.0,
+    "ARC": 0.0,
+    "ICO": 1.8,
+    "TMP": 0.9
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 20.8,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 1.0,
+    "NAR": 6.2,
+    "ARC": 0.0,
+    "ICO": 1.8,
+    "TMP": 6.6
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 42.2,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 8.6,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 7.2
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 8.2,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 2.8,
+    "ARC": 0.0,
+    "ICO": 2.0,
+    "TMP": 1.3
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 13.3,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 2.5,
+    "NAR": 0.6,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 6.1
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 12.4,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 1.1,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.4,
+    "TMP": 5.0
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 23.1,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 5.1,
+    "NAR": 2.5,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Mulan (1998)",
+   "filmSlug": "mulan-1998",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 19.5,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 0.5,
+    "NAR": 5.1,
+    "ARC": 5.3,
+    "ICO": 2.2,
+    "TMP": 1.5
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 14.4,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 0.8,
+    "NAR": 0.6,
+    "ARC": 5.0,
+    "ICO": 0.0,
+    "TMP": 3.8
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 9.9,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 1.0,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 1.8,
+    "TMP": 3.7
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 9.6,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 1.7,
+    "ARC": 2.4,
+    "ICO": 0.0,
+    "TMP": 2.1
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 12.1,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 1.2,
+    "ARC": 0.0,
+    "ICO": 3.9,
+    "TMP": 3.2
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 18.7,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 2.2,
+    "NAR": 1.7,
+    "ARC": 0.0,
+    "ICO": 1.4,
+    "TMP": 8.5
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 10.8,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 1.2,
+    "ARC": 0.0,
+    "ICO": 2.8,
+    "TMP": 3.2
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 4.9,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.8
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 2.3,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 1.2
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 10.6,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.9,
+    "TMP": 4.1
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 43.0,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 6.9,
+    "ARC": 10.0,
+    "ICO": 2.5,
+    "TMP": 7.2
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 29.4,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 3.8,
+    "ARC": 0.0,
+    "ICO": 2.1,
+    "TMP": 7.6
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 29.0,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 6.5,
+    "NAR": 0.9,
+    "ARC": 0.0,
+    "ICO": 9.0,
+    "TMP": 6.5
+   }
+  },
+  {
+   "film": "The Princess and the Frog (2009)",
+   "filmSlug": "the-princess-and-the-frog-2009",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 26.0,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 6.1,
+    "ARC": 0.0,
+    "ICO": 4.6,
+    "TMP": 2.5
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 13.0,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 1.5,
+    "NAR": 3.6,
+    "ARC": 0.0,
+    "ICO": 1.0,
+    "TMP": 2.9
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 9.8,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 0.4,
+    "NAR": 2.8,
+    "ARC": 0.0,
+    "ICO": 0.4,
+    "TMP": 2.9
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 13.1,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 5.5,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.5
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 19.0,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 3.3,
+    "NAR": 6.4,
+    "ARC": 0.0,
+    "ICO": 3.3,
+    "TMP": 1.0
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 10.3,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 1.9,
+    "NAR": 2.4,
+    "ARC": 0.0,
+    "ICO": 0.9,
+    "TMP": 1.7
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 31.4,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 8.3,
+    "NAR": 2.2,
+    "ARC": 0.0,
+    "ICO": 4.8,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 9.0,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 2.4,
+    "NAR": 1.2,
+    "ARC": 0.0,
+    "ICO": 0.7,
+    "TMP": 1.5
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 9.3,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 2.7,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 3.3
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 13.3,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 0.5,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 2.2,
+    "TMP": 6.5
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 9.6,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 3.8,
+    "ARC": 0.0,
+    "ICO": 2.1,
+    "TMP": 0.4
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 27.2,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 9.5,
+    "NAR": 3.5,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 7.9
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 11.7,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 0.6,
+    "NAR": 1.2,
+    "ARC": 0.0,
+    "ICO": 6.2,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "Tangled (2010)",
+   "filmSlug": "tangled-2010",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 30.6,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 2.2,
+    "ARC": 1.6,
+    "ICO": 4.4,
+    "TMP": 6.4
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 19.3,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 2.3,
+    "NAR": 5.3,
+    "ARC": 0.0,
+    "ICO": 2.7,
+    "TMP": 4.0
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 15.5,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 4.2,
+    "NAR": 3.3,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 5.2
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 25.8,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 1.7,
+    "NAR": 2.7,
+    "ARC": 3.1,
+    "ICO": 3.1,
+    "TMP": 9.6
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 12.5,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 1.3,
+    "NAR": 4.4,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.8
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 16.6,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 1.8,
+    "NAR": 5.3,
+    "ARC": 0.0,
+    "ICO": 4.4,
+    "TMP": 0.5
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 23.4,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 3.5,
+    "NAR": 2.9,
+    "ARC": 4.0,
+    "ICO": 4.8,
+    "TMP": 2.8
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 42.3,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 10.0,
+    "NAR": 7.0,
+    "ARC": 0.0,
+    "ICO": 9.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 22.4,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 3.1,
+    "ARC": 0.0,
+    "ICO": 3.9,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 15.5,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 2.0,
+    "NAR": 7.0,
+    "ARC": 0.0,
+    "ICO": 1.1,
+    "TMP": 1.0
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 7.7,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 0.7,
+    "NAR": 1.5,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 2.2
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 13.3,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 3.3,
+    "NAR": 0.9,
+    "ARC": 4.1,
+    "ICO": 0.9,
+    "TMP": 0.0
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 12.5,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 5.1,
+    "NAR": 2.9,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 0.5
+   }
+  },
+  {
+   "film": "Brave (2012)",
+   "filmSlug": "brave-2012",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 19.9,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 3.0,
+    "NAR": 3.4,
+    "ARC": 0.0,
+    "ICO": 3.9,
+    "TMP": 4.6
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 16.9,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 5.0,
+    "NAR": 5.7,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 1.5
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 14.2,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 2.5,
+    "NAR": 4.6,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.8
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 32.1,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 9.9,
+    "NAR": 5.3,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 3.6
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 36.8,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 6.0,
+    "NAR": 7.7,
+    "ARC": 10.0,
+    "ICO": 0.0,
+    "TMP": 6.9
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 25.5,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 0.6,
+    "NAR": 9.3,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 11.5,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 6.8,
+    "ARC": 0.0,
+    "ICO": 0.5,
+    "TMP": 0.4
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 14.0,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 4.9,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 4.8
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 15.6,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 7.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 4.1
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 14.6,
+   "rankInRow": 10,
+   "facets": {
+    "DOM": 3.6,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 4.1,
+    "TMP": 2.6
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 21.8,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 1.7,
+    "NAR": 1.0,
+    "ARC": 5.4,
+    "ICO": 2.8,
+    "TMP": 5.6
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 25.0,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 4.5,
+    "NAR": 7.9,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 6.9
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 22.3,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 6.0,
+    "NAR": 0.9,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 10.0
+   }
+  },
+  {
+   "film": "Moana (2016)",
+   "filmSlug": "moana-2016",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 23.5,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 5.0,
+    "NAR": 2.6,
+    "ARC": 6.9,
+    "ICO": 1.6,
+    "TMP": 1.9
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Zeus",
+   "godSlug": "zeus",
+   "score": 18.1,
+   "rankInRow": 7,
+   "facets": {
+    "DOM": 2.3,
+    "NAR": 6.6,
+    "ARC": 0.0,
+    "ICO": 2.7,
+    "TMP": 1.6
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Hera",
+   "godSlug": "hera",
+   "score": 15.1,
+   "rankInRow": 8,
+   "facets": {
+    "DOM": 1.3,
+    "NAR": 5.1,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 4.3
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Poseidon",
+   "godSlug": "poseidon",
+   "score": 22.4,
+   "rankInRow": 5,
+   "facets": {
+    "DOM": 3.3,
+    "NAR": 6.2,
+    "ARC": 0.0,
+    "ICO": 2.8,
+    "TMP": 4.7
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Demeter",
+   "godSlug": "demeter",
+   "score": 26.5,
+   "rankInRow": 3,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 10.0,
+    "ARC": 4.8,
+    "ICO": 0.0,
+    "TMP": 6.0
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Athena",
+   "godSlug": "athena",
+   "score": 40.2,
+   "rankInRow": 2,
+   "facets": {
+    "DOM": 6.6,
+    "NAR": 10.0,
+    "ARC": 0.0,
+    "ICO": 9.6,
+    "TMP": 7.5
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Apollo",
+   "godSlug": "apollo",
+   "score": 14.5,
+   "rankInRow": 11,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 8.0,
+    "ARC": 0.0,
+    "ICO": 1.4,
+    "TMP": 0.8
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Artemis",
+   "godSlug": "artemis",
+   "score": 23.3,
+   "rankInRow": 4,
+   "facets": {
+    "DOM": 0.0,
+    "NAR": 8.1,
+    "ARC": 0.0,
+    "ICO": 2.1,
+    "TMP": 7.6
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Ares",
+   "godSlug": "ares",
+   "score": 42.7,
+   "rankInRow": 1,
+   "facets": {
+    "DOM": 9.1,
+    "NAR": 10.0,
+    "ARC": 0.0,
+    "ICO": 10.0,
+    "TMP": 7.2
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Aphrodite",
+   "godSlug": "aphrodite",
+   "score": 4.1,
+   "rankInRow": 13,
+   "facets": {
+    "DOM": 0.5,
+    "NAR": 0.0,
+    "ARC": 0.0,
+    "ICO": 0.4,
+    "TMP": 1.4
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Hephaestus",
+   "godSlug": "hephaestus",
+   "score": 12.3,
+   "rankInRow": 12,
+   "facets": {
+    "DOM": 0.5,
+    "NAR": 0.7,
+    "ARC": 1.1,
+    "ICO": 0.6,
+    "TMP": 5.5
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Hermes",
+   "godSlug": "hermes",
+   "score": 14.9,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 4.7,
+    "NAR": 3.0,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 2.7
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Hestia",
+   "godSlug": "hestia",
+   "score": 14.9,
+   "rankInRow": 9,
+   "facets": {
+    "DOM": 2.8,
+    "NAR": 0.4,
+    "ARC": 0.0,
+    "ICO": 0.0,
+    "TMP": 7.3
+   }
+  },
+  {
+   "film": "Raya and the Last Dragon (2021)",
+   "filmSlug": "raya-and-the-last-dragon-2021",
+   "god": "Dionysus",
+   "godSlug": "dionysus",
+   "score": 21.8,
+   "rankInRow": 6,
+   "facets": {
+    "DOM": 4.9,
+    "NAR": 4.3,
+    "ARC": 1.4,
+    "ICO": 2.5,
+    "TMP": 3.5
+   }
+  }
+ ]
+}

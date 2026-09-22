@@ -1,0 +1,147 @@
+{# Port of components/ChapterView.tsx.
+
+   Both reveal states are rendered; static/js/chapter-view.js switches them from
+   the same sessionStorage the React store used, and drives the human/AI tab
+   toggle and the one-way "reveal AI art" opt-in (localStorage). #}
+{% import "_macros.html" as m %}
+
+{% macro chapter_view(god_slug, accent, princess_slug, label, god, princess, film,
+                      year, facets, override, human_essay, ai_essay,
+                      exact_matches=none, intro=none, hideable=false) %}
+<div data-chapter data-god-slug="{{ god_slug }}">
+  <header class="border-b pb-8" style="border-color: {{ accent }}40">
+    <div
+      class="flex flex-wrap items-baseline gap-x-3 font-mono text-xs uppercase tracking-[0.3em] text-faint"
+    >
+      <span>{{ label }}</span>
+      <span data-when hidden class="contents">
+        <span aria-hidden="true">&middot;</span>
+        <span>{{ film }}, {{ year }}</span>
+      </span>
+    </div>
+
+    {# God is Princess — one line, icon aligned with each name #}
+    <h1
+      class="mt-4 flex flex-wrap items-center gap-x-3 gap-y-2 text-balance text-4xl leading-[1.12] tracking-title sm:text-5xl"
+    >
+      {{ god_icon(god_slug, class_='h-[0.85em] w-[0.85em] shrink-0', size=none,
+                  style='color: ' ~ accent) }}
+      <span>{{ god }}</span>
+      <span class="font-serif text-2xl text-faint sm:text-3xl">is</span>
+      <span data-revealed hidden class="inline-flex items-center gap-2.5">
+        {{ princess_icon(princess_slug,
+            class_='h-[0.8em] w-[0.8em] shrink-0 text-goldsoft/80', size=none) }}
+        <span class="text-goldsoft">{{ princess }}</span>
+        {% if hideable %}
+        <button
+          type="button"
+          data-hide
+          class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
+        >
+          hide
+        </button>
+        {% endif %}
+      </span>
+      <button
+        type="button"
+        data-unmask
+        aria-label="Unmask which princess is {{ god }}"
+        class="group inline-flex translate-y-[-0.1em] items-center gap-2.5 rounded-full border border-gold/35 bg-gold/[0.07] py-1.5 pl-1.5 pr-5 align-middle font-mono text-sm uppercase tracking-[0.18em] text-muted transition-colors hover:border-gold/70 hover:bg-gold/[0.14] hover:text-goldsoft"
+      >
+        <span
+          aria-hidden="true"
+          class="grid h-8 w-8 place-items-center rounded-full border border-gold/45 text-lg leading-none text-goldsoft/90 transition-colors group-hover:border-gold/80"
+          >?</span
+        >
+        unmask
+      </button>
+    </h1>
+  </header>
+
+  {# The pairing portrait — the god fused with the princess. AI-generated, so
+     hidden by default: a visitor opts in with "Reveal AI art", which shows the
+     portraits site-wide. Only shown after the pair is revealed, so it can't
+     spoil, and the <img> src is set by JS so the file isn't even fetched. #}
+  <figure
+    data-art
+    hidden
+    class="reveal-in mt-8 overflow-hidden rounded-lg border"
+    style="border-color: {{ accent }}55"
+  >
+    <img
+      data-art-img
+      data-src="/static/pairings/{{ god_slug }}.jpg"
+      alt="{{ god }}, disguised as {{ princess }}"
+      width="1280"
+      height="698"
+      class="block w-full"
+    />
+  </figure>
+  <div data-art-optin hidden class="mt-8">
+    <button
+      type="button"
+      data-reveal-art
+      title="Show the AI-generated portraits on every page"
+      class="font-mono text-[0.6rem] uppercase tracking-[0.2em] text-faint underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
+    >
+      Reveal AI art &rarr;
+    </button>
+  </div>
+
+  {% if intro %}
+  <div class="prose-editorial mt-8 text-muted">{{ intro }}</div>
+  {% endif %}
+
+  {# Analysis toggle #}
+  <div class="mt-8">
+    <div
+      role="tablist"
+      aria-label="Choose analysis"
+      class="inline-flex items-stretch gap-1 rounded-lg border border-white/10 bg-raised/50 p-1"
+    >
+      <button
+        type="button"
+        role="tab"
+        data-tab="human"
+        aria-selected="true"
+        class="rounded-md px-4 py-2 font-serif text-base transition-colors bg-gold/15 text-goldsoft"
+      >
+        Human analysis
+      </button>
+      <button
+        type="button"
+        role="tab"
+        data-tab="ai"
+        aria-selected="false"
+        class="rounded-md px-4 py-2 font-serif text-base transition-colors text-muted hover:text-ink"
+      >
+        AI analysis
+      </button>
+    </div>
+  </div>
+
+  {# Essay body #}
+  <div class="prose-editorial essay-body mt-8">
+    <div data-panel="human">{{ human_essay }}</div>
+    <div data-panel="ai" hidden>{{ ai_essay }}</div>
+  </div>
+
+  {{ m.facets(facets=facets, bare=true, explain=true) }}
+
+  {% if exact_matches %}{{ m.exact_tags(exact_matches) }}{% endif %}
+
+  {# Override footnote — kept out of the commentary, noted at the end #}
+  {% if override %}
+  <p class="mt-12 border-t border-white/8 pt-5 text-sm text-faint">
+    <span aria-hidden="true" class="mr-2 text-wine">&#9873;</span>
+    Manual override &mdash; the algorithm originally paired this god with
+    <span class="text-muted">{{ override.algPrincess }}</span> ({{ override.algScore | score }}).
+    <a
+      href="/overrides"
+      class="text-goldsoft underline decoration-gold/30 underline-offset-4 hover:decoration-gold"
+      >Why &rarr;</a
+    >
+  </p>
+  {% endif %}
+</div>
+{% endmacro %}

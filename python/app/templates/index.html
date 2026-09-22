@@ -1,0 +1,397 @@
+{# Port of app/page.tsx + components/RevealLedger.tsx.
+
+   The React component held four per-row states in hooks (masked → picking →
+   pending → open). Here every state is rendered server-side and the matching
+   one is switched on by static/js/reveal-ledger.js, which reads the same
+   sessionStorage the React store did. With JS off the page degrades to the
+   masked ledger with its domain hints. #}
+{% extends "layout.html" %}
+{% import "_macros.html" as m %}
+
+{% block content %}
+<div class="mx-auto max-w-[72rem] px-6 py-16">
+  <div class="lg:grid lg:grid-cols-[12rem_1fr] lg:gap-14">
+    <aside class="hidden lg:block">
+      <div class="sticky top-10">{{ m.god_nav('') }}</div>
+    </aside>
+
+    <div class="max-w-wide">
+      {# Masthead #}
+      <section class="pb-14 pt-4">
+        {{ temple_crest('mb-7 w-44 text-gold/50 sm:w-52') }}
+        <p class="mb-6 font-mono text-xs uppercase tracking-[0.3em] text-faint">
+          Thirteen gods &middot; thirteen disguises &middot; thirteen princesses
+        </p>
+        <h1 class="text-balance text-5xl leading-[1.05] sm:text-6xl">
+          The Disney Princess <span class="italic text-goldsoft">Pantheon</span>
+        </h1>
+        <p class="prose-editorial mt-8 max-w-measure text-muted">
+          The 13 Olympian gods, starved of worship, have each disguised
+          themselves as one of the 13 official Disney princesses.
+          <span class="font-mono text-[0.85em] uppercase tracking-wider text-goldsoft"
+            >Guess</span
+          >
+          which princess hides each god, then
+          <span class="font-mono text-[0.85em] uppercase tracking-wider text-goldsoft"
+            >Unmask</span
+          >
+          to score your picks.
+        </p>
+      </section>
+
+      {# The reveal ledger #}
+      <section
+        aria-label="Gods in disguise — click to unmask each princess"
+        class="pb-6"
+      >
+        <div id="ledger" data-ledger>
+          {# Completion — the payoff once the whole board is unmasked #}
+          <div
+            data-complete
+            hidden
+            class="mb-6 rounded-lg border border-gold/30 bg-gradient-to-br from-gold/[0.10] to-transparent px-5 py-6 text-center"
+          >
+            <p class="font-mono text-[0.6rem] uppercase tracking-[0.3em] text-gold/70">
+              &#10022; The pantheon stands unmasked &#10022;
+            </p>
+            <p class="mt-3 font-serif text-2xl text-ink sm:text-3xl" data-score-line></p>
+            <div class="mt-5 flex flex-wrap items-center justify-center gap-3">
+              <button
+                type="button"
+                data-share
+                class="inline-flex items-center gap-2 rounded-full border border-gold/40 bg-gold/[0.08] px-5 py-2 font-mono text-xs uppercase tracking-[0.22em] text-goldsoft transition-colors hover:border-gold/70 hover:bg-gold/[0.14]"
+              >
+                Share your result
+              </button>
+              <button
+                type="button"
+                data-reset
+                class="font-mono text-xs uppercase tracking-[0.2em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
+              >
+                Play again
+              </button>
+            </div>
+            <a
+              href="/chapters/zeus"
+              class="mt-5 inline-block text-sm text-goldsoft/80 underline decoration-gold/30 underline-offset-4 transition-colors hover:text-goldsoft hover:decoration-gold"
+              >Walk the unmasked pantheon &rarr;</a
+            >
+          </div>
+
+          {# Escape hatch for readers who'd rather skip the game and read the
+             essays. Hidden once the board is complete — the payoff banner links
+             out instead. #}
+          <div class="mb-4" data-skip>
+            <a
+              href="/chapters/zeus"
+              class="inline-flex items-center gap-1.5 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint underline decoration-white/15 underline-offset-4 transition-colors hover:text-muted hover:decoration-gold/40"
+              >Skip guessing? Walk the pantheon.</a
+            >
+          </div>
+
+          {# Candidate princesses — a reminder of the roster, ticked off as matched #}
+          <details class="group mb-6 rounded-lg border border-white/8 bg-raised/25">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between px-4 py-3 font-mono text-xs uppercase tracking-[0.2em] text-muted transition-colors hover:text-ink"
+            >
+              <span>The 13 princesses &middot; the candidate set</span>
+              <span class="text-faint">
+                <span class="group-open:hidden">show &#9662;</span>
+                <span class="hidden group-open:inline">hide &#9652;</span>
+              </span>
+            </summary>
+            <div class="border-t border-white/8 px-4 py-4">
+              <ul class="grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-3">
+                {% for p in princesses %}
+                <li
+                  data-candidate="{{ p.name }}"
+                  class="flex items-center justify-between gap-2 text-sm text-ink/85"
+                >
+                  <span class="flex items-center gap-2">
+                    {{ princess_icon(p.slug, size=15, class_='shrink-0 text-muted') }}
+                    <span data-candidate-name>{{ p.name }}</span>
+                  </span>
+                  <span
+                    data-candidate-god
+                    hidden
+                    class="shrink-0 font-mono text-[0.6rem] uppercase tracking-widest text-gold/70"
+                  ></span>
+                </li>
+                {% endfor %}
+              </ul>
+              <p
+                data-available
+                class="mt-4 font-mono text-[0.65rem] uppercase tracking-widest text-faint"
+              >
+                {{ princesses | length }} still available
+              </p>
+            </div>
+          </details>
+
+          {# Status + controls (hidden once the board is fully unmasked) #}
+          <div data-controls class="mb-3 flex items-center justify-between">
+            <p
+              data-status
+              class="font-mono text-xs uppercase tracking-[0.25em] text-faint"
+            >
+              <span>Guess the thirteen</span>
+            </p>
+            <div class="flex items-center gap-4">
+              <button
+                type="button"
+                data-reset
+                hidden
+                class="font-mono text-xs uppercase tracking-[0.2em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
+              >
+                Reset
+              </button>
+              <button
+                type="button"
+                data-unmask-bulk
+                class="font-mono text-xs uppercase tracking-[0.2em] text-goldsoft underline decoration-gold/30 underline-offset-4 transition-colors hover:decoration-gold"
+              >
+                Unmask all
+              </button>
+            </div>
+          </div>
+
+          <ol class="border-t border-white/5">
+            {% for it in items %}
+            <li
+              class="group border-t border-white/8 last:border-b"
+              data-row
+              data-god-slug="{{ it.godSlug }}"
+              data-god="{{ it.god }}"
+              data-princess="{{ it.princess }}"
+              data-index="{{ loop.index0 }}"
+              data-distractors="{{ it.distractors | attrjson }}"
+            >
+              <div
+                data-hit
+                class="relative grid cursor-pointer grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-6 transition-colors before:pointer-events-none before:absolute before:inset-y-2 before:left-0 before:w-[2px] before:rounded-full before:bg-transparent before:transition-colors before:content-[''] group-hover:bg-white/[0.025] group-hover:before:bg-gold/50 sm:gap-x-8"
+                role="button"
+                tabindex="0"
+                aria-label="Guess which princess is {{ it.god }}"
+              >
+                {# Sequence #}
+                <span class="pl-2 font-mono text-sm tabular-nums text-faint"
+                  >{{ it.seq | seq }}</span
+                >
+
+                {# God + reveal state #}
+                <div class="min-w-0">
+                  <div class="flex flex-wrap items-baseline gap-x-3">
+                    {{ god_icon(it.godSlug,
+                        class_='h-[1.5rem] w-[1.5rem] shrink-0 self-center sm:h-[1.8rem] sm:w-[1.8rem]',
+                        size=none, style='color: ' ~ it.accent) }}
+                    <span
+                      class="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl"
+                      >{{ it.god }}</span
+                    >
+                    <span data-revealed-name hidden class="contents">
+                      <span class="text-faint">is</span>
+                      {{ princess_icon(it.princessSlug,
+                          class_='h-[1.5rem] w-[1.5rem] shrink-0 self-center text-goldsoft/80 sm:h-[1.8rem] sm:w-[1.8rem]',
+                          size=none) }}
+                      <span
+                        data-princess-name
+                        class="font-serif text-2xl tracking-title text-ink transition-colors group-hover:text-goldsoft sm:text-3xl"
+                        >{{ it.princess }}</span
+                      >
+                      <span
+                        data-outcome
+                        hidden
+                        class="font-mono text-[0.6rem] uppercase tracking-[0.2em]"
+                      ></span>
+                    </span>
+                  </div>
+
+                  {# One of four states, switched by reveal-ledger.js #}
+                  <div data-detail>
+                    {# masked: the god's domain hints #}
+                    <div data-state="hints" class="mt-2.5 flex flex-wrap gap-2">
+                      {% for h in it.hints %}
+                      <span
+                        class="rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-[0.7rem] text-muted"
+                        >{{ h }}</span
+                      >
+                      {% endfor %}
+                    </div>
+
+                    {# picking: the four-way multiple choice #}
+                    <div data-state="picking" hidden class="relative z-10 mt-3">
+                      <p
+                        class="mb-2 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-faint"
+                      >
+                        Which princess?
+                      </p>
+                      <div class="flex flex-wrap gap-2">
+                        <div data-options class="contents"></div>
+                        <button
+                          type="button"
+                          data-cancel
+                          class="rounded-full px-2 py-1 font-mono text-[0.65rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
+                        >
+                          cancel
+                        </button>
+                      </div>
+                    </div>
+
+                    {# pending: a locked-in guess, waiting for the reveal #}
+                    <div
+                      data-state="pending"
+                      hidden
+                      class="mt-3 flex flex-wrap items-center gap-x-3 gap-y-2"
+                    >
+                      <span
+                        class="font-mono text-[0.62rem] uppercase tracking-[0.2em] text-faint"
+                        >Your guess</span
+                      >
+                      <span
+                        data-pending-name
+                        class="rounded-full border border-gold/40 bg-gold/[0.06] px-3 py-0.5 font-serif text-base text-goldsoft"
+                      ></span>
+                      <button
+                        type="button"
+                        data-change
+                        class="relative z-10 font-mono text-[0.6rem] uppercase tracking-[0.15em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
+                      >
+                        change
+                      </button>
+                    </div>
+
+                    {# open: the whole revealed row links to the chapter #}
+                    <a
+                      data-state="open"
+                      hidden
+                      href="/chapters/{{ it.godSlug }}"
+                      class="group/a mt-2.5 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/75 transition-colors after:absolute after:inset-0 after:content-[''] hover:text-goldsoft"
+                    >
+                      Read the analysis
+                      <span aria-hidden="true" class="transition-transform group-hover/a:translate-x-0.5"
+                        >&rarr;</span
+                      >
+                    </a>
+                  </div>
+                </div>
+
+                {# Right column is a visual affordance only — the whole row is the
+                   click target (masked → guess; locked-in guess → unmask). #}
+                <div class="text-right">
+                  <span
+                    data-affordance="guess"
+                    aria-hidden="true"
+                    class="mr-2 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-faint transition-colors group-hover:text-goldsoft"
+                  >
+                    <span
+                      class="grid h-8 w-8 place-items-center rounded-full border border-white/12 text-base transition-colors group-hover:border-gold/50"
+                      >?</span
+                    >
+                    <span class="hidden sm:inline">guess</span>
+                  </span>
+                  <span
+                    data-affordance="unmask"
+                    hidden
+                    aria-hidden="true"
+                    class="mr-2 inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-gold/70 transition-colors group-hover:text-goldsoft"
+                  >
+                    <span
+                      class="grid h-8 w-8 place-items-center rounded-full border border-gold/40 text-sm transition-colors group-hover:border-gold"
+                      >&#10003;</span
+                    >
+                    <span class="hidden sm:inline">unmask</span>
+                  </span>
+                </div>
+              </div>
+            </li>
+            {% endfor %}
+          </ol>
+
+          {# The fourteenth — off the matrix #}
+          <div class="mt-10 border-t border-gold/25 pt-6" data-bonus>
+            <p class="mb-3 font-mono text-[0.6rem] uppercase tracking-[0.3em] text-gold/70">
+              The fourteenth &middot; non-Olympian &middot; unofficial
+            </p>
+            <div
+              data-bonus-hit
+              class="group relative grid cursor-pointer grid-cols-[2.5rem_1fr_auto] items-center gap-x-5 rounded-md py-2 transition-colors before:pointer-events-none before:absolute before:inset-y-1 before:left-0 before:w-[2px] before:rounded-full before:bg-transparent before:transition-colors before:content-[''] hover:bg-white/[0.025] hover:before:bg-gold/50 sm:gap-x-8"
+              role="button"
+              tabindex="0"
+              aria-label="Unmask who Hades is"
+            >
+              <span aria-hidden="true" class="text-center font-mono text-lg text-gold/70"
+                >&#10022;</span
+              >
+              <div class="min-w-0">
+                <div class="flex flex-wrap items-baseline gap-x-3">
+                  {{ god_icon('hades',
+                      class_='h-[1.5rem] w-[1.5rem] shrink-0 self-center sm:h-[1.8rem] sm:w-[1.8rem]',
+                      size=none, style='color: ' ~ god_accent('hades')) }}
+                  <span
+                    class="font-serif text-2xl tracking-title text-goldsoft/90 sm:text-3xl"
+                    >{{ bonus.god }}</span
+                  >
+                  <span data-revealed-name hidden class="contents">
+                    <span class="text-faint">is</span>
+                    <span
+                      data-princess-name
+                      class="font-serif text-2xl tracking-title text-ink transition-colors group-hover:text-goldsoft sm:text-3xl"
+                      >{{ bonus.princess }}</span
+                    >
+                    <button
+                      type="button"
+                      data-hide
+                      class="relative z-10 font-mono text-[0.6rem] uppercase tracking-[0.2em] text-faint underline decoration-white/20 underline-offset-4 transition-colors hover:text-muted"
+                    >
+                      hide
+                    </button>
+                  </span>
+                </div>
+                <div data-state="hints" class="mt-2.5 flex flex-wrap gap-2">
+                  {% for h in bonus.hints %}
+                  <span
+                    class="rounded-full border border-white/10 px-2.5 py-0.5 font-mono text-[0.7rem] text-muted"
+                    >{{ h }}</span
+                  >
+                  {% endfor %}
+                </div>
+                <a
+                  data-state="open"
+                  hidden
+                  href="{{ bonus.href }}"
+                  class="group/a mt-2.5 inline-flex items-center gap-1.5 font-mono text-[0.62rem] uppercase tracking-[0.2em] text-goldsoft/75 transition-colors after:absolute after:inset-0 after:content-[''] hover:text-goldsoft"
+                >
+                  Read the analysis
+                  <span aria-hidden="true" class="transition-transform group-hover/a:translate-x-0.5"
+                    >&rarr;</span
+                  >
+                </a>
+              </div>
+              <div class="text-right">
+                <span
+                  data-affordance="unmask"
+                  aria-hidden="true"
+                  class="inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-faint transition-colors group-hover:text-goldsoft"
+                >
+                  <span
+                    class="grid h-8 w-8 place-items-center rounded-full border border-white/12 text-base transition-colors group-hover:border-gold/50"
+                    >?</span
+                  >
+                  <span class="hidden sm:inline">unmask</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script type="application/json" id="ledger-data">
+  {{ {'princesses': princesses | map(attribute='name') | list} | tojson }}
+</script>
+<script src="/static/js/reveal-ledger.js"></script>
+{% endblock %}

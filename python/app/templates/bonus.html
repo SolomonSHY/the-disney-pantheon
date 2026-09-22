@@ -1,0 +1,79 @@
+{# Port of app/bonus/page.tsx — the off-matrix fourteenth, Hades x Elsa. #}
+{% extends "layout.html" %}
+{% import "_macros.html" as m %}
+{% import "_chapter_view.html" as cv %}
+
+{% set intro %}
+<p>
+  The most famous god who is <em>technically</em> not an Olympian &mdash; matched, off
+  the matrix, to a heroine who is <em>technically</em> not a princess. Neither was
+  ever in the scored set.
+</p>
+{% endset %}
+
+{% block content %}
+{{ m.god_wash('hades', accent) }}
+
+<div class="mx-auto max-w-[72rem] px-6 py-16">
+  <div class="lg:grid lg:grid-cols-[12rem_1fr] lg:gap-14">
+    <aside class="hidden lg:block">
+      <div class="sticky top-10">{{ m.god_nav('bonus') }}</div>
+    </aside>
+
+    <article class="max-w-wide">
+      <a
+        href="/"
+        class="font-mono text-xs uppercase tracking-[0.25em] text-faint transition-colors hover:text-muted"
+        >&larr; Pantheon</a
+      >
+
+      <div class="mt-8">
+        {{ cv.chapter_view(
+            god_slug='hades',
+            accent=accent,
+            princess_slug='elsa',
+            label='The fourteenth',
+            god='Hades',
+            princess='Elsa',
+            film='Frozen',
+            year=2013,
+            facets=appendix.facets,
+            override=none,
+            human_essay=human_essay,
+            ai_essay=ai_essay,
+            exact_matches=exact_matches,
+            intro=intro,
+            hideable=true) }}
+      </div>
+
+      <nav class="mt-20 grid grid-cols-2 gap-6 border-t border-white/8 pt-8 text-sm">
+        <a href="/chapters/dionysus" class="group block">
+          <span class="font-mono text-xs uppercase tracking-widest text-faint"
+            >&larr; Previous</span
+          >
+          <span
+            class="mt-1 block font-serif text-lg text-ink/85 transition-colors group-hover:text-goldsoft"
+            >Dionysus</span
+          >
+        </a>
+        <a href="/matrix" class="group block text-right">
+          <span class="font-mono text-xs uppercase tracking-widest text-faint"
+            >Next &rarr;</span
+          >
+          <span
+            class="mt-1 block font-serif text-lg text-ink/85 transition-colors group-hover:text-goldsoft"
+            >The Concordance</span
+          >
+        </a>
+      </nav>
+
+      {# Return to the ledger from the foot of the analysis. #}
+      <div class="mt-10 flex justify-center">{{ m.back_to_pantheon() }}</div>
+    </article>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/chapter-view.js"></script>
+{% endblock %}

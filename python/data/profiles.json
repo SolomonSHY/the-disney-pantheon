@@ -1,0 +1,1340 @@
+{
+ "vocabulary": {
+  "DOM": {
+   "sea": "SEA",
+   "navigation": "SEA",
+   "storm": "SEA",
+   "water-fresh": "SEA",
+   "earthquake": "SEA",
+   "sky": "SKY",
+   "light-sun": "SKY",
+   "night-moon": "SKY",
+   "prophecy": "MIND",
+   "weather": "SKY",
+   "earth-agriculture": "EARTH",
+   "grain": "EARTH",
+   "seasons": "EARTH",
+   "fertility": "EARTH",
+   "vegetation": "EARTH",
+   "wilderness-hunt": "WILD",
+   "animals": "WILD",
+   "archery": "WILD",
+   "horses": "WILD",
+   "shepherds": "WILD",
+   "hearth-home": "HOME",
+   "household-order": "HOME",
+   "family": "HOME",
+   "hospitality": "HOME",
+   "fire": "HOME",
+   "war-strategy": "WAR",
+   "war-violence": "WAR",
+   "courage": "WAR",
+   "guardianship": "WAR",
+   "heroic-patronage": "WAR",
+   "craft-making": "CRAFT",
+   "forge-metallurgy": "CRAFT",
+   "technology": "CRAFT",
+   "labor": "CRAFT",
+   "trade-commerce": "CRAFT",
+   "wisdom-knowledge": "MIND",
+   "language-interpretation": "MIND",
+   "arts-music": "MIND",
+   "healing": "MIND",
+   "mysteries": "MIND",
+   "love-desire": "EROS",
+   "beauty": "EROS",
+   "marriage": "EROS",
+   "persuasion": "EROS",
+   "women-childbirth": "EROS",
+   "sovereignty": "POWER",
+   "civic-order": "POWER",
+   "justice": "POWER",
+   "wealth-palace": "POWER",
+   "boundaries-travel": "LIMINAL",
+   "psychopomp": "LIMINAL",
+   "theft": "LIMINAL",
+   "messages": "LIMINAL",
+   "liberation": "LIMINAL",
+   "revelry-madness": "LIMINAL",
+   "magic-enchantment": "LIMINAL",
+   "wine-feast": "LIMINAL",
+   "youth": "YOUTH",
+   "chastity": "YOUTH",
+   "nurture": "YOUTH",
+   "plague": "YOUTH"
+  },
+  "NAR": {
+   "sovereign-ruler": "RULE",
+   "consort-of-sovereign": "RULE",
+   "heir-successor": "RULE",
+   "sibling-of-sovereign": "RULE",
+   "arbiter": "RULE",
+   "guardian-of-order": "RULE",
+   "dispossessed": "DISPOSSESSED",
+   "cast-out": "DISPOSSESSED",
+   "imprisoned": "DISPOSSESSED",
+   "wanderer-exile": "DISPOSSESSED",
+   "servant-in-place": "DISPOSSESSED",
+   "outsider-in-community": "DISPOSSESSED",
+   "hidden-child": "DISPOSSESSED",
+   "betrayed": "DISPOSSESSED",
+   "quest-hero": "QUEST",
+   "seeker": "QUEST",
+   "restorer-of-order": "QUEST",
+   "guardian-of-talisman": "QUEST",
+   "champion": "QUEST",
+   "warrior": "QUEST",
+   "avenger": "QUEST",
+   "messenger-interpreter": "MEDIATE",
+   "boundary-crosser": "MEDIATE",
+   "peacemaker": "MEDIATE",
+   "negotiator": "MEDIATE",
+   "guide-psychopomp": "MEDIATE",
+   "mentor-guide": "MEDIATE",
+   "trickster": "MEDIATE",
+   "craftsman-outsider": "MAKER",
+   "maker-of-talismans": "MAKER",
+   "self-made-striver": "MAKER",
+   "healer": "MAKER",
+   "bride-prize": "MARRIAGE",
+   "refuser-of-marriage": "MARRIAGE",
+   "monstrous-bridegroom": "MARRIAGE",
+   "partner-of-monstrous-bridegroom": "MARRIAGE",
+   "adulterer": "MARRIAGE",
+   "unlucky-lover": "MARRIAGE",
+   "protector-of-lovers": "MARRIAGE",
+   "victim-of-curse": "VICTIM",
+   "sleeper-dormant": "VICTIM",
+   "object-of-jealousy": "VICTIM",
+   "persecutor": "VICTIM",
+   "self-sacrificer": "VICTIM",
+   "defeated-god": "VICTIM",
+   "self-transformer": "TRANSFORM",
+   "transformer-of-others": "TRANSFORM",
+   "liberator": "TRANSFORM",
+   "arriving-stranger": "TRANSFORM",
+   "disguised-infiltrator": "TRANSFORM",
+   "bargainer": "TRANSFORM",
+   "escapee": "TRANSFORM",
+   "mother-figure": "PARENT",
+   "father-figure": "PARENT",
+   "nurse-guardian": "PARENT",
+   "protector-of-young": "PARENT",
+   "transgressor-against-parent": "PARENT",
+   "usurper-of-parent": "PARENT",
+   "precocious-child": "PARENT",
+   "hearth-keeper": "HEARTH",
+   "the-one-who-stays": "HEARTH",
+   "yielder-of-place": "HEARTH",
+   "returner": "HEARTH"
+  },
+  "ARC": {
+   "theft-blight-return": "LOSS_RETURN",
+   "search-to-recovery": "LOSS_RETURN",
+   "grief-to-restoration": "LOSS_RETURN",
+   "exile-to-return": "LOSS_RETURN",
+   "dormancy-to-awakening": "SLEEP_WAKE",
+   "curse-to-release": "SLEEP_WAKE",
+   "persecution-to-restoration": "RISE",
+   "servitude-to-elevation": "RISE",
+   "labor-to-reward": "RISE",
+   "rejection-to-indispensability": "RISE",
+   "ambition-to-achievement": "RISE",
+   "rebellion-to-sovereignty": "RISE",
+   "constraint-to-sovereignty": "RISE",
+   "transgression-to-punishment-restoration": "TRANSGRESS",
+   "defiance-to-understanding": "TRANSGRESS",
+   "transgression-to-office": "TRANSGRESS",
+   "disguise-to-revelation": "REVEAL",
+   "hidden-to-revealed": "REVEAL",
+   "dishonor-to-vindication": "REVEAL",
+   "isolation-to-communion": "BOND",
+   "distrust-to-trust": "BOND",
+   "prejudice-to-love": "BOND",
+   "conflict-to-peace": "BOND",
+   "betrayal-to-forgiveness": "BOND",
+   "sacrifice-to-transformation": "SACRIFICE",
+   "sacrifice-to-union": "SACRIFICE",
+   "longing-to-transformation": "SACRIFICE",
+   "refusal-to-acceptance": "CHOICE",
+   "duty-versus-desire": "CHOICE",
+   "freedom-sought-to-won": "CHOICE",
+   "static-constant": "STATIC",
+   "static-fierce": "STATIC",
+   "static-incumbent": "STATIC",
+   "static-helper": "STATIC",
+   "wrath-to-persecution": "STATIC",
+   "jealousy-to-vengeance": "STATIC"
+  },
+  "ICO": {
+   "bow": "WEAPON_RANGED",
+   "quiver": "WEAPON_RANGED",
+   "sword": "WEAPON_MELEE",
+   "spear": "WEAPON_MELEE",
+   "shield": "WEAPON_MELEE",
+   "helmet": "WEAPON_MELEE",
+   "armor": "WEAPON_MELEE",
+   "aegis": "WEAPON_MELEE",
+   "trident": "SEA_OBJ",
+   "shell": "SEA_OBJ",
+   "conch": "SEA_OBJ",
+   "sea-creature": "SEA_OBJ",
+   "ship-sail": "SEA_OBJ",
+   "oar": "SEA_OBJ",
+   "river-canoe": "SEA_OBJ",
+   "fire-hearth": "FIRE_HOME",
+   "ashes": "FIRE_HOME",
+   "kettle": "FIRE_HOME",
+   "torch": "FIRE_HOME",
+   "broom": "FIRE_HOME",
+   "candle": "FIRE_HOME",
+   "lantern": "FIRE_HOME",
+   "hammer-anvil": "FORGE",
+   "forge": "FORGE",
+   "tongs": "FORGE",
+   "automata": "FORGE",
+   "bear": "BEAST_WILD",
+   "deer-stag": "BEAST_WILD",
+   "hunting-dog": "BEAST_WILD",
+   "panther-bigcat": "BEAST_WILD",
+   "serpent": "BEAST_WILD",
+   "horse": "BEAST_WILD",
+   "bull": "BEAST_WILD",
+   "owl": "BEAST_WILD",
+   "eagle": "BEAST_WILD",
+   "vulture": "BEAST_WILD",
+   "bird": "BEAST_SMALL",
+   "dove": "BEAST_SMALL",
+   "mouse": "BEAST_SMALL",
+   "raccoon": "BEAST_SMALL",
+   "hummingbird": "BEAST_SMALL",
+   "frog": "BEAST_SMALL",
+   "tortoise": "BEAST_SMALL",
+   "peacock": "BEAST_SMALL",
+   "cow": "BEAST_SMALL",
+   "rose-flower": "PLANT",
+   "laurel": "PLANT",
+   "olive": "PLANT",
+   "grapes-vine": "PLANT",
+   "poppy": "PLANT",
+   "grain-sheaf": "PLANT",
+   "water-lily": "PLANT",
+   "willow-tree": "PLANT",
+   "apple": "PLANT",
+   "pomegranate": "PLANT",
+   "cornucopia": "PLANT",
+   "crown-diadem": "REGALIA",
+   "scepter": "REGALIA",
+   "jewels": "REGALIA",
+   "veil": "REGALIA",
+   "girdle": "REGALIA",
+   "necklace": "REGALIA",
+   "lyre": "ART_CRAFT",
+   "paint-brush": "ART_CRAFT",
+   "book": "ART_CRAFT",
+   "mask": "ART_CRAFT",
+   "loom-spindle": "ART_CRAFT",
+   "spindle": "ART_CRAFT",
+   "tapestry": "ART_CRAFT",
+   "fan": "ART_CRAFT",
+   "comb": "ART_CRAFT",
+   "mirror": "ART_CRAFT",
+   "sun-disc": "LIGHT",
+   "crescent-moon": "LIGHT",
+   "thunderbolt": "LIGHT",
+   "winged-sandals": "TRAVEL",
+   "caduceus": "TRAVEL",
+   "petasos-hat": "TRAVEL",
+   "chariot": "TRAVEL",
+   "glass-slipper": "UNIQUE",
+   "pumpkin-coach": "UNIQUE",
+   "heart-stone": "UNIQUE",
+   "gem-shard": "UNIQUE",
+   "long-hair": "UNIQUE",
+   "tower": "UNIQUE",
+   "cup": "UNIQUE",
+   "thyrsus": "UNIQUE",
+   "lameness": "UNIQUE",
+   "wind-leaves": "UNIQUE"
+  },
+  "TMP": {
+   "wrathful": "FIERCE",
+   "fierce": "FIERCE",
+   "vengeful": "FIERCE",
+   "wild-untamed": "FIERCE",
+   "impulsive": "FIERCE",
+   "brash": "FIERCE",
+   "tempestuous": "FIERCE",
+   "undisciplined": "FIERCE",
+   "defiant": "FIERCE",
+   "proud": "REGAL",
+   "regal": "REGAL",
+   "authoritative": "REGAL",
+   "ambitious": "REGAL",
+   "aloof": "REGAL",
+   "vain": "REGAL",
+   "gentle": "WARM",
+   "nurturing": "WARM",
+   "compassionate": "WARM",
+   "generous": "WARM",
+   "devoted": "WARM",
+   "loyal": "WARM",
+   "trusting": "WARM",
+   "serene": "CALM",
+   "patient": "CALM",
+   "dutiful": "CALM",
+   "self-effacing": "CALM",
+   "chaste": "CALM",
+   "disciplined": "CALM",
+   "resolute": "CALM",
+   "persistent": "CALM",
+   "just": "CALM",
+   "cunning": "QUICK",
+   "playful": "QUICK",
+   "quick": "QUICK",
+   "diplomatic": "QUICK",
+   "charming": "QUICK",
+   "curious": "QUICK",
+   "wry": "QUICK",
+   "sharp-tongued": "QUICK",
+   "restless": "QUICK",
+   "capricious": "QUICK",
+   "joyous": "BRIGHT",
+   "radiant": "BRIGHT",
+   "artistic": "BRIGHT",
+   "hopeful": "BRIGHT",
+   "resilient": "BRIGHT",
+   "melancholy": "SHADOW",
+   "brooding": "SHADOW",
+   "jealous": "SHADOW",
+   "resentful": "SHADOW",
+   "wary": "SHADOW",
+   "self-doubting": "SHADOW",
+   "naive": "SHADOW",
+   "dual-natured": "SHADOW",
+   "terrifying-when-denied": "SHADOW",
+   "industrious": "MAKER_T",
+   "ingenious": "MAKER_T",
+   "pragmatic": "MAKER_T",
+   "bookish": "MAKER_T",
+   "wise": "MAKER_T",
+   "independent": "MAKER_T",
+   "courageous": "MAKER_T",
+   "romantic": "EROS_T",
+   "amorous": "EROS_T"
+  }
+ },
+ "sameClassCredit": 0.45,
+ "formula": "facet = 10 * sum(min(w1,w2)*rel(t1,t2)) / sqrt(mass1*mass2); rel = 1.0 identical, 0.45 same class",
+ "princesses": {
+  "Snow White": {
+   "DOM": {
+    "animals": 0.9,
+    "hearth-home": 0.8,
+    "household-order": 0.7,
+    "youth": 0.9,
+    "seasons": 0.4,
+    "nurture": 0.6
+   },
+   "ROL": {
+    "victim-of-curse": 1.0,
+    "dispossessed": 0.9,
+    "sleeper-dormant": 1.0,
+    "hearth-keeper": 0.8,
+    "object-of-jealousy": 1.0,
+    "servant-in-place": 0.6,
+    "hidden-child": 0.9
+   },
+   "ARC": {
+    "dormancy-to-awakening": 1.0,
+    "persecution-to-restoration": 0.9
+   },
+   "ICO": {
+    "apple": 1.0,
+    "bird": 0.9,
+    "broom": 0.7,
+    "crown-diadem": 0.4,
+    "deer-stag": 0.5,
+    "ashes": 0.3
+   },
+   "TMP": {
+    "gentle": 1.0,
+    "nurturing": 0.9,
+    "serene": 0.8,
+    "naive": 0.9,
+    "joyous": 0.7,
+    "trusting": 0.9,
+    "dutiful": 0.6
+   }
+  },
+  "Cinderella": {
+   "DOM": {
+    "hearth-home": 1.0,
+    "household-order": 1.0,
+    "labor": 0.9,
+    "animals": 0.7,
+    "magic-enchantment": 0.6,
+    "fire": 0.6,
+    "family": 0.6
+   },
+   "ROL": {
+    "dispossessed": 1.0,
+    "servant-in-place": 1.0,
+    "bride-prize": 0.8,
+    "the-one-who-stays": 0.8,
+    "hearth-keeper": 1.0,
+    "object-of-jealousy": 0.8
+   },
+   "ARC": {
+    "servitude-to-elevation": 1.0,
+    "labor-to-reward": 0.7,
+    "static-constant": 0.5
+   },
+   "ICO": {
+    "ashes": 1.0,
+    "fire-hearth": 0.9,
+    "glass-slipper": 1.0,
+    "mouse": 0.8,
+    "broom": 0.9,
+    "pumpkin-coach": 0.7,
+    "bird": 0.6,
+    "kettle": 0.5
+   },
+   "TMP": {
+    "patient": 1.0,
+    "gentle": 1.0,
+    "dutiful": 1.0,
+    "serene": 0.9,
+    "industrious": 0.9,
+    "self-effacing": 0.8,
+    "hopeful": 0.8
+   }
+  },
+  "Aurora": {
+   "DOM": {
+    "light-sun": 0.5,
+    "night-moon": 0.5,
+    "magic-enchantment": 0.8,
+    "animals": 0.6,
+    "prophecy": 0.6,
+    "youth": 0.9,
+    "seasons": 0.5,
+    "vegetation": 0.5
+   },
+   "ROL": {
+    "victim-of-curse": 1.0,
+    "sleeper-dormant": 1.0,
+    "bride-prize": 0.8,
+    "hidden-child": 0.9,
+    "object-of-jealousy": 0.5
+   },
+   "ARC": {
+    "dormancy-to-awakening": 1.0,
+    "curse-to-release": 1.0
+   },
+   "ICO": {
+    "spindle": 1.0,
+    "rose-flower": 0.9,
+    "crown-diadem": 0.6,
+    "bird": 0.5,
+    "long-hair": 0.4
+   },
+   "TMP": {
+    "gentle": 0.9,
+    "serene": 0.8,
+    "dutiful": 0.7,
+    "naive": 0.7,
+    "romantic": 0.8,
+    "melancholy": 0.4
+   }
+  },
+  "Ariel": {
+   "DOM": {
+    "sea": 1.0,
+    "arts-music": 0.9,
+    "magic-enchantment": 0.8,
+    "youth": 0.8,
+    "boundaries-travel": 0.7
+   },
+   "ROL": {
+    "transgressor-against-parent": 1.0,
+    "boundary-crosser": 1.0,
+    "heir-successor": 0.6,
+    "bargainer": 0.9,
+    "self-transformer": 1.0
+   },
+   "ARC": {
+    "transgression-to-punishment-restoration": 0.9,
+    "longing-to-transformation": 1.0,
+    "sacrifice-to-union": 0.9,
+    "curse-to-release": 0.6
+   },
+   "ICO": {
+    "sea-creature": 1.0,
+    "shell": 0.8,
+    "trident": 0.5,
+    "long-hair": 0.8,
+    "bird": 0.5
+   },
+   "TMP": {
+    "curious": 1.0,
+    "defiant": 0.9,
+    "impulsive": 1.0,
+    "romantic": 0.9,
+    "wild-untamed": 0.7,
+    "joyous": 0.6
+   }
+  },
+  "Belle": {
+   "DOM": {
+    "wisdom-knowledge": 1.0,
+    "beauty": 0.8,
+    "magic-enchantment": 0.8,
+    "craft-making": 0.4,
+    "liberation": 0.6
+   },
+   "ROL": {
+    "partner-of-monstrous-bridegroom": 1.0,
+    "self-sacrificer": 1.0,
+    "liberator": 0.9,
+    "outsider-in-community": 0.9,
+    "transformer-of-others": 0.8,
+    "bride-prize": 0.5
+   },
+   "ARC": {
+    "sacrifice-to-transformation": 1.0,
+    "prejudice-to-love": 1.0,
+    "curse-to-release": 0.9,
+    "isolation-to-communion": 0.6
+   },
+   "ICO": {
+    "book": 1.0,
+    "rose-flower": 1.0,
+    "mirror": 0.9,
+    "candle": 0.6
+   },
+   "TMP": {
+    "curious": 1.0,
+    "resolute": 0.9,
+    "gentle": 0.8,
+    "independent": 0.9,
+    "compassionate": 0.9,
+    "bookish": 1.0
+   }
+  },
+  "Jasmine": {
+   "DOM": {
+    "sovereignty": 0.75,
+    "animals": 0.7,
+    "marriage": 0.7,
+    "wealth-palace": 0.8,
+    "liberation": 0.8,
+    "boundaries-travel": 0.5,
+    "chastity": 0.4
+   },
+   "ROL": {
+    "heir-successor": 1.0,
+    "bride-prize": 1.0,
+    "refuser-of-marriage": 1.0,
+    "disguised-infiltrator": 0.6,
+    "escapee": 0.8,
+    "sovereign-ruler": 0.5
+   },
+   "ARC": {
+    "constraint-to-sovereignty": 1.0,
+    "freedom-sought-to-won": 1.0
+   },
+   "ICO": {
+    "panther-bigcat": 1.0,
+    "crown-diadem": 0.8,
+    "veil": 0.7,
+    "jewels": 0.8
+   },
+   "TMP": {
+    "proud": 0.9,
+    "defiant": 1.0,
+    "resolute": 0.9,
+    "regal": 1.0,
+    "sharp-tongued": 0.8,
+    "compassionate": 0.7
+   }
+  },
+  "Pocahontas": {
+   "DOM": {
+    "earth-agriculture": 0.8,
+    "wilderness-hunt": 0.7,
+    "animals": 0.9,
+    "prophecy": 0.8,
+    "water-fresh": 0.9,
+    "language-interpretation": 1.0,
+    "nurture": 0.5,
+    "boundaries-travel": 0.8
+   },
+   "ROL": {
+    "messenger-interpreter": 1.0,
+    "boundary-crosser": 1.0,
+    "peacemaker": 1.0,
+    "heir-successor": 0.7,
+    "refuser-of-marriage": 0.8,
+    "mentor-guide": 0.4,
+    "guide-psychopomp": 0.4
+   },
+   "ARC": {
+    "distrust-to-trust": 1.0,
+    "conflict-to-peace": 1.0,
+    "duty-versus-desire": 0.9
+   },
+   "ICO": {
+    "river-canoe": 1.0,
+    "wind-leaves": 1.0,
+    "raccoon": 0.8,
+    "hummingbird": 0.7,
+    "grain-sheaf": 0.5,
+    "willow-tree": 0.8,
+    "necklace": 0.6
+   },
+   "TMP": {
+    "wild-untamed": 0.8,
+    "wise": 0.9,
+    "resolute": 0.8,
+    "curious": 0.8,
+    "serene": 0.7,
+    "independent": 0.9,
+    "restless": 0.7,
+    "playful": 0.4
+   }
+  },
+  "Mulan": {
+   "DOM": {
+    "war-strategy": 1.0,
+    "family": 0.9,
+    "civic-order": 0.7,
+    "craft-making": 0.4,
+    "wisdom-knowledge": 0.6,
+    "chastity": 0.4
+   },
+   "ROL": {
+    "disguised-infiltrator": 1.0,
+    "self-sacrificer": 1.0,
+    "champion": 1.0,
+    "warrior": 0.9,
+    "restorer-of-order": 0.8,
+    "refuser-of-marriage": 0.7
+   },
+   "ARC": {
+    "disguise-to-revelation": 1.0,
+    "dishonor-to-vindication": 1.0,
+    "sacrifice-to-transformation": 0.7
+   },
+   "ICO": {
+    "sword": 1.0,
+    "helmet": 0.9,
+    "mirror": 0.8,
+    "horse": 0.7,
+    "shield": 0.5,
+    "fan": 0.6,
+    "comb": 0.5
+   },
+   "TMP": {
+    "dutiful": 1.0,
+    "cunning": 0.9,
+    "resolute": 1.0,
+    "disciplined": 0.9,
+    "courageous": 0.9,
+    "self-doubting": 0.7
+   }
+  },
+  "Tiana": {
+   "DOM": {
+    "craft-making": 1.0,
+    "fire": 0.9,
+    "labor": 1.0,
+    "wine-feast": 0.7,
+    "trade-commerce": 0.8,
+    "magic-enchantment": 0.7,
+    "family": 0.6
+   },
+   "ROL": {
+    "craftsman-outsider": 1.0,
+    "self-made-striver": 1.0,
+    "self-transformer": 0.8,
+    "servant-in-place": 0.6,
+    "returner": 0.5,
+    "maker-of-talismans": 0.4
+   },
+   "ARC": {
+    "labor-to-reward": 1.0,
+    "rejection-to-indispensability": 0.8,
+    "ambition-to-achievement": 1.0
+   },
+   "ICO": {
+    "fire-hearth": 1.0,
+    "kettle": 1.0,
+    "frog": 0.9,
+    "water-lily": 0.7,
+    "cup": 0.5
+   },
+   "TMP": {
+    "industrious": 1.0,
+    "disciplined": 1.0,
+    "ambitious": 1.0,
+    "pragmatic": 0.9,
+    "resolute": 0.9,
+    "gentle": 0.5
+   }
+  },
+  "Rapunzel": {
+   "DOM": {
+    "light-sun": 1.0,
+    "healing": 1.0,
+    "arts-music": 0.9,
+    "magic-enchantment": 0.9,
+    "youth": 0.8,
+    "liberation": 0.7
+   },
+   "ROL": {
+    "dispossessed": 1.0,
+    "hidden-child": 1.0,
+    "imprisoned": 1.0,
+    "healer": 1.0,
+    "restorer-of-order": 0.7,
+    "object-of-jealousy": 0.6
+   },
+   "ARC": {
+    "isolation-to-communion": 1.0,
+    "hidden-to-revealed": 1.0,
+    "curse-to-release": 0.7
+   },
+   "ICO": {
+    "long-hair": 1.0,
+    "sun-disc": 1.0,
+    "lantern": 0.9,
+    "paint-brush": 0.8,
+    "rose-flower": 0.7,
+    "tower": 0.9
+   },
+   "TMP": {
+    "joyous": 1.0,
+    "curious": 1.0,
+    "artistic": 1.0,
+    "resilient": 0.8,
+    "impulsive": 0.7,
+    "radiant": 0.9
+   }
+  },
+  "Merida": {
+   "DOM": {
+    "wilderness-hunt": 1.0,
+    "archery": 1.0,
+    "animals": 0.9,
+    "magic-enchantment": 0.8,
+    "sovereignty": 0.7,
+    "chastity": 0.6,
+    "family": 0.8
+   },
+   "ROL": {
+    "refuser-of-marriage": 1.0,
+    "transgressor-against-parent": 1.0,
+    "heir-successor": 0.8,
+    "bargainer": 0.7,
+    "restorer-of-order": 0.7,
+    "bride-prize": 0.7
+   },
+   "ARC": {
+    "transgression-to-punishment-restoration": 1.0,
+    "curse-to-release": 0.9,
+    "defiance-to-understanding": 1.0
+   },
+   "ICO": {
+    "bow": 1.0,
+    "quiver": 0.9,
+    "bear": 1.0,
+    "horse": 0.8,
+    "long-hair": 0.9,
+    "tapestry": 0.7,
+    "loom-spindle": 0.5
+   },
+   "TMP": {
+    "wild-untamed": 1.0,
+    "defiant": 1.0,
+    "fierce": 0.9,
+    "impulsive": 0.9,
+    "independent": 1.0,
+    "loyal": 0.7
+   }
+  },
+  "Moana": {
+   "DOM": {
+    "sea": 1.0,
+    "navigation": 1.0,
+    "earth-agriculture": 0.7,
+    "fertility": 0.6,
+    "sovereignty": 0.8,
+    "boundaries-travel": 0.8,
+    "family": 0.7
+   },
+   "ROL": {
+    "quest-hero": 1.0,
+    "heir-successor": 1.0,
+    "guardian-of-talisman": 0.9,
+    "restorer-of-order": 1.0,
+    "boundary-crosser": 0.9,
+    "seeker": 0.9,
+    "peacemaker": 0.7
+   },
+   "ARC": {
+    "theft-blight-return": 1.0,
+    "search-to-recovery": 0.9,
+    "refusal-to-acceptance": 1.0,
+    "conflict-to-peace": 0.7,
+    "exile-to-return": 0.6
+   },
+   "ICO": {
+    "ship-sail": 1.0,
+    "sea-creature": 0.6,
+    "heart-stone": 1.0,
+    "oar": 0.8,
+    "shell": 0.8,
+    "conch": 0.7
+   },
+   "TMP": {
+    "resolute": 1.0,
+    "curious": 0.8,
+    "dutiful": 0.9,
+    "courageous": 0.9,
+    "devoted": 0.8,
+    "persistent": 1.0
+   }
+  },
+  "Raya": {
+   "DOM": {
+    "war-strategy": 1.0,
+    "guardianship": 1.0,
+    "water-fresh": 0.7,
+    "civic-order": 0.8,
+    "boundaries-travel": 0.7,
+    "family": 0.6
+   },
+   "ROL": {
+    "guardian-of-talisman": 1.0,
+    "quest-hero": 1.0,
+    "avenger": 0.8,
+    "restorer-of-order": 1.0,
+    "warrior": 1.0,
+    "betrayed": 0.9,
+    "peacemaker": 0.7,
+    "seeker": 0.8
+   },
+   "ARC": {
+    "distrust-to-trust": 1.0,
+    "betrayal-to-forgiveness": 1.0,
+    "search-to-recovery": 0.9,
+    "sacrifice-to-transformation": 0.7,
+    "conflict-to-peace": 0.8
+   },
+   "ICO": {
+    "sword": 1.0,
+    "serpent": 0.9,
+    "gem-shard": 1.0,
+    "armor": 0.8
+   },
+   "TMP": {
+    "resolute": 1.0,
+    "disciplined": 0.9,
+    "wary": 1.0,
+    "courageous": 0.9,
+    "loyal": 0.8,
+    "wry": 0.6
+   }
+  }
+ },
+ "gods": {
+  "Zeus": {
+   "DOM": {
+    "sky": 1.0,
+    "storm": 0.9,
+    "sovereignty": 1.0,
+    "justice": 0.7,
+    "prophecy": 0.4,
+    "hospitality": 0.5
+   },
+   "ROL": {
+    "sovereign-ruler": 1.0,
+    "usurper-of-parent": 0.8,
+    "adulterer": 0.9,
+    "avenger": 0.6,
+    "restorer-of-order": 0.6,
+    "arbiter": 0.7,
+    "hidden-child": 0.7
+   },
+   "ARC": {
+    "rebellion-to-sovereignty": 0.9,
+    "static-incumbent": 0.7
+   },
+   "ICO": {
+    "thunderbolt": 1.0,
+    "eagle": 0.9,
+    "scepter": 0.7,
+    "aegis": 0.4,
+    "bull": 0.4
+   },
+   "TMP": {
+    "proud": 0.9,
+    "amorous": 0.9,
+    "wrathful": 0.7,
+    "ambitious": 0.7,
+    "authoritative": 1.0,
+    "capricious": 0.7
+   }
+  },
+  "Hera": {
+   "DOM": {
+    "marriage": 1.0,
+    "sovereignty": 0.9,
+    "women-childbirth": 0.7,
+    "sky": 0.4,
+    "household-order": 0.6
+   },
+   "ROL": {
+    "consort-of-sovereign": 1.0,
+    "avenger": 0.9,
+    "persecutor": 0.9,
+    "guardian-of-order": 0.7,
+    "arbiter": 0.4,
+    "bride-prize": 0.3
+   },
+   "ARC": {
+    "static-incumbent": 0.9,
+    "jealousy-to-vengeance": 0.9
+   },
+   "ICO": {
+    "peacock": 1.0,
+    "crown-diadem": 0.9,
+    "cow": 0.6,
+    "veil": 0.6,
+    "scepter": 0.6,
+    "pomegranate": 0.4
+   },
+   "TMP": {
+    "proud": 1.0,
+    "jealous": 1.0,
+    "vengeful": 0.9,
+    "regal": 0.9,
+    "resolute": 0.7,
+    "aloof": 0.6
+   }
+  },
+  "Poseidon": {
+   "DOM": {
+    "sea": 1.0,
+    "storm": 0.8,
+    "earthquake": 0.8,
+    "horses": 0.7,
+    "navigation": 0.6,
+    "water-fresh": 0.4
+   },
+   "ROL": {
+    "sovereign-ruler": 0.9,
+    "sibling-of-sovereign": 0.7,
+    "avenger": 0.9,
+    "persecutor": 0.7,
+    "father-figure": 0.5,
+    "betrayed": 0.6,
+    "servant-in-place": 0.5,
+    "cast-out": 0.4
+   },
+   "ARC": {
+    "static-incumbent": 0.9,
+    "wrath-to-persecution": 0.8,
+    "transgression-to-punishment-restoration": 0.6,
+    "labor-to-reward": 0.4
+   },
+   "ICO": {
+    "trident": 1.0,
+    "horse": 0.8,
+    "sea-creature": 0.9,
+    "bull": 0.5,
+    "ship-sail": 0.4
+   },
+   "TMP": {
+    "wrathful": 1.0,
+    "proud": 0.8,
+    "impulsive": 0.7,
+    "brooding": 0.7,
+    "tempestuous": 0.9,
+    "authoritative": 0.7,
+    "persistent": 0.7
+   }
+  },
+  "Demeter": {
+   "DOM": {
+    "earth-agriculture": 1.0,
+    "grain": 1.0,
+    "seasons": 0.9,
+    "fertility": 0.9,
+    "mysteries": 0.6,
+    "nurture": 0.7
+   },
+   "ROL": {
+    "mother-figure": 1.0,
+    "dispossessed": 0.9,
+    "restorer-of-order": 0.8,
+    "wanderer-exile": 0.7,
+    "seeker": 0.9,
+    "nurse-guardian": 0.5
+   },
+   "ARC": {
+    "theft-blight-return": 1.0,
+    "grief-to-restoration": 0.9,
+    "search-to-recovery": 0.9
+   },
+   "ICO": {
+    "grain-sheaf": 1.0,
+    "torch": 0.8,
+    "poppy": 0.6,
+    "cornucopia": 0.6
+   },
+   "TMP": {
+    "nurturing": 1.0,
+    "melancholy": 0.8,
+    "resolute": 0.8,
+    "wrathful": 0.5,
+    "patient": 0.7,
+    "devoted": 0.9
+   }
+  },
+  "Athena": {
+   "DOM": {
+    "war-strategy": 1.0,
+    "wisdom-knowledge": 1.0,
+    "craft-making": 0.7,
+    "civic-order": 0.8,
+    "heroic-patronage": 0.9,
+    "chastity": 0.6
+   },
+   "ROL": {
+    "guardian-of-talisman": 0.9,
+    "mentor-guide": 1.0,
+    "refuser-of-marriage": 0.8,
+    "champion": 0.8,
+    "disguised-infiltrator": 0.7,
+    "arbiter": 0.6,
+    "restorer-of-order": 0.5
+   },
+   "ARC": {
+    "static-helper": 0.9
+   },
+   "ICO": {
+    "aegis": 1.0,
+    "owl": 1.0,
+    "spear": 0.9,
+    "helmet": 0.9,
+    "olive": 0.7,
+    "shield": 0.8,
+    "loom-spindle": 0.6
+   },
+   "TMP": {
+    "disciplined": 1.0,
+    "cunning": 0.9,
+    "chaste": 0.7,
+    "resolute": 0.9,
+    "aloof": 0.6,
+    "just": 0.8
+   }
+  },
+  "Apollo": {
+   "DOM": {
+    "light-sun": 1.0,
+    "healing": 0.9,
+    "prophecy": 1.0,
+    "arts-music": 1.0,
+    "archery": 0.7,
+    "plague": 0.5,
+    "youth": 0.6
+   },
+   "ROL": {
+    "messenger-interpreter": 0.8,
+    "mentor-guide": 0.5,
+    "avenger": 0.7,
+    "unlucky-lover": 0.7,
+    "champion": 0.5,
+    "arbiter": 0.4
+   },
+   "ARC": {
+    "static-helper": 0.6,
+    "transgression-to-punishment-restoration": 0.5
+   },
+   "ICO": {
+    "lyre": 1.0,
+    "laurel": 0.9,
+    "sun-disc": 1.0,
+    "bow": 0.7,
+    "serpent": 0.4,
+    "long-hair": 0.6
+   },
+   "TMP": {
+    "proud": 0.8,
+    "joyous": 0.7,
+    "aloof": 0.6,
+    "wrathful": 0.5,
+    "artistic": 1.0,
+    "radiant": 0.9
+   }
+  },
+  "Artemis": {
+   "DOM": {
+    "wilderness-hunt": 1.0,
+    "animals": 1.0,
+    "night-moon": 0.8,
+    "chastity": 1.0,
+    "youth": 0.8,
+    "archery": 1.0,
+    "women-childbirth": 0.5
+   },
+   "ROL": {
+    "refuser-of-marriage": 1.0,
+    "protector-of-young": 0.8,
+    "avenger": 0.8,
+    "champion": 0.5
+   },
+   "ARC": {
+    "static-fierce": 0.9
+   },
+   "ICO": {
+    "bow": 1.0,
+    "deer-stag": 0.9,
+    "bear": 0.8,
+    "crescent-moon": 0.8,
+    "hunting-dog": 0.7,
+    "quiver": 0.9
+   },
+   "TMP": {
+    "wild-untamed": 1.0,
+    "chaste": 1.0,
+    "fierce": 0.9,
+    "independent": 1.0,
+    "vengeful": 0.6,
+    "loyal": 0.7
+   }
+  },
+  "Ares": {
+   "DOM": {
+    "war-violence": 1.0,
+    "courage": 0.8,
+    "war-strategy": 0.2
+   },
+   "ROL": {
+    "warrior": 1.0,
+    "adulterer": 0.7,
+    "defeated-god": 0.7,
+    "avenger": 0.5,
+    "champion": 0.4
+   },
+   "ARC": {
+    "static-fierce": 0.8
+   },
+   "ICO": {
+    "spear": 1.0,
+    "helmet": 0.9,
+    "sword": 0.9,
+    "shield": 0.8,
+    "chariot": 0.6,
+    "vulture": 0.5,
+    "hunting-dog": 0.4
+   },
+   "TMP": {
+    "wrathful": 1.0,
+    "impulsive": 1.0,
+    "brash": 0.9,
+    "courageous": 0.8,
+    "undisciplined": 0.9,
+    "fierce": 0.9
+   }
+  },
+  "Aphrodite": {
+   "DOM": {
+    "love-desire": 1.0,
+    "beauty": 1.0,
+    "sea": 0.6,
+    "fertility": 0.6,
+    "persuasion": 0.8
+   },
+   "ROL": {
+    "partner-of-monstrous-bridegroom": 0.9,
+    "protector-of-lovers": 0.8,
+    "adulterer": 0.7,
+    "bride-prize": 0.6
+   },
+   "ARC": {
+    "static-incumbent": 0.7
+   },
+   "ICO": {
+    "dove": 1.0,
+    "girdle": 0.9,
+    "mirror": 0.9,
+    "rose-flower": 0.9,
+    "shell": 0.8,
+    "apple": 0.7
+   },
+   "TMP": {
+    "amorous": 1.0,
+    "vain": 0.9,
+    "charming": 1.0,
+    "capricious": 0.7,
+    "generous": 0.5,
+    "radiant": 0.7
+   }
+  },
+  "Hephaestus": {
+   "DOM": {
+    "craft-making": 1.0,
+    "fire": 1.0,
+    "forge-metallurgy": 1.0,
+    "technology": 0.9,
+    "labor": 0.9
+   },
+   "ROL": {
+    "craftsman-outsider": 1.0,
+    "cast-out": 0.9,
+    "monstrous-bridegroom": 0.9,
+    "maker-of-talismans": 1.0,
+    "returner": 0.7
+   },
+   "ARC": {
+    "exile-to-return": 0.9,
+    "rejection-to-indispensability": 1.0,
+    "labor-to-reward": 0.8
+   },
+   "ICO": {
+    "hammer-anvil": 1.0,
+    "forge": 1.0,
+    "tongs": 0.7,
+    "automata": 0.7,
+    "lameness": 0.6,
+    "fire-hearth": 0.7
+   },
+   "TMP": {
+    "industrious": 1.0,
+    "patient": 0.8,
+    "ingenious": 1.0,
+    "resentful": 0.5,
+    "gentle": 0.6,
+    "disciplined": 0.7
+   }
+  },
+  "Hermes": {
+   "DOM": {
+    "boundaries-travel": 1.0,
+    "trade-commerce": 0.8,
+    "theft": 0.8,
+    "messages": 1.0,
+    "psychopomp": 0.8,
+    "shepherds": 0.5,
+    "language-interpretation": 1.0,
+    "arts-music": 0.5
+   },
+   "ROL": {
+    "messenger-interpreter": 1.0,
+    "boundary-crosser": 1.0,
+    "trickster": 1.0,
+    "guide-psychopomp": 0.9,
+    "precocious-child": 0.6,
+    "mentor-guide": 0.5,
+    "negotiator": 0.8
+   },
+   "ARC": {
+    "transgression-to-office": 0.9,
+    "static-helper": 0.4
+   },
+   "ICO": {
+    "winged-sandals": 1.0,
+    "caduceus": 1.0,
+    "petasos-hat": 0.8,
+    "lyre": 0.5,
+    "tortoise": 0.5
+   },
+   "TMP": {
+    "cunning": 1.0,
+    "playful": 0.9,
+    "quick": 1.0,
+    "diplomatic": 0.8,
+    "charming": 0.8,
+    "restless": 0.9
+   }
+  },
+  "Hestia": {
+   "DOM": {
+    "hearth-home": 1.0,
+    "fire": 0.9,
+    "household-order": 1.0,
+    "hospitality": 0.9,
+    "family": 0.9,
+    "chastity": 0.8
+   },
+   "ROL": {
+    "refuser-of-marriage": 0.9,
+    "hearth-keeper": 1.0,
+    "the-one-who-stays": 1.0,
+    "yielder-of-place": 0.7,
+    "guardian-of-order": 0.7,
+    "servant-in-place": 0.5
+   },
+   "ARC": {
+    "static-constant": 1.0
+   },
+   "ICO": {
+    "fire-hearth": 1.0,
+    "torch": 0.7,
+    "kettle": 0.8,
+    "veil": 0.6,
+    "ashes": 0.9,
+    "broom": 0.5
+   },
+   "TMP": {
+    "serene": 1.0,
+    "chaste": 0.9,
+    "patient": 1.0,
+    "gentle": 1.0,
+    "dutiful": 1.0,
+    "self-effacing": 0.9
+   }
+  },
+  "Dionysus": {
+   "DOM": {
+    "wine-feast": 1.0,
+    "revelry-madness": 1.0,
+    "liberation": 0.9,
+    "vegetation": 0.8,
+    "magic-enchantment": 0.5,
+    "arts-music": 0.6
+   },
+   "ROL": {
+    "arriving-stranger": 0.9,
+    "liberator": 1.0,
+    "transformer-of-others": 0.9,
+    "avenger": 0.7,
+    "disguised-infiltrator": 0.6,
+    "outsider-in-community": 0.7
+   },
+   "ARC": {
+    "exile-to-return": 1.0,
+    "disguise-to-revelation": 0.8
+   },
+   "ICO": {
+    "thyrsus": 1.0,
+    "grapes-vine": 1.0,
+    "panther-bigcat": 0.8,
+    "mask": 0.8,
+    "cup": 0.8
+   },
+   "TMP": {
+    "joyous": 1.0,
+    "wild-untamed": 1.0,
+    "dual-natured": 0.9,
+    "generous": 0.7,
+    "terrifying-when-denied": 0.9,
+    "charming": 0.6
+   }
+  }
+ }
+}

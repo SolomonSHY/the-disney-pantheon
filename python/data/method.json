@@ -1,0 +1,88 @@
+{
+ "facetDefinitions": [
+  {
+   "code": "DOM",
+   "name": "Domain",
+   "god": "Sphere of power",
+   "princess": "Story setting and personal skills"
+  },
+  {
+   "code": "ROL",
+   "name": "Narrative role",
+   "god": "What the god was doing in the story",
+   "princess": "What the princess was doing in the story"
+  },
+  {
+   "code": "ARC",
+   "name": "Story arc",
+   "god": "What happened during the god's main story",
+   "princess": "What happened during the princess's main story"
+  },
+  {
+   "code": "ICO",
+   "name": "Iconography",
+   "god": "His symbols",
+   "princess": "Her symbols"
+  },
+  {
+   "code": "TMP",
+   "name": "Temperament",
+   "god": "Temperament, character, personality",
+   "princess": "Temperament, character, personality"
+  }
+ ],
+ "diagnostics": {
+  "original": {
+   "meanAbsR": 0.848,
+   "maxAbsR": 0.936,
+   "pc1": 0.887,
+   "effectiveDim": 1.26,
+   "spearmanVsEqual": 0.9989
+  },
+  "revised": {
+   "meanAbsR": 0.213,
+   "maxAbsR": 0.499,
+   "pc1": 0.421,
+   "effectiveDim": 3.63
+  },
+  "arcZeroRate": 0.799,
+  "arcEffectiveShare": 0.057,
+  "goldAnchorsRecovered": "9/9",
+  "looFitted": "7/9",
+  "looApriori": "9/9"
+ },
+ "traps": [
+  {
+   "pair": "Ariel x Poseidon",
+   "originalRank": 1,
+   "revisedRank": 4
+  },
+  {
+   "pair": "Jasmine x Hera",
+   "originalRank": 1,
+   "revisedRank": 1
+  },
+  {
+   "pair": "Belle x Athena",
+   "originalRank": 1,
+   "revisedRank": 6
+  },
+  {
+   "pair": "Moana x Poseidon",
+   "originalRank": 1,
+   "revisedRank": 2
+  },
+  {
+   "pair": "Snow White x Demeter",
+   "originalRank": 1,
+   "revisedRank": 2
+  }
+ ],
+ "limitations": [
+  "ARC is zero in ~80% of cells: high precision, low recall, ~5.7% of a typical cell.",
+  "Compare within rows only. Column totals are not comparable; gods differ in breadth.",
+  "Aurora's entire row spans ~10 points. No god fits; the choice is near-arbitrary.",
+  "Belle's true analogue is Psyche and Snow White's is Persephone. Neither is an Olympian.",
+  "The ARC/ICO balance is the most consequential parameter. Test conclusions across a range."
+ ]
+}

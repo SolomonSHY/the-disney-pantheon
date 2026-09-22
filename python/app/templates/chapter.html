@@ -1,0 +1,91 @@
+{# Port of app/chapters/[slug]/page.tsx — `slug` is the GOD slug. #}
+{% extends "layout.html" %}
+{% import "_macros.html" as m %}
+{% import "_chapter_view.html" as cv %}
+
+{% block content %}
+{{ m.god_wash(god_slug, accent) }}
+
+<div class="mx-auto max-w-[72rem] px-6 py-16">
+  <div class="lg:grid lg:grid-cols-[12rem_1fr] lg:gap-14">
+    {# Left rail — jump to any god #}
+    <aside class="hidden lg:block">
+      <div class="sticky top-10">{{ m.god_nav(god_slug) }}</div>
+    </aside>
+
+    <article class="max-w-wide">
+      <a
+        href="/"
+        class="font-mono text-xs uppercase tracking-[0.25em] text-faint transition-colors hover:text-muted"
+        >&larr; Pantheon</a
+      >
+
+      <div class="mt-8">
+        {{ cv.chapter_view(
+            god_slug=god_slug,
+            accent=accent,
+            princess_slug=pairing.princess_slug,
+            label=label,
+            god=pairing.god,
+            princess=pairing.princess,
+            film=princess.film,
+            year=princess.year,
+            facets=facets,
+            override=override,
+            human_essay=human_essay,
+            ai_essay=ai_essay,
+            exact_matches=exact_matches,
+            hideable=true) }}
+      </div>
+
+      {# Chapter navigation #}
+      <nav class="mt-20 grid grid-cols-2 gap-6 border-t border-white/8 pt-8 text-sm">
+        <div>
+          {% if prev %}
+          <a href="/chapters/{{ prev.god_slug }}" class="group block">
+            <span class="font-mono text-xs uppercase tracking-widest text-faint"
+              >&larr; Previous</span
+            >
+            <span
+              class="mt-1 block font-serif text-lg text-ink/85 transition-colors group-hover:text-goldsoft"
+              >{{ prev.god }}</span
+            >
+          </a>
+          {% endif %}
+        </div>
+        <div class="text-right">
+          {% if next %}
+          <a href="/chapters/{{ next.god_slug }}" class="group block">
+            <span class="font-mono text-xs uppercase tracking-widest text-faint"
+              >Next &rarr;</span
+            >
+            <span
+              class="mt-1 block font-serif text-lg text-ink/85 transition-colors group-hover:text-goldsoft"
+              >{{ next.god }}</span
+            >
+          </a>
+          {% else %}
+          {# After the final pairing (Dionysus), send the reader to the bonus. #}
+          <a href="/bonus" class="group block">
+            <span class="font-mono text-xs uppercase tracking-widest text-faint"
+              >Bonus &rarr;</span
+            >
+            <span
+              class="mt-1 block font-serif text-lg text-goldsoft/90 transition-colors group-hover:text-goldsoft"
+              >Hades, off the matrix</span
+            >
+          </a>
+          {% endif %}
+        </div>
+      </nav>
+
+      {# Return to the ledger from the foot of the analysis. #}
+      <div class="mt-10 flex justify-center">{{ m.back_to_pantheon() }}</div>
+    </article>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/chapter-view.js"></script>
+{% endblock %}

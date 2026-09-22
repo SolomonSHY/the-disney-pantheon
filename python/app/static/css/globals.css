@@ -1,0 +1,367 @@
+/* Port of app/globals.css.
+ *
+ * The original was a Tailwind source file: @tailwind directives plus @layer
+ * blocks written with @apply and theme(). Tailwind's browser runtime only
+ * compiles inline <style type="text/tailwindcss"> blocks, not linked files, so
+ * the @apply/theme() shorthands are expanded here into the plain CSS they
+ * produced. Values come straight from tailwind.config.ts.
+ *
+ * Specificity, not order, is what keeps these rules ahead of the Tailwind
+ * preflight the runtime injects later in <head>.
+ */
+
+:root {
+  color-scheme: dark;
+
+  /* tailwind.config.ts -> theme.extend.colors */
+  --ground: #0c0b0e;
+  --raised: #151319;
+  --ink: #e9e3d6;
+  --muted: #a49c8c;
+  --faint: #6b6559;
+  --gold: #c8a25a;
+  --goldsoft: #d9be86;
+  --wine: #8f4b52;
+
+  --measure: 34rem;
+
+  /* next/font exposed the loaded face as --font-serif on <html>; the Google
+     Fonts <link> in layout.html loads the same family, so declare it here.
+     It must live on :root, because --font-serif-stack below substitutes it at
+     this level — a definition further down the tree would resolve as invalid
+     and take the whole stack with it. tailwind.config.js reads --font-serif
+     too, for the `font-serif` utility. */
+  --font-serif: 'Newsreader';
+  --font-serif-stack: var(--font-serif), 'Iowan Old Style', 'Palatino Linotype',
+    Palatino, Cambria, Georgia, ui-serif, serif;
+  --font-mono-stack: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* React simply didn't render the masked half of a row; here both halves are in
+   the DOM and toggled with the `hidden` attribute. A Tailwind display utility on
+   the same element (`contents`, `inline-flex`, `flex`) would otherwise outrank
+   the UA's `[hidden] { display: none }` and leak the answer. */
+[hidden] {
+  display: none !important;
+}
+
+body {
+  background-color: var(--ground);
+  color: var(--ink);
+  font-family: var(--font-serif-stack);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'kern', 'liga', 'onum', 'pnum';
+}
+
+/* Visible keyboard focus for every interactive element. Zero-specificity
+   :where() so components can still override; the outline hugs each element's
+   own border-radius (pills stay round). Mouse clicks don't trigger it. */
+:where(a, button, summary, input, textarea, select, [role='button'], [tabindex]):focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: rgba(200, 162, 90, 0.28);
+  color: #fff;
+}
+
+/* Faint film-grain / paper wash so the black never reads as a dashboard. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(200, 162, 90, 0.06), transparent 60%),
+    radial-gradient(90% 60% at 100% 100%, rgba(143, 75, 82, 0.05), transparent 55%);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif-stack);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  font-feature-settings: 'kern', 'liga', 'dlig';
+}
+
+/* ── The reading column ────────────────────────────────────────────────────
+   Generous measure, roomy leading, old-style figures. */
+.prose-editorial {
+  color: rgb(233 227 214 / 0.9);
+  font-size: 1.18rem;
+  line-height: 1.75;
+}
+.prose-editorial p {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: var(--measure);
+}
+.prose-editorial p:first-of-type {
+  margin-top: 0;
+}
+/* Drop-cap on the opening paragraph of a chapter. */
+.prose-editorial > p:first-of-type::first-letter {
+  font-family: var(--font-serif-stack);
+  color: var(--gold);
+  float: left;
+  font-size: 3.6rem;
+  line-height: 0.72;
+  padding: 0.34rem 0.6rem 0 0;
+}
+.prose-editorial h2 {
+  margin-top: 3.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  color: var(--goldsoft);
+}
+.prose-editorial h3 {
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: var(--ink);
+}
+.prose-editorial blockquote {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-left: 1px solid rgb(200 162 90 / 0.4);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: var(--muted);
+  max-width: var(--measure);
+}
+.prose-editorial a {
+  color: var(--goldsoft);
+  text-decoration-line: underline;
+  text-decoration-color: rgb(200 162 90 / 0.3);
+  text-underline-offset: 4px;
+}
+.prose-editorial a:hover {
+  text-decoration-color: var(--gold);
+}
+.prose-editorial strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+.prose-editorial em {
+  font-style: italic;
+}
+/* Section break: a faint gold rule flanking a centred fleuron. */
+.prose-editorial hr {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  max-width: var(--measure);
+  border: 0;
+  text-align: center;
+  height: 1px;
+  overflow: visible;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(200, 162, 90, 0.28) 15%,
+    rgba(200, 162, 90, 0.28) 85%,
+    transparent
+  );
+}
+.prose-editorial hr::before {
+  content: '❦';
+  color: rgb(200 162 90 / 0.7);
+  position: relative;
+  top: -0.72em;
+  display: inline-block;
+  padding: 0 0.9rem;
+  background: var(--ground);
+  font-size: 1.05rem;
+}
+.prose-editorial ul {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  max-width: var(--measure);
+  list-style: none;
+  padding-left: 0;
+}
+.prose-editorial ul > li + li {
+  margin-top: 0.5rem;
+}
+.prose-editorial li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+.prose-editorial li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: rgb(200 162 90 / 0.6);
+}
+
+/* The small-caps facet code label used across facet UI. */
+.facet-code {
+  font-variant: small-caps;
+  letter-spacing: 0.06em;
+}
+
+/* ── Footnotes (markdown-it footnote plugin, shaped like remark-gfm) ────────
+   The in-text reference: a small gold superscript. */
+.prose-editorial [data-footnote-ref] {
+  font-family: var(--font-mono-stack);
+  font-size: 0.68em;
+  line-height: 0;
+  vertical-align: super;
+  padding: 0 0.15em;
+  color: var(--goldsoft);
+  text-decoration: none;
+}
+.prose-editorial [data-footnote-ref]:hover {
+  color: var(--gold);
+}
+
+/* The notes themselves, gathered under a hairline rule at the essay's foot. */
+.prose-editorial .footnotes {
+  margin-top: 3rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 1.5rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+.prose-editorial .footnotes ol {
+  margin: 0;
+  max-width: 34rem;
+  padding-left: 1.4rem;
+  list-style: decimal;
+}
+.prose-editorial .footnotes li {
+  padding-left: 0.35rem;
+  margin: 0.5rem 0;
+}
+.prose-editorial .footnotes li::marker {
+  color: var(--gold);
+  font-family: var(--font-mono-stack);
+  font-size: 0.85em;
+}
+/* Cancel the em-dash bullet the prose gives generic list items. */
+.prose-editorial .footnotes li::before {
+  content: none;
+}
+/* The note bodies are paragraphs inside an <li>; keep them tight. */
+.prose-editorial .footnotes li p {
+  margin: 0;
+  max-width: none;
+}
+.prose-editorial .footnotes [data-footnote-backref] {
+  margin-left: 0.35em;
+  color: var(--gold);
+  text-decoration: none;
+}
+
+/* ── The unmasking moment ──────────────────────────────────────────────────
+   Applied only to rows revealed *this interaction* (not to rows already open
+   on load), so the reveal feels like an event without a burst on every refresh. */
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+/* --flash-delay (set per row inline) makes a batch reveal roll down the list
+   as a visible wave instead of one simultaneous blink. */
+.reveal-in {
+  animation: revealIn 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) var(--flash-delay, 0s) both;
+}
+
+/* The five facet bars grow up from the baseline, gently staggered. */
+@keyframes barGrow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.reveal-in .facet-bar {
+  transform-origin: bottom;
+  animation: barGrow 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) var(--flash-delay, 0s) both;
+}
+.reveal-in > span:nth-child(1) .facet-bar {
+  animation-delay: calc(var(--flash-delay, 0s) + 0.04s);
+}
+.reveal-in > span:nth-child(2) .facet-bar {
+  animation-delay: calc(var(--flash-delay, 0s) + 0.1s);
+}
+.reveal-in > span:nth-child(3) .facet-bar {
+  animation-delay: calc(var(--flash-delay, 0s) + 0.16s);
+}
+.reveal-in > span:nth-child(4) .facet-bar {
+  animation-delay: calc(var(--flash-delay, 0s) + 0.22s);
+}
+.reveal-in > span:nth-child(5) .facet-bar {
+  animation-delay: calc(var(--flash-delay, 0s) + 0.28s);
+}
+
+/* The revealed princess name flares bright gold with a glow, then settles to
+   parchment ink — bold enough to catch the eye even in a full-board reveal. */
+@keyframes goldFlash {
+  0% {
+    color: #fff4d6;
+    text-shadow:
+      0 0 30px rgba(217, 190, 134, 0.95),
+      0 0 12px rgba(255, 244, 214, 0.85);
+  }
+  30% {
+    color: #e8c67c;
+    text-shadow: 0 0 20px rgba(217, 190, 134, 0.6);
+  }
+  100% {
+    color: #e9e3d6;
+    text-shadow: none;
+  }
+}
+.reveal-name-flash {
+  animation: goldFlash 1.3s ease-out var(--flash-delay, 0s) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-in,
+  .reveal-in .facet-bar,
+  .reveal-name-flash {
+    animation: none;
+  }
+}
+
+/* Drop cap on the opening line of each essay — a printed-journal flourish.
+   The essay sits one level deeper here than in the MDX original (each reading
+   is a [data-panel] the tab toggle switches), so both depths are covered. */
+.essay-body > p:first-child::first-letter,
+.essay-body > [data-panel] > p:first-child::first-letter {
+  float: left;
+  margin: 0.02em 0.08em -0.04em 0;
+  color: #d9be86;
+  font-weight: 500;
+  font-size: 3.4em;
+  line-height: 0.66;
+}
+
+/* Faint paper grain over the whole page, so the black reads as printed stock
+   rather than a screen. Sits behind all content (main is z-10). */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}

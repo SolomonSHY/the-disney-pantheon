@@ -1,0 +1,42 @@
+{# Port of app/chapters/page.tsx — the full contents, in reveal order. #}
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="mx-auto max-w-wide px-6 py-16">
+  <h1 class="text-4xl leading-tight sm:text-5xl">Chapters</h1>
+  <p class="prose-editorial mt-6 max-w-measure text-muted">
+    The full contents, in reveal order &mdash; each Olympian and the princess she
+    turned out to be.
+  </p>
+
+  <ol class="mt-12">
+    {% for row in rows %}
+    <li class="border-t border-white/8 last:border-b">
+      <a
+        href="/chapters/{{ row.pairing.god_slug }}"
+        class="group flex items-baseline gap-5 py-5"
+      >
+        <span class="font-mono text-sm tabular-nums text-faint">{{ row.seq | seq }}</span>
+        <span class="flex-1">
+          <span class="font-serif text-xl tracking-title">
+            <span class="text-goldsoft/90">{{ row.pairing.god }}</span>
+            <span class="text-faint">is</span>
+            <span class="text-ink transition-colors group-hover:text-goldsoft"
+              >{{ row.pairing.princess }}</span
+            >
+          </span>
+          {% if row.princess %}
+          <span class="ml-3 font-mono text-xs text-faint"
+            >{{ row.princess.film }}, {{ row.princess.year }}</span
+          >
+          {% endif %}
+        </span>
+        <span class="font-mono text-lg tabular-nums text-muted"
+          >{{ row.pairing.score | score }}</span
+        >
+      </a>
+    </li>
+    {% endfor %}
+  </ol>
+</div>
+{% endblock %}
